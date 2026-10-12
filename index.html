@@ -393,7 +393,7 @@
     document.querySelectorAll('[data-i18n]').forEach((el) => { el.innerHTML = c[el.dataset.i18n]; });
     document.querySelectorAll('.lang button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.lang === lang)));
     screen.innerHTML = SCREENS.map((s, n) =>
-      `<img src="assets/screens/${lang}-${s}.webp?v=3" alt="${c.screens[n]}" ${n === 0 ? '' : 'loading="lazy"'} decoding="async">`).join('');
+      `<img src="assets/screens/${lang}-${s}.webp?v=4" alt="${c.screens[n]}" ${n === 0 ? '' : 'loading="lazy"'} decoding="async">`).join('');
     dots.innerHTML = SCREENS.map((s, n) => `<button type="button" id="dot-${s}" aria-label="${c.screens[n]}"></button>`).join('');
     dots.querySelectorAll('button').forEach((b, n) => b.addEventListener('click', () => { show(n); restart(); }));
     show(current);
