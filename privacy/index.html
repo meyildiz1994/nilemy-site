@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Gizlilik politikası · Nilemy</title>
+<meta name="description" content="Nilemy gizlilik politikası: kayıtların telefonunda şifreli kalır; hesap açarsan yedeğin şifrelenir. Reklamlar, Premium aboneliği ve KVKK hakların.">
+<meta name="theme-color" content="#FCF5F6">
+<link rel="canonical" href="https://nilemy.com/privacy/">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="192x192" href="../assets/favicon-192.png">
+<link rel="icon" type="image/png" href="../assets/favicon.png">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="../assets/doc.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="home" href="../"><img src="../assets/mark.svg" alt="">Nilemy</a>
+    <nav class="topbar">
+      <a class="nav-link" href="../story/"><span data-lang-block="tr">Hikayemiz</span><span data-lang-block="en" hidden>Our story</span></a>
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" id="lang-tr" data-lang="tr" aria-pressed="true">TR</button>
+        <button type="button" id="lang-en" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+    </nav>
+  </header>
+
+  <main data-lang-block="tr">
+    <h1 data-title="Gizlilik politikası · Nilemy">Gizlilik politikası</h1>
+    <p class="updated">Son güncelleme: 11 Ekim 2026</p>
+    <p class="lead">Nilemy, adet döngünü takip etmen için yapılmış bir uygulama. Hesap açmazsan kayıtların yalnızca telefonunda, şifreli olarak durur ve bize hiçbir şey gelmez. Hesap açarsan kayıtların telefonunda şifrelenerek yedeklenir. Kayıtlarını satmayız, reklam için kullanmayız ve kimseyle paylaşmayız. Bu metin, 6698 sayılı Kişisel Verilerin Korunması Kanunu (KVKK) kapsamındaki aydınlatma metnimizdir.</p>
+
+    <h2>Veri sorumlusu</h2>
+    <p>Nilemy · <a href="mailto:info@nilemy.com">info@nilemy.com</a></p>
+
+    <h2>Uygulamanın sakladıkları</h2>
+    <p>Yalnızca senin uygulamaya girdiklerin:</p>
+    <ul>
+      <li>Adet başlangıç ve bitiş tarihleri, akış, ağrı, ruh hali, enerji, belirtiler ve notlar</li>
+      <li>Ana sayfada kullanılan adın</li>
+      <li>Ayarların: döngü ve adet süresi, hatırlatıcılar, dil, uygulama kilidi</li>
+    </ul>
+    <p>Bu kayıtların bir kısmı KVKK’ya göre özel nitelikli kişisel veri (sağlık verisi) sayılır. Uygulama kilidi şifren hiçbir zaman açık metin olarak saklanmaz; yalnızca tek yönlü, tuzlanmış bir özeti (hash) tutulur ve telefondan çıkmaz.</p>
+
+    <h2>Hesapsız kullanım: her şey telefonunda</h2>
+    <p>Hesap açmak isteğe bağlıdır. Hesap açmazsan her şey yalnızca telefonunda, AES-256 ile şifrelenmiş tek bir dosyada durur. Şifreleme anahtarı telefonunun güvenli bölgesinde (iPhone’da Keychain, Android’de Keystore) tutulur ve o cihazdan çıkamaz. Kayıtların bize ya da başka birine gönderilmez. Uygulamayı silersen ya da telefonunu kaybedersen kayıtların da kaybolur.</p>
+
+    <h2>Hesap ve şifreli yedek</h2>
+    <p>İstersen Google, Apple (iPhone’da) ya da e-posta ile hesap açabilirsin. Hesap, kayıtlarını yeni bir telefonda geri yüklemen ve telefonların arasında eşitlemen içindir. Hizmet sağlayıcımız Google Firebase’dir (Firebase Authentication ve Cloud Firestore).</p>
+    <ul>
+      <li><b>Kayıtların şifrelenir:</b> Kayıtların ve ayarların telefonunda rastgele bir anahtarla (AES-256) şifrelenir; sunucuya yalnızca şifreli hâli gider.</li>
+      <li><b>Ayrı bir parola yok:</b> Şifreleme anahtarı da hesabında, yalnızca senin hesabının erişebildiği yerde saklanır; yeni bir telefonda aynı yöntemle giriş yapınca yedeğin kendiliğinden açılır. Anahtar hesabında durduğu için bu yedek uçtan uca şifreli değildir: sunucuya yönetici erişimi olan biri teknik olarak açabilir. Biz yedeğinin içeriğine bakmayız.</li>
+      <li><b>Şifreli yedeğin nerede:</b> Avrupa Birliği’nde (Google Cloud eur3: Belçika ve Hollanda).</li>
+      <li><b>Hesap bilgilerin:</b> E-posta adresin, hesap kimliğin, giriş yöntemin, Google ile girersen Google’ın paylaştığı ad ve profil fotoğrafı bağlantısı, giriş zamanları, güvenlik amacıyla IP adresi ve cihaz bilgileri, son eşitleme zamanı ve açık rızanı verdiğin zaman. Bunlar Google’ın ABD dahil yurt dışındaki sunucularında işlenebilir. E-posta parolan Firebase’de tek yönlü olarak saklanır; biz göremeyiz.</li>
+      <li><b>Sunucuda şifresiz duranlar:</b> Yukarıdaki hesap bilgileri ile eşitleme zamanı, şifreli verinin boyutu ve sürüm numarası. Kayıtlarının içeriği şifresiz olarak hiçbir zaman sunucuya gitmez; Google ya da Apple ile girdiysen şifreleme anahtarı da hesabında durur.</li>
+    </ul>
+
+    <h2>Hangi veriyi neden işliyoruz (hukuki sebepler)</h2>
+    <ul>
+      <li><b>Kayıtların (hesap açarsan):</b> Yedekleme ve eşitleme için, yalnızca açık rızanla (KVKK m. 6 ve m. 9). Rıza, hesap açarken ayrı bir onay kutusuyla alınır. Rızanı hesabını silerek istediğin zaman geri alabilirsin.</li>
+      <li><b>Hesap bilgilerin:</b> Hesabını oluşturmak, giriş yaptırmak, parola sıfırlama e-postası göndermek ve hesabını korumak için; sözleşmenin kurulması ve ifası (m. 5/2-c), hukuki yükümlülük (m. 5/2-ç) ve hesap güvenliğindeki meşru menfaatimiz (m. 5/2-f).</li>
+      <li><b>Reklam için teknik bilgiler (ücretsiz sürüm):</b> Aşağıdaki “Ücretsiz sürümde reklamlar” bölümüne bak.</li>
+      <li><b>Abonelik bilgisi:</b> Premium’un etkin olup olmadığını öğrenmek için; sözleşmenin ifası (m. 5/2-c).</li>
+    </ul>
+
+    <h2>Toplamadıklarımız</h2>
+    <ul>
+      <li>Analiz aracı kullanmayız, kullanım istatistiği toplamayız.</li>
+      <li>Seni uygulamalar ve siteler arasında takip etmeyiz; reklam kimliğini (IDFA / Android reklam kimliği) kullanmayız.</li>
+      <li>Verilerini satmayız, reklam için kullanmayız ve kimseyle paylaşmayız.</li>
+    </ul>
+
+    <h2>Ücretsiz sürümde reklamlar</h2>
+    <p>Ücretsiz sürüm, uygulamayı kurduktan bir hafta sonra bazı ekranların altında Google AdMob banner reklamları göstermeye başlar. İlk hafta reklam SDK’sı hiç başlatılmaz. Reklamlar kayıt ekranlarında gösterilmez.</p>
+    <ul>
+      <li><b>Yalnızca kişiselleştirilmemiş reklam:</b> Reklamlar senin ilgi alanlarına ya da geçmişine göre seçilmez. Reklam kimliği kullanılmaz, bu yüzden uygulama takip izni (App Tracking Transparency) istemez.</li>
+      <li><b>Sağlık verin reklam için kullanılmaz:</b> Adet tarihlerin, belirtilerin, notların, adın ya da hesap bilgilerin reklam sağlayıcısına hiçbir zaman verilmez.</li>
+      <li><b>Google’ın işlediği teknik bilgiler:</b> Reklamı göstermek, sahte tıklamaları önlemek ve reklam performansını ölçmek için Google; IP adresi, cihaz modeli ve işletim sistemi, uygulama sürümü, kaba konum (IP’den çıkarılan ülke/şehir) ve reklam etkileşimleri (gösterim, tıklama) gibi bilgileri işleyebilir. Bu işlem Google’ın <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">politikalarına</a> tabidir.</li>
+      <li><b>İzin:</b> Avrupa Ekonomik Alanı, Birleşik Krallık ve İsviçre gibi yasal olarak gereken bölgelerde reklamlar yüklenmeden önce Google’ın izin formu gösterilir. Bu seçimi istediğin zaman Ben → Reklam gizlilik seçenekleri bölümünden değiştirebilirsin.</li>
+      <li><b>Reklam istemiyorsan:</b> Premium aboneliği reklamları kaldırır; Premium’da reklam SDK’sı hiç başlatılmaz.</li>
+    </ul>
+
+    <h2>Premium aboneliği</h2>
+    <p>Nilemy Premium, reklamları kaldıran ve ek analizler, döngü özeti PDF’i, yıllık özet, akıllı hatırlatıcılar ve özel belirtiler ekleyen aylık ya da yıllık bir aboneliktir. Bu özelliklerin hepsi telefonunda çalışır; kayıtların bunun için hiçbir yere gönderilmez. PDF ve yıllık özet görseli yalnızca sen paylaşırsan telefondan çıkar. Ödemeyi ve aboneliğin yönetimini App Store ya da Google Play yapar; biz ödeme bilgilerini görmeyiz. Uygulama yalnızca mağazadan aboneliğinin etkin olup olmadığını ve planını okur.</p>
+
+    <h2>Verileri kimlere aktarıyoruz</h2>
+    <ul>
+      <li><b>Google (Firebase Authentication):</b> Hesap bilgilerin; hesap ve giriş hizmeti için. Google’ın küresel sunucuları, ABD dahil.</li>
+      <li><b>Google (Cloud Firestore):</b> Şifreli yedeğin ve eşitleme bilgileri; yedekleme için. Avrupa Birliği.</li>
+      <li><b>Apple:</b> Apple ile giriş yaparsan kimliğini doğrulamak için.</li>
+      <li><b>Google (AdMob):</b> Yalnızca ücretsiz sürümde, reklam için teknik bilgiler.</li>
+      <li><b>Apple App Store / Google Play:</b> Abonelik ve ödeme.</li>
+    </ul>
+    <p><b>Yurt dışına aktarım:</b> Bu hizmet sağlayıcılarının sunucuları Türkiye dışındadır. Hesap açarken bu aktarım için ayrıca açık rızan alınır. Şifreli yedeğinin içeriğini aktarım yapılan sağlayıcı okuyamaz.</p>
+
+    <h2>Ne kadar süre saklıyoruz</h2>
+    <ul>
+      <li><b>Telefonundaki kayıtlar:</b> Sen silene kadar ya da uygulamayı silene kadar.</li>
+      <li><b>Hesabın ve şifreli yedeğin:</b> Hesabını silene kadar. Hesabı sil dediğinde ikisi de sunucudan hemen silinir; hizmet sağlayıcının sistem yedeklerinden de kendi silme süreleri içinde kalkar.</li>
+      <li><b>Reklam verileri:</b> Google’ın politikalarındaki sürelerle.</li>
+    </ul>
+
+    <h2>İzinler</h2>
+    <ul>
+      <li><b>Bildirimler</b> (isteğe bağlı): Hatırlatıcılar telefonunda planlanır ve telefonunda gösterilir; hiçbir sunucudan gelmez.</li>
+      <li><b>Face ID / parmak izi</b> (isteğe bağlı): Uygulama kilidini açmak için kullanılır. Biyometrik verilerin telefonunun işletim sisteminde kalır; Nilemy bunlara erişemez.</li>
+    </ul>
+
+    <h2>Telefon yedekleri</h2>
+    <p>Telefonunda iCloud ya da Google yedeği açıksa şifreli veri dosyası bu yedeğe dahil olabilir. Anahtar yalnızca bu telefonda kaldığı için dosya başka bir cihazda açılamaz. Kayıtlarını yeni bir telefona taşımak için hesap açabilir ya da Dışa aktar özelliğini kullanabilirsin.</p>
+
+    <h2>Hakların ve kontrol sende</h2>
+    <p>KVKK’nın 11. maddesine göre kişisel verilerinin işlenip işlenmediğini öğrenme, bilgi isteme, işlenme amacını ve aktarıldığı kişileri öğrenme, düzeltilmesini, silinmesini ya da yok edilmesini isteme, otomatik analiz sonucuna itiraz etme ve kanuna aykırı işleme nedeniyle zararın giderilmesini isteme haklarına sahipsin. Çoğunu uygulamada kendin kullanabilirsin:</p>
+    <ul>
+      <li><b>Dışa aktar:</b> Ben → Verilerin → Dışa aktar ile kayıtlarının CSV ya da JSON kopyasını oluşturabilirsin. Bu dosya şifreli değildir; nereye göndereceğine sen karar verirsin.</li>
+      <li><b>Tüm verileri sil:</b> Ben → Verilerin → Tüm verileri sil, veri dosyasını ve şifreleme anahtarını telefonundan kalıcı olarak siler. Hesabın varsa bu telefonda hesaptan çıkış da yapılır; yedeğin hesabında kalır.</li>
+      <li><b>Hesabı sil:</b> Ben → Hesap → Hesabı sil, şifreli yedeğini ve hesabını sunucudan kalıcı olarak siler.</li>
+    </ul>
+    <p>Diğer talepler için <a href="mailto:info@nilemy.com">info@nilemy.com</a> adresine yazabilirsin; en geç 30 gün içinde ücretsiz yanıtlarız.</p>
+
+    <h2>Çocuklar</h2>
+    <p>Nilemy 13 yaşından küçükler için tasarlanmadı. Ücretsiz sürümdeki reklamlar genel izleyiciye uygun içerikle (en fazla “PG”) sınırlandırılmıştır ve kişiselleştirilmez.</p>
+
+    <h2>Bu web sitesi</h2>
+    <p>nilemy.com, GitHub Pages üzerinde yayınlanır. Biz çerez ya da analiz aracı kullanmayız. Dil seçimin yalnızca tarayıcında saklanır. GitHub, güvenlik amacıyla IP adresi gibi teknik bilgileri kaydedebilir; yazı tipleri Google Fonts’tan yüklenir. Bu hizmetler kendi gizlilik politikalarına tabidir.</p>
+
+    <h2>Değişiklikler</h2>
+    <p>Bu politika değişirse bu sayfadaki tarihi güncelleriz ve önemli değişiklikleri uygulamada önceden duyururuz.</p>
+
+    <h2>İletişim</h2>
+    <div class="card">
+      <b>Nilemy</b>
+      <p>Gizlilikle ilgili her soru için bize yaz:</p>
+      <div class="mail"><code>info@nilemy.com</code><button type="button" class="copy" data-copy="info@nilemy.com" data-done="Kopyalandı">Kopyala</button></div>
+    </div>
+  </main>
+
+  <main data-lang-block="en" hidden>
+    <h1 data-title="Privacy policy · Nilemy">Privacy policy</h1>
+    <p class="updated">Last updated October 11, 2026</p>
+    <p class="lead">Nilemy is an app for tracking your menstrual cycle. Without an account your logs stay on your phone, encrypted, and nothing reaches us. With an account your logs are encrypted on your phone before they’re backed up, so neither we nor our service provider can read the backup. We never sell your data, use it for ads or share it with anyone.</p>
+
+    <h2>Data controller</h2>
+    <p>Nilemy · <a href="mailto:info@nilemy.com">info@nilemy.com</a></p>
+
+    <h2>What the app stores</h2>
+    <p>Only what you enter:</p>
+    <ul>
+      <li>Period start and end dates, flow, pain, mood, energy, symptoms and notes</li>
+      <li>The name used on Home</li>
+      <li>Your settings: cycle and period length, reminders, language, app lock</li>
+    </ul>
+    <p>Some of this is health data. Your app lock passcode is never stored as plain text; only a one-way, salted hash is kept, and it never leaves your phone.</p>
+
+    <h2>Without an account: everything stays on your phone</h2>
+    <p>An account is optional. Without one, everything stays on your phone in a single file encrypted with AES-256. The key is held in your phone’s secure storage (Keychain on iPhone, Keystore on Android) and can’t leave that device. Your logs are never sent to us or anyone else. If you delete the app or lose your phone, your logs are lost too.</p>
+
+    <h2>Account and encrypted backup</h2>
+    <p>You can create an account with Google, Apple (on iPhone) or email, so you can restore your logs on a new phone and keep phones in sync. Our service provider is Google Firebase (Firebase Authentication and Cloud Firestore).</p>
+    <ul>
+      <li><b>Your logs are encrypted:</b> Your logs and settings are encrypted on your phone with a random key (AES-256), and only the encrypted copy is uploaded.</li>
+      <li><b>No separate password:</b> The key is kept in your account too, where only your account can reach it, so your backup opens by itself when you sign in the same way on a new phone. Because the key is in your account, this backup is not end-to-end encrypted: someone with admin access to the server could technically open it. We don’t look at your backup.</li>
+      <li><b>Where the backup is kept:</b> In the European Union (Google Cloud eur3: Belgium and the Netherlands).</li>
+      <li><b>Account details:</b> Your email address, account ID, sign-in method, the name and profile photo link Google shares if you sign in with Google, sign-in times, your IP address and device details for security, the last sync time and when you gave consent. These may be processed on Google’s servers abroad, including the US. Email passwords are stored one-way by Firebase; we can’t see them.</li>
+      <li><b>What the server sees unencrypted:</b> The account details above, sync times, the size of the encrypted data and a version number. The content of your logs never reaches the server unencrypted; if you sign in with Google or Apple, the key is in your account too.</li>
+    </ul>
+
+    <h2>What we process and why</h2>
+    <ul>
+      <li><b>Your logs (with an account):</b> For backup and sync, only with your explicit consent, asked separately when you create your backup. You can withdraw it at any time by deleting your account.</li>
+      <li><b>Account details:</b> To create your account, sign you in, send password reset emails and keep your account secure.</li>
+      <li><b>Technical details for ads (free version):</b> See “Ads in the free version” below.</li>
+      <li><b>Subscription status:</b> To know whether Premium is active.</li>
+    </ul>
+
+    <h2>What we don’t collect</h2>
+    <ul>
+      <li>We use no analytics tools and collect no usage statistics.</li>
+      <li>We don’t track you across apps and websites, and don’t use your advertising ID (IDFA / Android advertising ID).</li>
+      <li>We never sell your data, use it for ads or share it with anyone.</li>
+    </ul>
+
+    <h2>Ads in the free version</h2>
+    <p>A week after you install the app, the free version starts showing Google AdMob banner ads at the bottom of some screens. During the first week the ads SDK isn’t started at all. Ads never appear on the screens where you log.</p>
+    <ul>
+      <li><b>Non-personalised ads only:</b> Ads aren’t chosen from your interests or history. No advertising ID is used, so the app doesn’t ask for tracking permission (App Tracking Transparency).</li>
+      <li><b>Your health data is never used for ads:</b> Your period dates, symptoms, notes, name and account details are never given to the ad provider.</li>
+      <li><b>What Google handles:</b> To show an ad, prevent fraud and measure ad performance, Google may process technical information such as your IP address, device model and operating system, app version, approximate location derived from your IP (country/city) and ad interactions (views, taps). This is covered by Google’s <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">policies</a>.</li>
+      <li><b>Consent:</b> Where the law requires it, such as the European Economic Area, the UK and Switzerland, Google’s consent form is shown before any ad loads. You can change your choice at any time in Me → Ad privacy choices.</li>
+      <li><b>No ads:</b> A Premium subscription removes ads; with Premium the ads SDK isn’t started.</li>
+    </ul>
+
+    <h2>Premium subscription</h2>
+    <p>Nilemy Premium is a monthly or yearly subscription that removes ads and adds deeper insights, a cycle summary PDF, a year in review, smart reminders and custom symptoms. All of it runs on your phone; your logs aren’t sent anywhere for it. The PDF and the year-in-review image leave your phone only if you share them. Payment and the subscription itself are handled by the App Store or Google Play; we never see your payment details. The app only reads from the store whether your subscription is active and which plan it is.</p>
+
+    <h2>Who receives data</h2>
+    <ul>
+      <li><b>Google (Firebase Authentication):</b> Account details, for sign-in. Google’s servers worldwide, including the US.</li>
+      <li><b>Google (Cloud Firestore):</b> Your encrypted backup and sync details. European Union.</li>
+      <li><b>Apple:</b> To confirm who you are if you sign in with Apple.</li>
+      <li><b>Google (AdMob):</b> Technical details for ads, free version only.</li>
+      <li><b>Apple App Store / Google Play:</b> Subscription and payment.</li>
+    </ul>
+    <p><b>Transfers abroad:</b> These providers’ servers may be outside your country. Your consent to this is asked when you create your backup. The provider can’t read the content of your encrypted backup.</p>
+
+    <h2>How long we keep data</h2>
+    <ul>
+      <li><b>Logs on your phone:</b> Until you delete them or the app.</li>
+      <li><b>Your account and encrypted backup:</b> Until you delete your account. Delete account removes both from the server straight away; they leave the provider’s system backups within its own deletion periods.</li>
+      <li><b>Ad data:</b> As set out in Google’s policies.</li>
+    </ul>
+
+    <h2>Permissions</h2>
+    <ul>
+      <li><b>Notifications</b> (optional): Reminders are scheduled and shown on your phone; nothing comes from a server.</li>
+      <li><b>Face ID / fingerprint</b> (optional): Used to unlock the app lock. Your biometric data stays in your phone’s operating system; Nilemy can’t access it.</li>
+    </ul>
+
+    <h2>Phone backups</h2>
+    <p>If iCloud or Google backup is on, the encrypted data file may be included in it. The key stays on this phone, so the file can’t be opened on another device. To move your logs to a new phone, create an account or use Export.</p>
+
+    <h2>Your rights and controls</h2>
+    <p>You can ask whether we process your data, what for and who receives it, and ask for it to be corrected or deleted. Most of this you can do yourself in the app:</p>
+    <ul>
+      <li><b>Export:</b> Me → Your data → Export creates a CSV or JSON copy of your logs. The file isn’t encrypted, and you choose where it goes.</li>
+      <li><b>Delete all data:</b> Me → Your data → Delete all data permanently removes the data file and its key from your phone. If you have an account, this phone is also signed out; your backup stays in your account.</li>
+      <li><b>Delete account:</b> Me → Account → Delete account permanently removes your encrypted backup and your account from the server.</li>
+    </ul>
+    <p>For anything else, write to <a href="mailto:info@nilemy.com">info@nilemy.com</a>; we reply within 30 days, free of charge.</p>
+
+    <h2>Children</h2>
+    <p>Nilemy isn’t designed for children under 13. Ads in the free version are limited to content suitable for general audiences (at most “PG”) and are never personalised.</p>
+
+    <h2>This website</h2>
+    <p>nilemy.com is hosted on GitHub Pages. We use no cookies or analytics. Your language choice is stored only in your browser. GitHub may log technical information such as IP addresses for security, and fonts load from Google Fonts. These services have their own privacy policies.</p>
+
+    <h2>Changes</h2>
+    <p>If this policy changes, we’ll update the date on this page and announce significant changes in the app first.</p>
+
+    <h2>Contact</h2>
+    <div class="card">
+      <b>Nilemy</b>
+      <p>Write to us with any privacy question:</p>
+      <div class="mail"><code>info@nilemy.com</code><button type="button" class="copy" data-copy="info@nilemy.com" data-done="Copied">Copy</button></div>
+    </div>
+  </main>
+
+  <footer>
+    <span>© 2026 Nilemy</span>
+    <a href="../">nilemy.com</a>
+    <a href="../story/">Hikayemiz / Our story</a>
+    <a href="../privacy/">Gizlilik / Privacy</a>
+    <a href="../terms/">Koşullar / Terms</a>
+    <a href="../support/">Destek / Support</a>
+    <a href="https://www.instagram.com/nilemy.app/" target="_blank" rel="me noopener">Instagram</a>
+    <a href="https://www.tiktok.com/@nilemy.app" target="_blank" rel="me noopener">TikTok</a>
+    <a href="https://www.linkedin.com/company/nilemy/" target="_blank" rel="me noopener">LinkedIn</a>
+  </footer>
+</div>
+<script src="../assets/doc.js"></script>
+</body>
+</html>
