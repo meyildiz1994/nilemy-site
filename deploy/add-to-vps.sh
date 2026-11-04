@@ -71,8 +71,16 @@ EOF
   systemctl enable -q --now nilemy-pull.timer
 fi
 
-SERVE="	@hidden path /.git* /.github* /deploy* /README.md /CNAME
-	respond @hidden 404
+# The app's API (add-api.sh), when its container runs: /api/* goes there, the rest is the site.
+API=
+if docker inspect nilemy-api >/dev/null 2>&1; then
+  API="
+	handle /api/* {
+		reverse_proxy nilemy-api:8080
+	}"
+fi
+SERVE="	@hidden path /.git* /.github* /deploy* /api* /README.md /CNAME
+	respond @hidden 404$API
 	encode zstd gzip
 	reverse_proxy $NAME:80"
 case "$MODE" in
