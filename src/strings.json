@@ -1,0 +1,356 @@
+{
+  "tr": {
+    "name": "Türkçe",
+    "short": "TR",
+    "hreflang": "tr",
+    "og": "tr_TR",
+    "ui": {
+      "storyLink": "Hikayemiz",
+      "privacy": "Gizlilik",
+      "terms": "Koşullar",
+      "support": "Destek",
+      "copy": "Kopyala",
+      "copied": "Kopyalandı",
+      "language": "Dil"
+    },
+    "home": {
+      "title": "Adet takibi,<br> <em>artık çok daha kolay.</em>",
+      "lede": "Nilemy ile adet tarihlerini kolayca kaydet, önceki döngülerine göz at ve bir sonraki adetinin ne zaman başlayabileceğini gör. Hamileysen haftalarını da takip et.",
+      "cta": "Nilemy’yi Keşfet",
+      "iosSmall": "App Store’dan",
+      "iosBig": "İndir",
+      "playSmall": "Google Play’den",
+      "playBig": "İndir",
+      "soon": "Yakında",
+      "storyTitle": "Her döngü 28 gün sürmez.<br> <em>Biz bunu biliyoruz.</em>",
+      "storyText": "Nilemy, kullanmak istediği uygulamayı bulamayan bir kadının fikriyle doğdu. Adından renklerine kadar her şey sıfırdan tasarlandı. Nasıl başladığını hikayemizde anlattık.",
+      "storyCta": "Hikayemizi oku",
+      "made": "Üzerine epey düşünülerek tasarlandı.",
+      "foot": "Nilemy tıbbi bir cihaz değildir · Doğum kontrolü için kullanılmaz",
+      "screens": [
+        "Ana sayfa",
+        "Geçmiş",
+        "Analiz",
+        "Günlük kayıt"
+      ],
+      "appStore": "https://apps.apple.com/tr/app/nilemy-d%C3%B6ng%C3%BC-takibi/id6820723427?l=tr"
+    },
+    "meta": {
+      "home": [
+        "Nilemy",
+        "Nilemy: adetini saniyeler içinde kaydet, döngünü anla, önünü planla; hamileysen haftalarını takip et. Kayıtların telefonunda, şifreli kalır."
+      ],
+      "story": [
+        "Hikayemiz · Nilemy",
+        "Nilemy’nin hikayesi: kişisel bir ihtiyaçla başladı, birlikte hayata geçirdik."
+      ],
+      "privacy": [
+        "Gizlilik politikası · Nilemy",
+        "Nilemy gizlilik politikası ve KVKK aydınlatma metni: kayıtların telefonunda şifreli kalır, satılmaz, reklam için kullanılmaz."
+      ],
+      "terms": [
+        "Kullanım koşulları · Nilemy",
+        "Nilemy kullanım koşulları ve Premium abonelik bilgileri."
+      ],
+      "support": [
+        "Destek · Nilemy",
+        "Nilemy destek: sık sorulan sorular ve iletişim."
+      ]
+    }
+  },
+  "en": {
+    "name": "English",
+    "short": "EN",
+    "hreflang": "en",
+    "og": "en_US",
+    "ui": {
+      "storyLink": "Our story",
+      "privacy": "Privacy",
+      "terms": "Terms",
+      "support": "Support",
+      "copy": "Copy",
+      "copied": "Copied",
+      "language": "Language"
+    },
+    "home": {
+      "title": "Period tracking,<br> <em>now so much easier.</em>",
+      "lede": "With Nilemy, log your period dates easily, look back at past cycles and see when your next period might start. Pregnant? Follow it week by week.",
+      "cta": "Get Nilemy",
+      "iosSmall": "Download on the",
+      "iosBig": "App Store",
+      "playSmall": "Get it on",
+      "playBig": "Google Play",
+      "soon": "Soon",
+      "storyTitle": "Not every cycle lasts 28 days.<br> <em>We know that.</em>",
+      "storyText": "Nilemy was born from the idea of a woman who couldn’t find the app she wanted to use. Everything, from the name to the colors, was designed from scratch. We tell how it all began in our story.",
+      "storyCta": "Read our story",
+      "made": "Made with care (and a lot of design decisions).",
+      "foot": "Nilemy isn’t a medical device · Not for contraception",
+      "screens": [
+        "Home",
+        "History",
+        "Insights",
+        "Daily log"
+      ],
+      "appStore": "https://apps.apple.com/app/id6820723427"
+    },
+    "meta": {
+      "home": [
+        "Nilemy",
+        "Nilemy: log your period in seconds, understand your cycle and plan ahead; follow your pregnancy week by week. Your logs stay on your phone, encrypted."
+      ],
+      "story": [
+        "Our story · Nilemy",
+        "How Nilemy began: a personal need we turned into an app together."
+      ],
+      "privacy": [
+        "Privacy policy · Nilemy",
+        "Nilemy privacy policy: your logs stay on your phone, encrypted, and are never sold or used for ads."
+      ],
+      "terms": [
+        "Terms of service · Nilemy",
+        "Nilemy terms of service and Premium subscription details."
+      ],
+      "support": [
+        "Support · Nilemy",
+        "Nilemy support: common questions and how to reach us."
+      ]
+    }
+  },
+  "de": {
+    "name": "Deutsch",
+    "short": "DE",
+    "hreflang": "de",
+    "og": "de_DE",
+    "ui": {
+      "storyLink": "Unsere Geschichte",
+      "privacy": "Datenschutz",
+      "terms": "Nutzungsbedingungen",
+      "support": "Hilfe",
+      "copy": "Kopieren",
+      "copied": "Kopiert",
+      "language": "Sprache"
+    },
+    "home": {
+      "title": "Periode tracken,<br> <em>jetzt viel einfacher.</em>",
+      "lede": "Mit Nilemy trägst du deine Periode in Sekunden ein, siehst frühere Zyklen und erfährst, wann deine nächste Periode beginnen könnte. Schwanger? Verfolge es Woche für Woche.",
+      "cta": "Nilemy entdecken",
+      "iosSmall": "Laden im",
+      "iosBig": "App Store",
+      "playSmall": "Jetzt bei",
+      "playBig": "Google Play",
+      "soon": "Bald",
+      "storyTitle": "Nicht jeder Zyklus dauert 28 Tage.<br> <em>Das wissen wir.</em>",
+      "storyText": "Nilemy entstand aus der Idee einer Frau, die keine App fand, die sie benutzen wollte. Alles, vom Namen bis zu den Farben, haben wir selbst gestaltet. Wie es begann, erzählen wir in unserer Geschichte.",
+      "storyCta": "Unsere Geschichte lesen",
+      "made": "Mit viel Liebe zum Detail gestaltet.",
+      "foot": "Nilemy ist kein Medizinprodukt · Nicht zur Verhütung",
+      "screens": [
+        "Start",
+        "Verlauf",
+        "Analyse",
+        "Tagebuch"
+      ],
+      "appStore": "https://apps.apple.com/app/id6820723427"
+    },
+    "meta": {
+      "home": [
+        "Nilemy",
+        "Nilemy: Periode in Sekunden eintragen, Zyklus verstehen und vorausplanen; Schwangerschaft Woche für Woche verfolgen. Deine Einträge bleiben verschlüsselt auf deinem Handy."
+      ],
+      "story": [
+        "Unsere Geschichte · Nilemy",
+        "Wie Nilemy entstand: aus einem persönlichen Bedürfnis, gemeinsam umgesetzt."
+      ],
+      "privacy": [
+        "Datenschutzerklärung · Nilemy",
+        "Datenschutzerklärung von Nilemy: Deine Einträge bleiben verschlüsselt auf deinem Handy und werden nie verkauft oder für Werbung genutzt."
+      ],
+      "terms": [
+        "Nutzungsbedingungen · Nilemy",
+        "Nutzungsbedingungen von Nilemy und Infos zum Premium-Abo."
+      ],
+      "support": [
+        "Hilfe · Nilemy",
+        "Nilemy Hilfe: häufige Fragen und Kontakt."
+      ]
+    }
+  },
+  "fr": {
+    "name": "Français",
+    "short": "FR",
+    "hreflang": "fr",
+    "og": "fr_FR",
+    "ui": {
+      "storyLink": "Notre histoire",
+      "privacy": "Confidentialité",
+      "terms": "Conditions",
+      "support": "Aide",
+      "copy": "Copier",
+      "copied": "Copié",
+      "language": "Langue"
+    },
+    "home": {
+      "title": "Suivre tes règles,<br> <em>bien plus simplement.</em>",
+      "lede": "Avec Nilemy, note tes règles en quelques secondes, revois tes cycles passés et vois quand tes prochaines règles pourraient commencer. Enceinte ? Suis ta grossesse semaine après semaine.",
+      "cta": "Découvrir Nilemy",
+      "iosSmall": "Télécharger dans l’",
+      "iosBig": "App Store",
+      "playSmall": "Disponible sur",
+      "playBig": "Google Play",
+      "soon": "Bientôt",
+      "storyTitle": "Tous les cycles ne durent pas 28 jours.<br> <em>On le sait.</em>",
+      "storyText": "Nilemy est née de l’idée d’une femme qui ne trouvait pas d’app qu’elle avait envie d’utiliser. Tout, du nom aux couleurs, a été créé de zéro. On raconte comment tout a commencé dans notre histoire.",
+      "storyCta": "Lire notre histoire",
+      "made": "Pensée dans les moindres détails.",
+      "foot": "Nilemy n’est pas un dispositif médical · Pas pour la contraception",
+      "screens": [
+        "Accueil",
+        "Historique",
+        "Analyse",
+        "Suivi du jour"
+      ],
+      "appStore": "https://apps.apple.com/app/id6820723427"
+    },
+    "meta": {
+      "home": [
+        "Nilemy",
+        "Nilemy : note tes règles en quelques secondes, comprends ton cycle et anticipe ; suis ta grossesse semaine après semaine. Tes données restent chiffrées sur ton téléphone."
+      ],
+      "story": [
+        "Notre histoire · Nilemy",
+        "Comment Nilemy est née : un besoin personnel devenu une app, créée à deux."
+      ],
+      "privacy": [
+        "Politique de confidentialité · Nilemy",
+        "Politique de confidentialité de Nilemy : tes données restent chiffrées sur ton téléphone, ne sont jamais vendues ni utilisées pour la pub."
+      ],
+      "terms": [
+        "Conditions d’utilisation · Nilemy",
+        "Conditions d’utilisation de Nilemy et informations sur l’abonnement Premium."
+      ],
+      "support": [
+        "Aide · Nilemy",
+        "Aide Nilemy : questions fréquentes et contact."
+      ]
+    }
+  },
+  "pt-br": {
+    "name": "Português (Brasil)",
+    "short": "PT",
+    "hreflang": "pt-BR",
+    "og": "pt_BR",
+    "ui": {
+      "storyLink": "Nossa história",
+      "privacy": "Privacidade",
+      "terms": "Termos",
+      "support": "Suporte",
+      "copy": "Copiar",
+      "copied": "Copiado",
+      "language": "Idioma"
+    },
+    "home": {
+      "title": "Acompanhar a menstruação<br> <em>ficou muito mais fácil.</em>",
+      "lede": "Com o Nilemy, você registra a menstruação em segundos, revê seus ciclos anteriores e vê quando a próxima pode começar. Grávida? Acompanhe semana a semana.",
+      "cta": "Conheça o Nilemy",
+      "iosSmall": "Baixar na",
+      "iosBig": "App Store",
+      "playSmall": "Disponível no",
+      "playBig": "Google Play",
+      "soon": "Em breve",
+      "storyTitle": "Nem todo ciclo dura 28 dias.<br> <em>A gente sabe disso.</em>",
+      "storyText": "O Nilemy nasceu da ideia de uma mulher que não encontrava um app que quisesse usar. Tudo, do nome às cores, foi criado do zero. Contamos como tudo começou na nossa história.",
+      "storyCta": "Ler nossa história",
+      "made": "Pensado em cada detalhe.",
+      "foot": "O Nilemy não é um dispositivo médico · Não serve como método contraceptivo",
+      "screens": [
+        "Início",
+        "Histórico",
+        "Análise",
+        "Registro do dia"
+      ],
+      "appStore": "https://apps.apple.com/app/id6820723427"
+    },
+    "meta": {
+      "home": [
+        "Nilemy",
+        "Nilemy: registre a menstruação em segundos, entenda seu ciclo e planeje; acompanhe a gravidez semana a semana. Seus registros ficam criptografados no seu celular."
+      ],
+      "story": [
+        "Nossa história · Nilemy",
+        "Como o Nilemy começou: uma necessidade pessoal que viramos app, juntos."
+      ],
+      "privacy": [
+        "Política de privacidade · Nilemy",
+        "Política de privacidade do Nilemy: seus registros ficam criptografados no seu celular e nunca são vendidos nem usados para anúncios."
+      ],
+      "terms": [
+        "Termos de uso · Nilemy",
+        "Termos de uso do Nilemy e detalhes da assinatura Premium."
+      ],
+      "support": [
+        "Suporte · Nilemy",
+        "Suporte do Nilemy: perguntas frequentes e contato."
+      ]
+    }
+  },
+  "it": {
+    "name": "Italiano",
+    "short": "IT",
+    "hreflang": "it",
+    "og": "it_IT",
+    "ui": {
+      "storyLink": "La nostra storia",
+      "privacy": "Privacy",
+      "terms": "Termini",
+      "support": "Assistenza",
+      "copy": "Copia",
+      "copied": "Copiato",
+      "language": "Lingua"
+    },
+    "home": {
+      "title": "Tracciare il ciclo,<br> <em>ora è molto più facile.</em>",
+      "lede": "Con Nilemy segni le mestruazioni in pochi secondi, rivedi i cicli passati e scopri quando potrebbero arrivare le prossime. Sei incinta? Segui la gravidanza settimana per settimana.",
+      "cta": "Scopri Nilemy",
+      "iosSmall": "Scarica su",
+      "iosBig": "App Store",
+      "playSmall": "Disponibile su",
+      "playBig": "Google Play",
+      "soon": "Presto",
+      "storyTitle": "Non tutti i cicli durano 28 giorni.<br> <em>Lo sappiamo.</em>",
+      "storyText": "Nilemy è nata dall’idea di una donna che non trovava un’app che avesse voglia di usare. Tutto, dal nome ai colori, è stato creato da zero. Come è cominciato lo raccontiamo nella nostra storia.",
+      "storyCta": "Leggi la nostra storia",
+      "made": "Pensata nei minimi dettagli.",
+      "foot": "Nilemy non è un dispositivo medico · Non è un metodo contraccettivo",
+      "screens": [
+        "Home",
+        "Storico",
+        "Analisi",
+        "Diario"
+      ],
+      "appStore": "https://apps.apple.com/app/id6820723427"
+    },
+    "meta": {
+      "home": [
+        "Nilemy",
+        "Nilemy: segna le mestruazioni in pochi secondi, capisci il tuo ciclo e organizzati; segui la gravidanza settimana per settimana. I tuoi dati restano cifrati sul telefono."
+      ],
+      "story": [
+        "La nostra storia · Nilemy",
+        "Come è nata Nilemy: un’esigenza personale diventata un’app, fatta insieme."
+      ],
+      "privacy": [
+        "Informativa sulla privacy · Nilemy",
+        "Informativa sulla privacy di Nilemy: i tuoi dati restano cifrati sul telefono, non vengono mai venduti né usati per la pubblicità."
+      ],
+      "terms": [
+        "Termini di servizio · Nilemy",
+        "Termini di servizio di Nilemy e dettagli sull’abbonamento Premium."
+      ],
+      "support": [
+        "Assistenza · Nilemy",
+        "Assistenza Nilemy: domande frequenti e contatti."
+      ]
+    }
+  }
+}
