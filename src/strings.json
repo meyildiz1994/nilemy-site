@@ -29,9 +29,12 @@
       "foot": "Nilemy tıbbi bir cihaz değildir · Doğum kontrolü için kullanılmaz",
       "screens": [
         "Ana sayfa",
+        "Doğurgan günler",
+        "Adet kaydı",
         "Geçmiş",
         "Analiz",
-        "Günlük kayıt"
+        "Hamilelik",
+        "Hatırlatıcılar"
       ],
       "appStore": "https://apps.apple.com/tr/app/nilemy-d%C3%B6ng%C3%BC-takibi/id6820723427?l=tr"
     },
@@ -88,9 +91,12 @@
       "foot": "Nilemy isn’t a medical device · Not for contraception",
       "screens": [
         "Home",
+        "Fertile days",
+        "Log a period",
         "History",
         "Insights",
-        "Daily log"
+        "Pregnancy",
+        "Reminders"
       ],
       "appStore": "https://apps.apple.com/app/id6820723427"
     },
@@ -147,9 +153,12 @@
       "foot": "Nilemy ist kein Medizinprodukt · Nicht zur Verhütung",
       "screens": [
         "Start",
+        "Fruchtbare Tage",
+        "Periode eintragen",
         "Verlauf",
         "Analyse",
-        "Tagebuch"
+        "Schwangerschaft",
+        "Erinnerungen"
       ],
       "appStore": "https://apps.apple.com/app/id6820723427"
     },
@@ -206,9 +215,12 @@
       "foot": "Nilemy n’est pas un dispositif médical · Pas pour la contraception",
       "screens": [
         "Accueil",
+        "Jours fertiles",
+        "Noter les règles",
         "Historique",
         "Analyse",
-        "Suivi du jour"
+        "Grossesse",
+        "Rappels"
       ],
       "appStore": "https://apps.apple.com/app/id6820723427"
     },
@@ -265,9 +277,12 @@
       "foot": "O Nilemy não é um dispositivo médico · Não serve como método contraceptivo",
       "screens": [
         "Início",
+        "Dias férteis",
+        "Registrar menstruação",
         "Histórico",
         "Análise",
-        "Registro do dia"
+        "Gravidez",
+        "Lembretes"
       ],
       "appStore": "https://apps.apple.com/app/id6820723427"
     },
@@ -324,9 +339,12 @@
       "foot": "Nilemy non è un dispositivo medico · Non è un metodo contraccettivo",
       "screens": [
         "Home",
+        "Giorni fertili",
+        "Segna il ciclo",
         "Storico",
         "Analisi",
-        "Diario"
+        "Gravidanza",
+        "Promemoria"
       ],
       "appStore": "https://apps.apple.com/app/id6820723427"
     },
