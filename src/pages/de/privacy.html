@@ -8,8 +8,8 @@
     <h2>Was die App speichert</h2>
     <p>Nur, was du eingibst:</p>
     <ul>
-      <li>Beginn und Ende deiner Periode, Blutung, Schmerz, Stimmung, Energie, Symptome, die Produkte, die du verwendest, und Notizen</li>
-      <li>Bei Kinderwunsch: Sex und Ergebnisse von Ovulations- und Schwangerschaftstests</li>
+      <li>Beginn und Ende deiner Periode, Blutung, Schmerz, Stimmung, Energie, Symptome, die Produkte, die du verwendest, Sex und Notizen</li>
+      <li>Bei Kinderwunsch: Ergebnisse von Ovulations- und Schwangerschaftstests</li>
       <li>In der Schwangerschaft: Geburtstermin, Gewicht, gezählte Tritte, Wehen, Datum, Uhrzeit und Notizen deiner Vorsorgetermine sowie die To-do- und Kliniktaschen-Listen</li>
       <li>Nach einer Schwangerschaft: das Geburtsdatum und ob du stillst, oder der Tag, an dem eine Schwangerschaft ohne Geburt endete (nach dem Grund fragen wir nie)</li>
       <li>Der Name auf der Startseite und, wenn du eins hinzufügst, ein Profilfoto (verschlüsselt auf deinem Handy, nie in dein Konto gesichert)</li>
@@ -30,21 +30,22 @@
       <li><b>Was der Server unverschlüsselt sieht:</b> Die Kontodaten oben, Synchronisierungszeiten, die Größe der verschlüsselten Daten und eine Versionsnummer. Der Inhalt deiner Einträge erreicht den Server nie unverschlüsselt; der Schlüssel liegt in deinem Konto.</li>
     </ul>
 
-    <h2>Tagesnotiz (Premium, freiwillig)</h2>
-    <p>Mit Premium kannst du auf der Startseite die Notiz „Für dich heute“ einschalten. Sie wird von Claude geschrieben, der KI von Anthropic. Dafür brauchst du ein Konto und musst beim Einschalten gesondert einwilligen; ohne das wird nichts gesendet.</p>
+    <h2>KI-Funktionen (Premium, freiwillig)</h2>
+    <p>Zwei Premium-Funktionen arbeiten mit Claude, der KI von Anthropic: die Tagesnotiz auf der Startseite („Für dich heute“) und „Was sich bei dir wiederholt“ in der Analyse. Eine Einstellung schaltet beide ein. Sie brauchen ein Konto und bleiben aus, bis du sie einschaltest. Vorher siehst du, was gesendet wird, und wirst gesondert um deine Einwilligung gebeten; ohne sie wird nichts gesendet.</p>
     <ul>
-      <li><b>Was gesendet wird:</b> Eine kurze Zusammenfassung deiner Einträge: Sprache, heutiges Datum, Modus, Zyklustag und -phase, Tage bis zur nächsten Periode, Zyklus- und Periodenlänge, wie viele Zyklen du erfasst hast, die Symptome, die du in früheren Zyklen um diesen Tag eingetragen hast, sowie Blutung, Schmerz, Stimmung, Energie und Symptome von heute.</li>
-      <li><b>Was nicht gesendet wird:</b> Deine Notizen, dein Name, deine E-Mail, Sex-Einträge und jedes andere Datum als das heutige.</li>
-      <li><b>Wie es übertragen wird:</b> Die Zusammenfassung geht über unseren Server bei nilemy.com an Anthropic in den USA. Unser Server prüft, ob die Anfrage von deinem Konto kommt, und speichert die Zusammenfassung nicht. Anthropic nutzt sie nicht zum Training seiner Modelle.</li>
-      <li><b>Wie lange sie bleibt:</b> Die Notiz wird mit deiner Konto-ID höchstens zwei Tage auf unserem Server gespeichert, falls sie am selben Tag noch einmal abgerufen wird, und dann gelöscht. Auf deinem Handy bleibt sie bis zum Ende des Tages.</li>
-      <li><b>Ausschalten:</b> Jederzeit unter Profil › Datenschutz und Daten › Tagesnotiz. Wenn du dein Konto löschst, wird auch die Notiz auf dem Server gelöscht.</li>
+      <li><b>Für die Tagesnotiz gesendet:</b> Sprache, heutiges Datum, Modus, Zyklustag und -phase, Tage bis zur nächsten Periode, Zyklus- und Periodenlänge, wie viele Zyklen du eingetragen hast, die Symptome, die du in früheren Zyklen um diesen Tag eingetragen hast, und Blutung, Schmerz, Stimmung, Energie und Symptome von heute; bei Kinderwunsch das heutige Ovulationstest-Ergebnis.</li>
+      <li><b>Für „Was sich bei dir wiederholt“ gesendet:</b> Die Längen deiner letzten abgeschlossenen Zyklen (höchstens 8) und für jeden eingetragenen Tag Zyklustag, Tage bis zur nächsten Periode, Blutung, Schmerz, Stimmung, Energie, Symptome und benutzte Produkte. Es werden keine Daten (Kalenderdaten) gesendet.</li>
+      <li><b>Nie gesendet:</b> Deine Notizen, dein Name, deine E-Mail, dein Foto, Sex-Einträge, Schwangerschaftstest-Ergebnisse und Angaben zur Schwangerschaft.</li>
+      <li><b>Wie es übertragen wird:</b> Über unseren Server bei nilemy.com an Anthropic in den USA. Unser Server prüft, ob die Anfrage von deinem Konto kommt, und leitet sie ohne deine Kontodaten weiter. Anthropic nutzt sie nicht zum Training seiner Modelle und löscht sie nach eigenen Bedingungen innerhalb von 30 Tagen.</li>
+      <li><b>Wie lange es bleibt:</b> Auf unserem Server mit deiner Konto-ID die letzte Tagesnotiz höchstens zwei Tage und das letzte Ergebnis zu Wiederholungen höchstens 60 Tage. Beides wird gelöscht, wenn du die Funktionen ausschaltest oder dein Konto löschst.</li>
+      <li><b>Ausschalten:</b> Jederzeit unter Profil › Datenschutz und Daten › KI-Funktionen.</li>
     </ul>
-    <p>Die Notiz schreibt eine KI. Sie kann falsch sein und ist keine medizinische Beratung.</p>
+    <p>Die Texte schreibt eine KI. Sie können falsch sein und sind keine medizinische Beratung.</p>
 
     <h2>Was wir verarbeiten und warum (Rechtsgrundlagen)</h2>
     <ul>
       <li><b>Deine Einträge (mit Konto):</b> Für Backup und Synchronisierung, nur mit deiner ausdrücklichen Einwilligung (Art. 6 Abs. 1 lit. a und Art. 9 Abs. 2 lit. a DSGVO), die beim Einschalten des Backups gesondert abgefragt wird. Du kannst sie jederzeit widerrufen, indem du dein Konto löschst.</li>
-      <li><b>Die Zusammenfassung für die Tagesnotiz:</b> Um die Notiz zu schreiben, nur mit deiner ausdrücklichen Einwilligung (Art. 6 Abs. 1 lit. a und Art. 9 Abs. 2 lit. a DSGVO). Du widerrufst sie, indem du die Notiz ausschaltest.</li>
+      <li><b>Ein Teil deiner Einträge für die KI-Funktionen:</b> Um die Tagesnotiz und die Wiederholungen zu schreiben, nur mit deiner ausdrücklichen Einwilligung (Art. 6 Abs. 1 lit. a und Art. 9 Abs. 2 lit. a DSGVO). Du widerrufst sie, indem du die Funktionen ausschaltest.</li>
       <li><b>Kontodaten:</b> Um dein Konto anzulegen, dich anzumelden, E-Mails zum Zurücksetzen des Passworts zu senden und dein Konto zu schützen; zur Erfüllung des Vertrags (Art. 6 Abs. 1 lit. b DSGVO) und aus unserem berechtigten Interesse an sicheren Konten (Art. 6 Abs. 1 lit. f DSGVO).</li>
       <li><b>Technische Daten für Werbung (kostenlose Version):</b> Siehe „Werbung in der kostenlosen Version“ unten.</li>
       <li><b>Abo-Status:</b> Um zu wissen, ob Premium aktiv ist; zur Erfüllung des Vertrags (Art. 6 Abs. 1 lit. b DSGVO).</li>
@@ -68,25 +69,25 @@
     </ul>
 
     <h2>Premium-Abo</h2>
-    <p>Nilemy Premium ist ein Monats- oder Jahresabo, das die Werbung entfernt und mehr Analysen, ein PDF mit deiner Zyklusübersicht, Schwangerschaftsanalysen und ein Schwangerschafts-PDF, einen Jahresrückblick, smarte Erinnerungen, eigene Symptome, Farbthemen, App-Icons und die Tagesnotiz hinzufügt. Alles außer der Tagesnotiz läuft auf deinem Handy; deine Einträge werden dafür nirgendwohin gesendet. Das PDF und das Bild des Jahresrückblicks verlassen dein Handy nur, wenn du sie teilst. Zahlung und Abo laufen über den App Store oder Google Play; wir sehen deine Zahlungsdaten nie. Die App liest im Store nur, ob dein Abo aktiv ist und welcher Plan es ist.</p>
+    <p>Nilemy Premium ist ein Monats- oder Jahresabo, das die Werbung entfernt und mehr Analysen, ein PDF mit deiner Zyklusübersicht, Schwangerschaftsanalysen und ein Schwangerschafts-PDF, einen Jahresrückblick, smarte Erinnerungen, eigene Symptome, Farbthemen, App-Icons und die KI-Funktionen hinzufügt. Alles außer den KI-Funktionen läuft auf deinem Handy; deine Einträge werden dafür nirgendwohin gesendet. Das PDF und das Bild des Jahresrückblicks verlassen dein Handy nur, wenn du sie teilst. Zahlung und Abo laufen über den App Store oder Google Play; wir sehen deine Zahlungsdaten nie. Die App liest im Store nur, ob dein Abo aktiv ist und welcher Plan es ist.</p>
 
     <h2>Wer Daten erhält</h2>
     <ul>
       <li><b>Google (Firebase Authentication):</b> Kontodaten, für die Anmeldung. Server von Google weltweit, auch in den USA.</li>
       <li><b>Google (Cloud Firestore):</b> Dein verschlüsseltes Backup und Synchronisierungsdaten. Europäische Union.</li>
       <li><b>Apple:</b> Um dich zu bestätigen, wenn du dich mit Apple anmeldest.</li>
-      <li><b>Anthropic:</b> Nur wenn du die Tagesnotiz einschaltest, die Zusammenfassung deiner Einträge, um sie zu schreiben. USA.</li>
-      <li><b>Hostinger:</b> Hostet nilemy.com und unseren Server für die Tagesnotiz.</li>
+      <li><b>Anthropic:</b> Nur wenn du die KI-Funktionen einschaltest, die oben genannten Angaben, um die Notiz und die Wiederholungen zu schreiben. USA.</li>
+      <li><b>Hostinger:</b> Hostet nilemy.com und unseren Server für die KI-Funktionen.</li>
       <li><b>Google (AdMob):</b> Technische Daten für Werbung, nur in der kostenlosen Version.</li>
       <li><b>Apple App Store / Google Play:</b> Abo und Zahlung.</li>
     </ul>
-    <p><b>Übermittlung ins Ausland:</b> Die Server dieser Anbieter können außerhalb deines Landes liegen, auch in den USA. Deine Einwilligung dazu wird beim Einschalten des Backups und der Tagesnotiz abgefragt. Den Inhalt deines verschlüsselten Backups kann der Anbieter nicht lesen.</p>
+    <p><b>Übermittlung ins Ausland:</b> Die Server dieser Anbieter können außerhalb deines Landes liegen, auch in den USA. Deine Einwilligung dazu wird beim Einschalten des Backups und der KI-Funktionen abgefragt. Den Inhalt deines verschlüsselten Backups kann der Anbieter nicht lesen.</p>
 
     <h2>Wie lange wir Daten speichern</h2>
     <ul>
       <li><b>Einträge auf deinem Handy:</b> Bis du sie oder die App löschst.</li>
       <li><b>Dein Konto und das verschlüsselte Backup:</b> Bis du dein Konto löschst. „Konto löschen“ entfernt beides sofort vom Server; aus den Systembackups des Anbieters verschwinden sie innerhalb seiner eigenen Löschfristen.</li>
-      <li><b>Tagesnotiz:</b> Höchstens zwei Tage auf unserem Server.</li>
+      <li><b>KI-Funktionen:</b> Auf unserem Server die letzte Notiz höchstens zwei Tage und die letzten Wiederholungen höchstens 60 Tage; gelöscht, sobald du die Funktionen ausschaltest oder dein Konto löschst. Anthropic löscht innerhalb von 30 Tagen.</li>
       <li><b>Werbedaten:</b> Nach den Richtlinien von Google.</li>
     </ul>
 
@@ -104,7 +105,7 @@
     <ul>
       <li><b>Als Datei sichern:</b> Profil › Datenschutz und Daten › Deine Daten › Einträge als Datei sichern erstellt eine CSV- oder JSON-Kopie deiner Einträge. Die Datei ist nicht verschlüsselt, und du entscheidest, wohin sie geht.</li>
       <li><b>Alle Daten löschen:</b> Profil › Datenschutz und Daten › Deine Daten › Alle Daten löschen entfernt die Datendatei und ihren Schlüssel dauerhaft von deinem Handy. Hast du ein Konto, wird dieses Handy auch abgemeldet; dein Backup bleibt in deinem Konto.</li>
-      <li><b>Konto löschen:</b> Profil › Konto › Konto löschen entfernt dein verschlüsseltes Backup, dein Konto und deine Tagesnotiz dauerhaft vom Server und deine Einträge von deinem Handy.</li>
+      <li><b>Konto löschen:</b> Profil › Konto › Konto löschen entfernt dein verschlüsseltes Backup, dein Konto und deine KI-Antworten dauerhaft vom Server und deine Einträge von deinem Handy.</li>
     </ul>
     <p>Für alles andere schreib an <a href="mailto:info@nilemy.com">info@nilemy.com</a>; wir antworten innerhalb von 30 Tagen, kostenlos.</p>
 
