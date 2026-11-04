@@ -1,18 +1,18 @@
-// Nilemy API: the Premium "For you today" note on the app's Home screen.
-// Runs in its own container next to the site (deploy/add-api.sh) and is reached at
-// https://nilemy.com/api/daily-note through the existing Caddy proxy.
+// Nilemy API for the app's two Premium AI features: the "For you today" note on Home and
+// "What repeats in your cycles" in Insights. Runs in its own container next to the site
+// (deploy/add-api.sh) and is reached at https://nilemy.com/api/ through the existing Caddy proxy.
 //
 // POST /api/daily-note   body: a short JSON summary of the user's logs (counts and labels only)
 //                        header: Authorization: Bearer <Firebase ID token of a nilemy-app user>
 //                        -> { text }   One note per account per day; the same day returns the kept note.
-// DELETE /api/daily-note forget the kept note and patterns (Delete account).
+// DELETE /api/daily-note forget the kept note and repeats (AI features turned off, or Delete account).
 // POST /api/patterns     body: day-by-day labels from the user's last completed cycles (no dates, notes or sex logs)
-//                        -> { items: [{ title, text }] }   Kept per account until the logs gain a cycle ("key").
+//                        -> { items: [{ title, text }] }   Kept per account until those logs change ("key").
 // GET /api/health        -> ok
 //
 // Env: ANTHROPIC_API_KEY (required), MODEL (default claude-opus-5-5), DAILY_CAP (default 3000),
-// DATA_DIR (default /data). Nothing about a person is kept except today's note and the latest
-// patterns, by account id.
+// DATA_DIR (default /data). Nothing about a person is kept except the last note (2 days at most) and
+// the latest repeats (60 days at most), by account id.
 
 import Anthropic from '@anthropic-ai/sdk';
 import { initializeApp } from 'firebase-admin/app';
@@ -51,7 +51,7 @@ What a good note does:
 Style:
 - At most 2 sentences and 220 characters. Plain text: no emoji, no markdown, no quotes, no greeting, no sign-off, no name.
 - Address the person informally (tr: "sen", de: "du", fr: "tu", pt: "você", it: "tu").
-- Say "your logs show" or "in your last cycles", never "studies show" or "it is known".
+- State what the logs show directly. No openers such as "your logs show", "according to your logs", "kayıtların gösteriyor", "kayıtlarına göre" or "kendi kayıtlarından". Never "studies show" or "it is known".
 - Not medical: no diagnosis, no reassurance or warning about health, no medication names or doses. Never call anything "normal" or "abnormal".
 - Never use these words or anything that sounds like them: calm, gentle, soft, soothing, relax, sakin, nazik, yumuşak, rahatla, sanft, ruhig, doux, doucement, calme, tranquilo, suave, calmo, dolce.
 - Do not just repeat the number of days until the next period; the screen already shows it.`;
@@ -162,10 +162,10 @@ async function dailyNote(req, res) {
   return send(res, 200, { text });
 }
 
-const PATTERN_SYSTEM = `You write the "Your patterns" card on the Insights screen of Nilemy, a period tracking app.
+const PATTERN_SYSTEM = `You write "What repeats in your cycles" on the Insights screen of Nilemy, a period tracking app.
 You get one person's own logs from their last completed cycles as JSON: for each cycle its length and period length,
 and for each logged day the cycle number, cycle day, days until the next period and what was logged that day
-(flow, pain, mood, energy, symptoms, products such as painkiller or heat). Find what keeps repeating in these logs.
+(flow, pain, mood, energy, symptoms, products such as painkiller or heat). Find what keeps coming back in these logs.
 
 What to look for:
 - Things that come back at the same point of the cycle (a symptom 2 days before the period, low energy on day 1).
@@ -173,14 +173,19 @@ What to look for:
 - Changes across cycles (cramps logged on fewer days in recent cycles, cycles getting shorter).
 
 Rules:
-- Only patterns seen in at least 2 different cycles. Use only what is in the data; never invent numbers or symptoms.
-  Say how many cycles it was seen in when it helps ("in 3 of your last 4 cycles").
+- Only things seen in at least 2 different cycles. Use only what is in the data; never invent numbers or symptoms.
 - Up to 4 items, the most useful first. Fewer is fine; an empty list is fine when nothing repeats.
-- Each item: a title of at most 50 characters and a text of at most 180 characters with one practical point when it fits.
+- Each item has a title and a text. The title says what repeats, in at most 40 characters, e.g. "Headache 2 days before your period".
+  The text, at most 140 characters, says how often it happened ("In 3 of your last 4 cycles.") and, when it fits,
+  one practical thing to do. Do not repeat the title in the text.
+- State things directly. No openers such as "your logs show", "your data shows", "according to your logs",
+  "kayıtların gösteriyor", "kayıtlarına göre", "kendi kayıtlarından". No filler, no summary sentence.
+- Never use the word "pattern" or its translations (örüntü, Muster, tendance, padrão, schema).
+- Each item starts differently; do not reuse the same sentence shape or phrase across items.
 - Language: the one named by the user message. Address the person informally (tr: "sen", de: "du", fr: "tu", pt: "você", it: "tu").
 - Plain text: no emoji, no markdown, no quotes, no greeting, no name.
 - Not medical: no diagnosis or cause, no reassurance or warning about health, no medication names or doses.
-  Never call anything "normal" or "abnormal". Say "your logs show", never "studies show".
+  Never call anything "normal" or "abnormal". Never say "studies show".
 - Never use these words or anything that sounds like them: calm, gentle, soft, soothing, relax, sakin, nazik, yumuşak, rahatla,
   sanft, ruhig, doux, doucement, calme, tranquilo, suave, calmo, dolce.`;
 
@@ -204,7 +209,7 @@ const PATTERN_FORMAT = {
   },
 };
 
-// uid -> { key, lang, items, date, count }: the latest patterns per account, saved to disk.
+// uid -> { key, lang, items, date, count }: the latest repeats per account, saved to disk.
 let found = new Map();
 try {
   found = new Map(Object.entries(JSON.parse(readFileSync(PATTERN_DATA, 'utf8'))));
@@ -213,8 +218,19 @@ try {
 }
 
 function saveFound() {
+  // Repeats not asked for in 60 days are dropped (the phone keeps its own copy and asks again when needed).
+  const keep = new Date(Date.now() - 60 * 864e5).toISOString().slice(0, 10);
+  for (const [uid, f] of found) if (!(f.date >= keep)) found.delete(uid);
   writeFileSync(`${PATTERN_DATA}.tmp`, JSON.stringify(Object.fromEntries(found)));
   renameSync(`${PATTERN_DATA}.tmp`, PATTERN_DATA);
+}
+
+/** Cuts a too-long text at a word, so a line never ends mid-word. */
+function clip(text, max) {
+  const t = text.trim().replace(/\s+/g, ' ');
+  if (t.length <= max) return t;
+  const cut = t.slice(0, max - 1);
+  return `${cut.slice(0, Math.max(cut.lastIndexOf(' '), max / 2)).replace(/[\s,;:.-]+$/, '')}…`;
 }
 
 async function findPatterns(logs, lang) {
@@ -225,7 +241,7 @@ async function findPatterns(logs, lang) {
     betas: ['server-side-fallback-2026-07-01'],
     fallbacks: 'default',
     system: PATTERN_SYSTEM,
-    messages: [{ role: 'user', content: `Write the patterns in ${LANG_NAME[lang]}.\n\n${JSON.stringify(logs)}` }],
+    messages: [{ role: 'user', content: `Write what repeats, in ${LANG_NAME[lang]}.\n\n${JSON.stringify(logs)}` }],
   });
   if (res.stop_reason === 'refusal' || res.stop_reason === 'max_tokens') return null;
   const text = res.content.map((b) => (b.type === 'text' ? b.text : '')).join('');
@@ -234,7 +250,7 @@ async function findPatterns(logs, lang) {
   return items
     .filter((i) => typeof i?.title === 'string' && typeof i?.text === 'string' && i.title.trim() && i.text.trim())
     .slice(0, 4)
-    .map((i) => ({ title: i.title.trim().slice(0, 80), text: i.text.trim().slice(0, 260) }));
+    .map((i) => ({ title: clip(i.title, 60), text: clip(i.text, 200) }));
 }
 
 async function patternsRoute(req, res) {
