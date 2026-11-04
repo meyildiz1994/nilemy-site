@@ -27,6 +27,7 @@ LANGS = list(S)  # Turkish first: it is the root
 PAGES = ['', 'story', 'privacy', 'terms', 'support']
 SCREENS = ['home', 'history', 'insights', 'daily']
 SCREENS_VERSION = 5  # bump when assets/screens change, so browsers fetch the new ones
+DOC_CSS_VERSION = 2  # bump when assets/doc.css changes, for the same reason
 SHARE_IMAGE = '/assets/share.png'  # the picture shared links show, made from src/share.html (steps there)
 
 
@@ -268,7 +269,7 @@ DOC = """<!doctype html>
 {{og}}
 <link rel="preload" href="/assets/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/fonts/fonts.css">
-<link rel="stylesheet" href="/assets/doc.css">
+<link rel="stylesheet" href="/assets/doc.css?v={{cssVersion}}">
 <style>
 {{switcherCss}}
 </style>
@@ -314,6 +315,7 @@ def doc(lang, page):
         'headLinks': (REDIRECT + '\n' if lang == 'tr' else '') + head_links(lang, page),
         'og': share_tags(lang, page),
         'switcherCss': SWITCHER_CSS,
+        'cssVersion': str(DOC_CSS_VERSION),
         'switcher': switcher(lang, page),
         'base': base(lang),
         'storyCurrent': ' aria-current="page"' if page == 'story' else '',

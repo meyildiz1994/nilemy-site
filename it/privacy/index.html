@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Informativa sulla privacy · Nilemy</title>
-<meta name="description" content="Informativa sulla privacy di Nilemy: i tuoi dati restano cifrati sul telefono, non vengono mai venduti né usati per la pubblicità.">
+<meta name="description" content="Informativa sulla privacy di Nilemy: ciò che registri viene cifrato sul telefono e non viene mai venduto né usato per la pubblicità.">
 <meta name="theme-color" content="#FCF5F6">
 <link rel="canonical" href="https://nilemy.com/it/privacy/">
 <link rel="alternate" hreflang="tr" href="https://nilemy.com/privacy/">
@@ -21,7 +21,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Nilemy">
 <meta property="og:title" content="Informativa sulla privacy">
-<meta property="og:description" content="Informativa sulla privacy di Nilemy: i tuoi dati restano cifrati sul telefono, non vengono mai venduti né usati per la pubblicità.">
+<meta property="og:description" content="Informativa sulla privacy di Nilemy: ciò che registri viene cifrato sul telefono e non viene mai venduto né usato per la pubblicità.">
 <meta property="og:url" content="https://nilemy.com/it/privacy/">
 <meta property="og:image" content="https://nilemy.com/assets/share.png">
 <meta property="og:image:type" content="image/png">
@@ -39,7 +39,7 @@
 <meta name="twitter:image:alt" content="Nilemy">
 <link rel="preload" href="/assets/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/fonts/fonts.css">
-<link rel="stylesheet" href="/assets/doc.css">
+<link rel="stylesheet" href="/assets/doc.css?v=2">
 <style>
   .langs { position: relative; }
   .langs summary {
@@ -91,7 +91,7 @@
   <main>
     <h1>Informativa sulla privacy</h1>
     <p class="updated">Ultimo aggiornamento: 4 novembre 2026</p>
-    <p class="lead">Nilemy è un’app per seguire il tuo ciclo mestruale e la tua gravidanza. Senza account, i tuoi dati restano cifrati sul tuo telefono e a noi non arriva nulla. Con un account, i tuoi dati vengono cifrati sul tuo telefono prima del backup. Non vendiamo mai i tuoi dati e non li usiamo per la pubblicità; arrivano ai nostri fornitori solo per una funzione che attivi tu, come descritto qui sotto.</p>
+    <p class="lead">Nilemy è un’app per seguire il tuo ciclo mestruale e la tua gravidanza. Senza account, i tuoi dati restano cifrati sul tuo telefono e a noi non arriva nulla. Con un account, i tuoi dati vengono cifrati sul tuo telefono prima del backup. Non vendiamo mai ciò che registri e non lo usiamo per la pubblicità; arriva ai nostri fornitori solo per una funzione che attivi tu, come descritto qui sotto.</p>
 
     <h2>Titolare del trattamento</h2>
     <p>Nilemy · <a href="mailto:info@nilemy.com">info@nilemy.com</a></p>
@@ -103,13 +103,14 @@
       <li>Se cerchi una gravidanza: risultati dei test di ovulazione e di gravidanza</li>
       <li>Se sei incinta: data presunta del parto, peso, calci, contrazioni, data, ora e note delle visite, e le liste delle cose da fare e della borsa per l’ospedale</li>
       <li>Quando una gravidanza finisce: la data di nascita e se allatti, oppure il giorno in cui una gravidanza si è interrotta senza una nascita (non chiediamo mai il perché)</li>
-      <li>Il nome mostrato nella Home e, se la aggiungi, una foto profilo (conservata cifrata sul tuo telefono e mai inclusa nel backup dell’account)</li>
-      <li>Le tue impostazioni: durata del ciclo e delle mestruazioni, promemoria, blocco app, tema e icona dell’app</li>
+      <li>Se ora non hai le mestruazioni: il motivo (dopo il parto, allattamento, menopausa o contraccezione) e da quando</li>
+      <li>Il nome mostrato nella Home e, se la aggiungi, una foto profilo (resta sul tuo telefono e non entra mai nel backup dell’account)</li>
+      <li>Le tue impostazioni: modalità, se il tuo ciclo è regolare, durata del ciclo e delle mestruazioni, promemoria, blocco app, tema e icona dell’app</li>
     </ul>
     <p>Una parte di questi dati riguarda la tua salute e la tua vita sessuale (categorie particolari ai sensi dell’art. 9 del GDPR). Il codice del blocco app non viene mai salvato in chiaro: si conserva solo un hash irreversibile con salt, che non lascia mai il tuo telefono.</p>
 
-    <h2>Senza account: tutto resta sul tuo telefono</h2>
-    <p>L’account è facoltativo. Senza account, tutto resta sul tuo telefono in un unico file cifrato con <span class="nw">AES-256</span>. La chiave è custodita nell’archivio sicuro del telefono (Portachiavi su iPhone, Keystore su Android) e non può lasciare il dispositivo. I tuoi dati non vengono mai inviati a noi né a nessun altro. Se elimini l’app o perdi il telefono, perdi anche i tuoi dati.</p>
+    <h2>Senza account: ciò che registri resta sul tuo telefono</h2>
+    <p>L’account è facoltativo. Senza account, tutto ciò che registri resta sul tuo telefono, cifrato con <span class="nw">AES-256</span>. La chiave è custodita nell’archivio sicuro del telefono (Portachiavi su iPhone, Keystore su Android) e non può lasciare il dispositivo. I tuoi dati non vengono mai inviati a noi né a nessun altro. Se elimini l’app o perdi il telefono, perdi anche i tuoi dati.</p>
 
     <h2>Account e backup cifrato</h2>
     <p>Puoi creare un account con Google, Apple (su iPhone) o <span class="nw">e-mail</span>, per ripristinare i tuoi dati su un nuovo telefono e sincronizzare più telefoni. Il nostro fornitore è Google Firebase (Firebase Authentication e Cloud Firestore).</p>
@@ -125,8 +126,8 @@
     <p>Due funzioni Premium usano Claude, l’IA di Anthropic: la nota del giorno nella Home (“Per te oggi”) e “Cosa si ripete nei tuoi cicli” nell’Analisi. Un’unica impostazione le attiva entrambe. Serve un account e restano spente finché non le attivi. Prima di qualsiasi invio vedi cosa viene inviato e ti viene chiesto un consenso separato; senza, non viene inviato nulla.</p>
     <ul>
       <li><b>Inviato per la nota del giorno:</b> Lingua, modalità, giorno e fase del ciclo, giorni alle prossime mestruazioni, se oggi è un giorno fertile e se i tuoi cicli sono irregolari, durata del ciclo e delle mestruazioni, quanti cicli hai registrato, i sintomi e gli stati d’animo tornati nei cicli precedenti, e flusso, dolore, umore, energia e sintomi registrati oggi; se cerchi una gravidanza, il risultato del test di ovulazione di oggi.</li>
-      <li><b>Inviato per “Cosa si ripete nei tuoi cicli”:</b> La durata dei tuoi ultimi cicli completati (al massimo 8) e, per ogni giorno registrato, il giorno del ciclo, i giorni alle mestruazioni successive, flusso, dolore, umore, energia, sintomi e i prodotti usati. Nessuna data viene inviata.</li>
-      <li><b>Mai inviato:</b> Le tue note, il tuo nome, la tua <span class="nw">e-mail</span>, la tua foto, i rapporti registrati, i risultati dei test di gravidanza e i dati sulla gravidanza.</li>
+      <li><b>Inviato per “Cosa si ripete nei tuoi cicli”:</b> La lingua, la durata del ciclo e delle mestruazioni dei tuoi ultimi cicli completati (al massimo 8) e, per ogni giorno registrato, il giorno del ciclo, i giorni alle mestruazioni successive, flusso, dolore, umore, energia, sintomi e i prodotti usati. Nessuna data viene inviata.</li>
+      <li><b>Mai inviato ad Anthropic:</b> Le tue note, il tuo nome, la tua <span class="nw">e-mail</span>, la tua foto, i rapporti registrati, i risultati dei test di gravidanza e i dati sulla gravidanza. I sintomi che hai aggiunto tu vengono inviati con il nome che gli hai dato.</li>
       <li><b>Come viaggia:</b> Dal nostro server su nilemy.com ad Anthropic; Claude li elabora negli Stati Uniti. Il nostro server verifica che la richiesta arrivi dal tuo account e la inoltra senza i dati del tuo account. La data di oggi arriva solo al nostro server, per tenere una nota al giorno. Anthropic non la usa per addestrare i suoi modelli e la elimina entro 30 giorni secondo i propri termini.</li>
       <li><b>Per quanto viene conservato:</b> Sul nostro server, con l’ID del tuo account, l’ultima nota del giorno al massimo due giorni e l’ultimo risultato su cosa si ripete al massimo 60 giorni. Entrambi vengono eliminati quando disattivi le funzioni, elimini tutti i dati o elimini l’account.</li>
       <li><b>Disattivarle:</b> Quando vuoi in Profilo › Privacy e dati › Funzioni IA.</li>
@@ -146,11 +147,11 @@
     <ul>
       <li>Non usiamo strumenti di analisi e non raccogliamo statistiche d’uso.</li>
       <li>Non ti tracciamo tra app e siti web e non usiamo il tuo ID pubblicitario (IDFA / ID pubblicità Android).</li>
-      <li>Non vendiamo mai i tuoi dati e non li usiamo per la pubblicità.</li>
+      <li>Non vendiamo mai ciò che registri e non lo usiamo per la pubblicità.</li>
     </ul>
 
     <h2>Pubblicità nella versione gratuita</h2>
-    <p>Una settimana dopo l’installazione, la versione gratuita inizia a mostrare banner Google AdMob in fondo a Home, Storico e Analisi. Durante la prima settimana l’SDK pubblicitario non viene nemmeno avviato. Gli annunci non compaiono mai nelle schermate in cui registri i tuoi dati.</p>
+    <p>Una settimana dopo la configurazione iniziale, la versione gratuita inizia a mostrare banner Google AdMob in fondo a Home, Storico e Analisi. Durante la prima settimana l’SDK pubblicitario non viene nemmeno avviato. Gli annunci non compaiono mai nelle schermate in cui registri i tuoi dati.</p>
     <ul>
       <li><b>Solo annunci non personalizzati:</b> Gli annunci non vengono scelti in base ai tuoi interessi o alla tua cronologia. Non si usa alcun ID pubblicitario, quindi l’app non chiede il permesso di tracciamento (App Tracking Transparency).</li>
       <li><b>I tuoi dati sulla salute non vengono mai usati per la pubblicità:</b> Le date delle mestruazioni, i sintomi, le note, il nome e i dati dell’account non vengono mai dati al fornitore degli annunci.</li>
@@ -172,7 +173,7 @@
       <li><b>Google (AdMob):</b> Dati tecnici per la pubblicità, solo nella versione gratuita.</li>
       <li><b>Apple App Store / Google Play:</b> Abbonamento e pagamento.</li>
     </ul>
-    <p><b>Trasferimenti all’estero:</b> I server di questi fornitori possono trovarsi fuori dal tuo paese, anche negli Stati Uniti. Il tuo consenso viene chiesto quando attivi il backup e le funzioni IA. Il fornitore non può leggere il contenuto del tuo backup cifrato.</p>
+    <p><b>Trasferimenti all’estero:</b> I server di questi fornitori possono trovarsi fuori dal tuo paese, anche negli Stati Uniti. Il tuo consenso viene chiesto quando attivi il backup e le funzioni IA.</p>
 
     <h2>Per quanto conserviamo i dati</h2>
     <ul>
@@ -189,7 +190,7 @@
     </ul>
 
     <h2>Backup del telefono</h2>
-    <p>Se il backup iCloud o Google è attivo, il file di dati cifrato può esservi incluso. La chiave resta su questo telefono, quindi il file non si apre su un altro dispositivo. Per portare i tuoi dati su un nuovo telefono, crea un account o salva i tuoi dati in un file.</p>
+    <p>Se il backup iCloud o Google è attivo, il file di dati cifrato può esservi incluso. La chiave resta su questo telefono, quindi il file non si apre su un altro dispositivo. Per portare i tuoi dati su un nuovo telefono, ti serve un account.</p>
 
     <h2>I tuoi diritti</h2>
     <p>In base al GDPR hai diritto di accedere ai tuoi dati, di rettificarli, di cancellarli, di limitarne il trattamento, di riceverli in un formato portabile e di opporti al trattamento, oltre che di revocare il consenso in qualsiasi momento per il futuro. Puoi anche presentare un reclamo al Garante per la protezione dei dati personali o all’autorità del tuo paese. Gran parte di questo puoi farlo direttamente nell’app:</p>

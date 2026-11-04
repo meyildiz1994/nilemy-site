@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Privacy policy · Nilemy</title>
-<meta name="description" content="Nilemy privacy policy: your logs stay on your phone, encrypted, and are never sold or used for ads.">
+<meta name="description" content="Nilemy privacy policy: your logs are encrypted on your phone and never sold or used for ads.">
 <meta name="theme-color" content="#FCF5F6">
 <link rel="canonical" href="https://nilemy.com/en/privacy/">
 <link rel="alternate" hreflang="tr" href="https://nilemy.com/privacy/">
@@ -21,7 +21,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Nilemy">
 <meta property="og:title" content="Privacy policy">
-<meta property="og:description" content="Nilemy privacy policy: your logs stay on your phone, encrypted, and are never sold or used for ads.">
+<meta property="og:description" content="Nilemy privacy policy: your logs are encrypted on your phone and never sold or used for ads.">
 <meta property="og:url" content="https://nilemy.com/en/privacy/">
 <meta property="og:image" content="https://nilemy.com/assets/share.png">
 <meta property="og:image:type" content="image/png">
@@ -39,7 +39,7 @@
 <meta name="twitter:image:alt" content="Nilemy">
 <link rel="preload" href="/assets/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/fonts/fonts.css">
-<link rel="stylesheet" href="/assets/doc.css">
+<link rel="stylesheet" href="/assets/doc.css?v=2">
 <style>
   .langs { position: relative; }
   .langs summary {
@@ -91,7 +91,7 @@
   <main>
     <h1>Privacy policy</h1>
     <p class="updated">Last updated November 4, 2026</p>
-    <p class="lead">Nilemy is an app for tracking your menstrual cycle and your pregnancy. Without an account your logs stay on your phone, encrypted, and nothing reaches us. With an account your logs are encrypted on your phone before they’re backed up. We never sell your data or use it for ads; it only goes to our service providers for a feature you turn on, as described below.</p>
+    <p class="lead">Nilemy is an app for tracking your menstrual cycle and your pregnancy. Without an account your logs stay on your phone, encrypted, and nothing reaches us. With an account your logs are encrypted on your phone before they’re backed up. We never sell your logs or use them for ads; they only go to our service providers for a feature you turn on, as described below.</p>
 
     <h2>Data controller</h2>
     <p>Nilemy · <a href="mailto:info@nilemy.com">info@nilemy.com</a></p>
@@ -103,13 +103,14 @@
       <li>If you’re trying to get pregnant: ovulation and pregnancy test results</li>
       <li>If you’re pregnant: due date, weight, kick counts, contractions, checkup dates, times and notes, and the <span class="nw">to-do</span> and hospital bag lists</li>
       <li>When a pregnancy is over: the birth date and whether you’re breastfeeding, or the day a pregnancy ended without a birth (we never ask why)</li>
-      <li>The name used on Home and, if you add one, a profile photo (kept encrypted on your phone and never backed up to your account)</li>
-      <li>Your settings: cycle and period length, reminders, app lock, theme and app icon</li>
+      <li>If you don’t get periods right now: the reason (after a birth, breastfeeding, menopause or birth control) and since when</li>
+      <li>The name used on Home and, if you add one, a profile photo (stays on your phone and is never backed up to your account)</li>
+      <li>Your settings: tracking mode, whether your cycles are regular, cycle and period length, reminders, app lock, theme and app icon</li>
     </ul>
     <p>Some of this is health data, and some is about your sex life. Your app lock passcode is never stored as plain text; only a <span class="nw">one-way</span>, salted hash is kept, and it never leaves your phone.</p>
 
-    <h2>Without an account: everything stays on your phone</h2>
-    <p>An account is optional. Without one, everything stays on your phone in a single file encrypted with <span class="nw">AES-256</span>. The key is held in your phone’s secure storage (Keychain on iPhone, Keystore on Android) and can’t leave that device. Your logs are never sent to us or anyone else. If you delete the app or lose your phone, your logs are lost too.</p>
+    <h2>Without an account: your logs stay on your phone</h2>
+    <p>An account is optional. Without one, everything you log stays on your phone, encrypted with <span class="nw">AES-256</span>. The key is held in your phone’s secure storage (Keychain on iPhone, Keystore on Android) and can’t leave that device. Your logs are never sent to us or anyone else. If you delete the app or lose your phone, your logs are lost too.</p>
 
     <h2>Account and encrypted backup</h2>
     <p>You can create an account with Google, Apple (on iPhone) or email, so you can restore your logs on a new phone and keep phones in sync. Our service provider is Google Firebase (Firebase Authentication and Cloud Firestore).</p>
@@ -125,8 +126,8 @@
     <p>Two Premium features work with Claude, Anthropic’s AI: the daily note on Home (“For you today”) and “What repeats in your cycles” in Insights. One setting turns both on. They need an account and stay off until you turn them on. Before anything is sent, you see what is sent and are asked for your separate consent; if you don’t agree, nothing is sent.</p>
     <ul>
       <li><b>Sent for the daily note:</b> Language, tracking mode, cycle day and phase, days until your next period, whether today is in your fertile window and whether your cycles are irregular, your usual cycle and period length, how many cycles you’ve logged, the symptoms and moods that came back in earlier cycles, and the flow, pain, mood, energy and symptoms you logged today; if you’re trying to get pregnant, today’s ovulation test result.</li>
-      <li><b>Sent for “What repeats in your cycles”:</b> The lengths of your last completed cycles (8 at most) and, for each logged day, the cycle day, the days until the next period, flow, pain, mood, energy, symptoms and the products you used. No dates are sent.</li>
-      <li><b>Never sent:</b> Your notes, name, email, photo, sex logs, pregnancy test results and pregnancy details.</li>
+      <li><b>Sent for “What repeats in your cycles”:</b> Language, the cycle and period lengths of your last completed cycles (8 at most) and, for each logged day, the cycle day, the days until the next period, flow, pain, mood, energy, symptoms and the products you used. No dates are sent.</li>
+      <li><b>Never sent to Anthropic:</b> Your notes, name, email, photo, sex logs, pregnancy test results and pregnancy details. Symptoms you added yourself are sent by the name you gave them.</li>
       <li><b>How it travels:</b> It goes through our server at nilemy.com to Anthropic, and Claude processes it in the US. Our server checks that the request comes from your account and passes it on without your account details. Today’s date goes only to our server, so it keeps one note a day. Anthropic doesn’t train its models on it and deletes it within 30 days under its own terms.</li>
       <li><b>How long it’s kept:</b> On our server, with your account ID, the last daily note for up to two days and the latest repeats for up to 60 days. Both are deleted when you turn the features off, delete all data or delete your account.</li>
       <li><b>Turning them off:</b> Any time in Profile › Privacy and data › AI features.</li>
@@ -147,11 +148,11 @@
     <ul>
       <li>We use no analytics tools and collect no usage statistics.</li>
       <li>We don’t track you across apps and websites, and don’t use your advertising ID (IDFA / Android advertising ID).</li>
-      <li>We never sell your data or use it for ads.</li>
+      <li>We never sell your logs or use them for ads.</li>
     </ul>
 
     <h2>Ads in the free version</h2>
-    <p>A week after you install the app, the free version starts showing Google AdMob banner ads at the bottom of Home, History and Insights. During the first week the ads SDK isn’t started at all. Ads never appear on the screens where you log.</p>
+    <p>A week after you set up Nilemy, the free version starts showing Google AdMob banner ads at the bottom of Home, History and Insights. During the first week the ads SDK isn’t started at all. Ads never appear on the screens where you log.</p>
     <ul>
       <li><b><span class="nw">Non-personalised</span> ads only:</b> Ads aren’t chosen from your interests or history. No advertising ID is used, so the app doesn’t ask for tracking permission (App Tracking Transparency).</li>
       <li><b>Your health data is never used for ads:</b> Your period dates, symptoms, notes, name and account details are never given to the ad provider.</li>
@@ -173,7 +174,7 @@
       <li><b>Google (AdMob):</b> Technical details for ads, free version only.</li>
       <li><b>Apple App Store / Google Play:</b> Subscription and payment.</li>
     </ul>
-    <p><b>Transfers abroad:</b> These providers’ servers may be outside your country. Your consent to this is asked when you turn on your backup and the AI features. The provider can’t read the content of your encrypted backup.</p>
+    <p><b>Transfers abroad:</b> These providers’ servers may be outside your country. Your consent to this is asked when you turn on your backup and the AI features.</p>
 
     <h2>How long we keep data</h2>
     <ul>
@@ -190,7 +191,7 @@
     </ul>
 
     <h2>Phone backups</h2>
-    <p>If iCloud or Google backup is on, the encrypted data file may be included in it. The key stays on this phone, so the file can’t be opened on another device. To move your logs to a new phone, create an account or save your logs as a file.</p>
+    <p>If iCloud or Google backup is on, the encrypted data file may be included in it. The key stays on this phone, so the file can’t be opened on another device. To move your logs to a new phone, you need an account.</p>
 
     <h2>Your rights and controls</h2>
     <p>You can ask whether we process your data, what for and who receives it, and ask for it to be corrected, deleted or handed to you. You can also complain to your data protection authority. Most of this you can do yourself in the app:</p>

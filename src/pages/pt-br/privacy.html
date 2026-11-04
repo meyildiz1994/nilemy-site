@@ -1,6 +1,6 @@
     <h1>Política de privacidade</h1>
     <p class="updated">Última atualização: 4 de novembro de 2026</p>
-    <p class="lead">O Nilemy é um app para acompanhar seu ciclo menstrual e sua gravidez. Sem conta, seus registros ficam criptografados no seu celular e nada chega até nós. Com conta, seus registros são criptografados no seu celular antes do backup. Nunca vendemos seus dados nem os usamos para anúncios; eles só vão para nossos prestadores de serviço por uma função que você mesma ativa, como descrito abaixo.</p>
+    <p class="lead">O Nilemy é um app para acompanhar seu ciclo menstrual e sua gravidez. Sem conta, seus registros ficam criptografados no seu celular e nada chega até nós. Com conta, seus registros são criptografados no seu celular antes do backup. Nunca vendemos seus registros nem os usamos para anúncios; eles só vão para nossos prestadores de serviço por uma função que você mesma ativa, como descrito abaixo.</p>
 
     <h2>Controlador</h2>
     <p>Nilemy · <a href="mailto:info@nilemy.com">info@nilemy.com</a></p>
@@ -12,13 +12,14 @@
       <li>Se você está tentando engravidar: resultados de testes de ovulação e de gravidez</li>
       <li>Se você está grávida: data prevista do parto, peso, contagem de chutes, contrações, data, horário e notas das consultas e as listas de tarefas e da mala da maternidade</li>
       <li>Depois de uma gravidez: a data do nascimento e se você está amamentando, ou o dia em que uma gravidez terminou sem parto (nunca perguntamos o motivo)</li>
-      <li>O nome usado no Início e, se você adicionar, uma foto de perfil (fica criptografada no seu celular e nunca vai para o backup da sua conta)</li>
-      <li>Suas configurações: duração do ciclo e da menstruação, lembretes, bloqueio do app, tema e ícone do app</li>
+      <li>Se você não menstrua no momento: o motivo (pós-parto, amamentação, menopausa ou anticoncepcional) e desde quando</li>
+      <li>O nome usado no Início e, se você adicionar, uma foto de perfil (fica no seu celular e nunca vai para o backup da sua conta)</li>
+      <li>Suas configurações: modo de acompanhamento, se seus ciclos são regulares, duração do ciclo e da menstruação, lembretes, bloqueio do app, tema e ícone do app</li>
     </ul>
     <p>Parte desses dados é sensível pela LGPD (dados de saúde e de vida sexual). A senha do bloqueio do app nunca é guardada em texto puro; só fica um resumo irreversível e com sal (hash), que nunca sai do seu celular.</p>
 
-    <h2>Sem conta: tudo fica no seu celular</h2>
-    <p>A conta é opcional. Sem conta, tudo fica no seu celular em um único arquivo criptografado com AES-256. A chave fica no armazenamento seguro do celular (Keychain no iPhone, Keystore no Android) e não pode sair desse aparelho. Seus registros nunca são enviados para nós nem para ninguém. Se você apagar o app ou perder o celular, os registros também se perdem.</p>
+    <h2>Sem conta: seus registros ficam no seu celular</h2>
+    <p>A conta é opcional. Sem conta, tudo o que você registra fica no seu celular, criptografado com AES-256. A chave fica no armazenamento seguro do celular (Keychain no iPhone, Keystore no Android) e não pode sair desse aparelho. Seus registros nunca são enviados para nós nem para ninguém. Se você apagar o app ou perder o celular, os registros também se perdem.</p>
 
     <h2>Conta e backup criptografado</h2>
     <p>Você pode criar uma conta com Google, Apple (no iPhone) ou e-mail, para restaurar seus registros em um celular novo e manter vários celulares sincronizados. Nosso prestador de serviço é o Google Firebase (Firebase Authentication e Cloud Firestore).</p>
@@ -34,8 +35,8 @@
     <p>Dois recursos do Premium funcionam com o Claude, a IA da Anthropic: a nota do dia no Início (“Para você hoje”) e “O que se repete nos seus ciclos” na Análise. Um só ajuste ativa os dois. É preciso ter conta, e eles ficam desativados até você ativar. Antes de qualquer envio, você vê o que é enviado e seu consentimento separado é pedido; sem ele, nada é enviado.</p>
     <ul>
       <li><b>Enviado para a nota do dia:</b> Idioma, modo de acompanhamento, dia e fase do ciclo, dias até a próxima menstruação, se hoje é um dia fértil e se seus ciclos são irregulares, duração do ciclo e da menstruação, quantos ciclos você registrou, os sintomas e humores que se repetiram nos ciclos anteriores e o fluxo, a dor, o humor, a energia e os sintomas registrados hoje; se você está tentando engravidar, o resultado do teste de ovulação de hoje.</li>
-      <li><b>Enviado para “O que se repete nos seus ciclos”:</b> A duração dos seus últimos ciclos completos (no máximo 8) e, para cada dia registrado, o dia do ciclo, os dias até a próxima menstruação, fluxo, dor, humor, energia, sintomas e os produtos usados. Nenhuma data é enviada.</li>
-      <li><b>Nunca enviado:</b> Suas notas, seu nome, seu e-mail, sua foto, registros de relações, resultados de testes de gravidez e dados da gravidez.</li>
+      <li><b>Enviado para “O que se repete nos seus ciclos”:</b> O idioma, a duração do ciclo e da menstruação dos seus últimos ciclos completos (no máximo 8) e, para cada dia registrado, o dia do ciclo, os dias até a próxima menstruação, fluxo, dor, humor, energia, sintomas e os produtos usados. Nenhuma data é enviada.</li>
+      <li><b>Nunca enviado à Anthropic:</b> Suas notas, seu nome, seu e-mail, sua foto, registros de relações, resultados de testes de gravidez e dados da gravidez. Sintomas que você mesma adicionou vão com o nome que você deu a eles.</li>
       <li><b>Como é enviado:</b> Pelo nosso servidor em nilemy.com para a Anthropic; o Claude processa os dados nos EUA. Nosso servidor confere se o pedido vem da sua conta e o repassa sem os dados da sua conta. A data de hoje vai só para o nosso servidor, para guardar uma nota por dia. A Anthropic não usa esses dados para treinar seus modelos e os apaga em até 30 dias, conforme os próprios termos.</li>
       <li><b>Por quanto tempo fica:</b> No nosso servidor, com o ID da sua conta, a última nota do dia por no máximo dois dias e o último resultado do que se repete por no máximo 60 dias. Os dois são apagados quando você desativa os recursos, apaga todos os dados ou exclui sua conta.</li>
       <li><b>Como desativar:</b> A qualquer momento em Perfil › Privacidade e dados › Recursos de IA.</li>
@@ -55,11 +56,11 @@
     <ul>
       <li>Não usamos ferramentas de análise nem coletamos estatísticas de uso.</li>
       <li>Não rastreamos você entre apps e sites e não usamos seu identificador de publicidade (IDFA / ID de publicidade do Android).</li>
-      <li>Nunca vendemos seus dados nem os usamos para anúncios.</li>
+      <li>Nunca vendemos seus registros nem os usamos para anúncios.</li>
     </ul>
 
     <h2>Anúncios na versão gratuita</h2>
-    <p>Uma semana depois da instalação, a versão gratuita passa a mostrar banners do Google AdMob na parte de baixo do Início, do Histórico e da Análise. Na primeira semana, o SDK de anúncios nem é iniciado. Nunca aparecem anúncios nas telas em que você registra.</p>
+    <p>Uma semana depois da configuração inicial, a versão gratuita passa a mostrar banners do Google AdMob na parte de baixo do Início, do Histórico e da Análise. Na primeira semana, o SDK de anúncios nem é iniciado. Nunca aparecem anúncios nas telas em que você registra.</p>
     <ul>
       <li><b>Só anúncios não personalizados:</b> Os anúncios não são escolhidos pelos seus interesses ou pelo seu histórico. Nenhum identificador de publicidade é usado, por isso o app não pede permissão de rastreamento (App Tracking Transparency).</li>
       <li><b>Seus dados de saúde nunca são usados para anúncios:</b> Datas da menstruação, sintomas, notas, nome e dados da conta nunca vão para o fornecedor de anúncios.</li>
@@ -81,7 +82,7 @@
       <li><b>Google (AdMob):</b> Dados técnicos para anúncios, só na versão gratuita.</li>
       <li><b>Apple App Store / Google Play:</b> Assinatura e pagamento.</li>
     </ul>
-    <p><b>Transferência internacional:</b> Os servidores desses prestadores ficam fora do Brasil, inclusive nos EUA. Seu consentimento específico para isso é pedido quando você ativa o backup e os recursos de IA (LGPD, art. 33, VIII). O prestador não consegue ler o conteúdo do seu backup criptografado.</p>
+    <p><b>Transferência internacional:</b> Os servidores desses prestadores ficam fora do Brasil, inclusive nos EUA. Seu consentimento específico para isso é pedido quando você ativa o backup e os recursos de IA (LGPD, art. 33, VIII).</p>
 
     <h2>Por quanto tempo guardamos</h2>
     <ul>
@@ -98,7 +99,7 @@
     </ul>
 
     <h2>Backups do celular</h2>
-    <p>Se o backup do iCloud ou do Google estiver ativado, o arquivo criptografado pode entrar nele. A chave fica neste celular, então o arquivo não abre em outro aparelho. Para levar seus registros para um celular novo, crie uma conta ou salve seus registros em um arquivo.</p>
+    <p>Se o backup do iCloud ou do Google estiver ativado, o arquivo criptografado pode entrar nele. A chave fica neste celular, então o arquivo não abre em outro aparelho. Para levar seus registros para um celular novo, você precisa de uma conta.</p>
 
     <h2>Seus direitos</h2>
     <p>Pela LGPD (art. 18), você pode confirmar se tratamos seus dados, acessá-los, corrigi-los, pedir anonimização, bloqueio ou eliminação, pedir a portabilidade, saber com quem os compartilhamos e revogar seu consentimento. Você também pode reclamar à ANPD. A maior parte disso você faz sozinha no app:</p>

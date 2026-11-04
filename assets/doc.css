@@ -33,9 +33,11 @@ a { color: var(--brand); }
 /* Questions on the support page (the language menu is a <details> too, so these stay inside main). */
 main details { border-top: 1px solid var(--line); padding: 14px 0; }
 main details:last-of-type { border-bottom: 1px solid var(--line); }
-main summary { cursor: pointer; font-weight: 700; font-size: 17px; list-style: none; display: flex; justify-content: space-between; gap: 12px; }
+/* Plain block, not flex: a flex box would make each word kept together (.nw) its own item and
+   spread the question across the line. The sign sits in the padding on the right. */
+main summary { cursor: pointer; font-weight: 700; font-size: 17px; list-style: none; position: relative; padding-right: 28px; }
 main summary::-webkit-details-marker { display: none; }
-main summary::after { content: "+"; color: var(--brand); font-weight: 700; }
+main summary::after { content: "+"; color: var(--brand); font-weight: 700; position: absolute; top: 0; right: 0; }
 main details[open] summary::after { content: "–"; }
 main details p { margin: 10px 0 0; color: var(--muted); }
 footer { margin-top: 48px; font-size: 13px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 6px 16px; }
