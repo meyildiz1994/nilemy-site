@@ -16,7 +16,7 @@ The landing page (the app on the first screen, then our story and the footer) an
 ## Other files
 
 - `assets/doc.css` styles the text pages; the landing page has its CSS inline.
-- `assets/screens/<lang>-{home,history,insights,daily}.webp` are real app screens in each language (390×797 pt at 2×, under a drawn status bar). Regenerate them from a web export of the app when its look changes, and bump `SCREENS_VERSION` in `src/build.py`.
+- `assets/screens/<lang>-{home,fertile,period,history,insights,pregnancy,reminders}.webp` are real app screens in each language, made from the App Store raw shots (`app-review/2.1.0-ekran-goruntuleri/ham/` in the project files, 440×956 pt web export) scaled to 780×1594 under a drawn status bar. Regenerate them when the app's look changes, and bump `SCREENS_VERSION` in `src/build.py`.
 - Fonts (Plus Jakarta Sans) are served from `assets/fonts/`, with no calls to Google Fonts.
 - The App Store button links to the live listing. The Google Play button is marked as coming soon and goes nowhere until the Android app is out.
 - `favicon.ico` (16/32/48) and `assets/favicon-192.png` are the logo mark for browsers and search results.

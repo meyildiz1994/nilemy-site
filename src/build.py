@@ -25,8 +25,8 @@ SITE = 'https://nilemy.com'
 S = json.loads((SRC / 'strings.json').read_text(encoding='utf-8'))
 LANGS = list(S)  # Turkish first: it is the root
 PAGES = ['', 'story', 'privacy', 'terms', 'support']
-SCREENS = ['home', 'history', 'insights', 'daily']
-SCREENS_VERSION = 5  # bump when assets/screens change, so browsers fetch the new ones
+SCREENS = ['home', 'fertile', 'period', 'history', 'insights', 'pregnancy', 'reminders']
+SCREENS_VERSION = 6  # bump when assets/screens change, so browsers fetch the new ones
 DOC_CSS_VERSION = 2  # bump when assets/doc.css changes, for the same reason
 SHARE_IMAGE = '/assets/share.png'  # the picture shared links show, made from src/share.html (steps there)
 
