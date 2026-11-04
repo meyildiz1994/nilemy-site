@@ -1,0 +1,19 @@
+<!doctype html>
+<!-- The picture a shared link shows (WhatsApp, iMessage, X, Facebook...): assets/share.png, 1200×630.
+     The logo sits on the site's background, in the middle, so a square crop still holds all of it.
+     To change it: edit this page, open it in a browser window of exactly 1200×630, save a screenshot
+     as assets/share.png (keep it under 300 KB, or WhatsApp skips it) and give the file a new name or
+     bump SHARE_IMAGE in build.py, because apps keep old previews. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<title>Nilemy link preview</title>
+<style>
+  html, body { margin: 0; }
+  body { width: 1200px; height: 630px; overflow: hidden; background: #FCF5F6; display: grid; place-items: center; }
+  img { height: 380px; width: auto; display: block; }
+</style>
+</head>
+<body><img src="../assets/logo.svg" alt="Nilemy"></body>
+</html>

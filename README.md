@@ -20,6 +20,7 @@ The landing page (the app on the first screen, then our story and the footer) an
 - Fonts (Plus Jakarta Sans) are served from `assets/fonts/`, with no calls to Google Fonts.
 - The App Store button links to the live listing. The Google Play button is marked as coming soon and goes nowhere until the Android app is out.
 - `favicon.ico` (16/32/48) and `assets/favicon-192.png` are the logo mark for browsers and search results.
+- `assets/share.png` (1200×630) is the picture a shared link shows in WhatsApp, iMessage, X or Facebook: the logo on the site background, made from `src/share.html`. Every page points to it with Open Graph and X tags. Apps keep old previews for a while, so give a changed picture a new file name (`SHARE_IMAGE` in `src/build.py`).
 - `robots.txt` points crawlers to `sitemap.xml`. `app-ads.txt` is for AdMob and stays at the root.
 - `api/` is the server behind the app's Premium daily note, reached at `/api/` (set up with `deploy/add-api.sh`).
 - Hosting: Emre's Hostinger VPS (2.24.113.154), next to other projects behind a dockerized Caddy (`proxy-caddy-1`). An `nginx:alpine` container `nilemy-site` serves `/opt/nilemy-site`, and a systemd timer pulls `main` there every 2 minutes, so merging to `main` publishes. `deploy/add-to-vps.sh` sets this up (`stage`, `live` with HTTPS, or `remove`); it only edits a marked block at the end of the shared Caddyfile. `deploy/check-vps.sh` is a read-only look at the server. Until November 2026 the site was on GitHub Pages; `CNAME` is left over from that.
