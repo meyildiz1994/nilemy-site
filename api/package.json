@@ -3,10 +3,13 @@
   "private": true,
   "type": "module",
   "main": "server.mjs",
-  "engines": { "node": ">=22" },
-  "scripts": { "start": "node server.mjs" },
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start": "node server.mjs"
+  },
   "dependencies": {
-    "@anthropic-ai/sdk": "^1.4.0",
-    "firebase-admin": "^14.5.0"
+    "@anthropic-ai/sdk": "^1.4.0"
   }
 }
