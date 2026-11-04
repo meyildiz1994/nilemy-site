@@ -6,33 +6,93 @@
 <title>Destek · Nilemy</title>
 <meta name="description" content="Nilemy destek: sık sorulan sorular ve iletişim.">
 <meta name="theme-color" content="#FCF5F6">
+<script>
+  (function () {
+    var paths = { tr: '', en: '/en', de: '/de', fr: '/fr', 'pt-br': '/pt-br', it: '/it' };
+    var lang = null;
+    try { lang = localStorage.getItem('nilemy.lang'); } catch (e) {}
+    if (!paths.hasOwnProperty(lang)) {
+      lang = null;
+      if (/bot|crawl|spider|slurp|facebookexternalhit|lighthouse|preview/i.test(navigator.userAgent)) return;
+      var list = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ''];
+      for (var i = 0; i < list.length && !lang; i++) {
+        var code = String(list[i]).toLowerCase().slice(0, 2);
+        if (code === 'pt') code = 'pt-br';
+        if (paths.hasOwnProperty(code)) lang = code;
+      }
+      lang = lang || 'en';
+    }
+    if (lang !== 'tr') location.replace(paths[lang] + location.pathname + location.search + location.hash);
+  })();
+</script>
 <link rel="canonical" href="https://nilemy.com/support/">
+<link rel="alternate" hreflang="tr" href="https://nilemy.com/support/">
+<link rel="alternate" hreflang="en" href="https://nilemy.com/en/support/">
+<link rel="alternate" hreflang="de" href="https://nilemy.com/de/support/">
+<link rel="alternate" hreflang="fr" href="https://nilemy.com/fr/support/">
+<link rel="alternate" hreflang="pt-BR" href="https://nilemy.com/pt-br/support/">
+<link rel="alternate" hreflang="it" href="https://nilemy.com/it/support/">
+<link rel="alternate" hreflang="x-default" href="https://nilemy.com/support/">
 <link rel="icon" href="/favicon.ico" sizes="any">
-<link rel="icon" type="image/png" sizes="192x192" href="../assets/favicon-192.png">
-<link rel="icon" type="image/png" href="../assets/favicon.png">
-<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
-<link rel="preload" href="../assets/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../assets/fonts/fonts.css">
-<link rel="stylesheet" href="../assets/doc.css">
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192.png">
+<link rel="icon" type="image/png" href="/assets/favicon.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preload" href="/assets/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/fonts/fonts.css">
+<link rel="stylesheet" href="/assets/doc.css">
+<style>
+  .langs { position: relative; }
+  .langs summary {
+    list-style: none; cursor: pointer; display: inline-flex; align-items: center; gap: 6px;
+    font: 600 12px/1 var(--font); letter-spacing: .04em; color: var(--muted);
+    background: var(--blush); border-radius: 999px; padding: 9px 12px; user-select: none;
+  }
+  .langs summary::-webkit-details-marker { display: none; }
+  .langs summary svg { width: 14px; height: 14px; flex: none; }
+  .langs summary .chev { width: 10px; height: 10px; transition: transform .2s ease; }
+  .langs[open] summary { background: var(--brand); color: var(--bg); }
+  .langs[open] summary .chev { transform: rotate(180deg); }
+  .langs ul {
+    position: absolute; right: 0; top: calc(100% + 8px); z-index: 10; margin: 0; padding: 6px; list-style: none;
+    min-width: 200px; background: var(--bg); border: 1px solid var(--blush); border-radius: 16px;
+    box-shadow: 0 18px 40px -18px rgba(74, 21, 48, .45);
+  }
+  .langs a {
+    display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 10px 12px; border-radius: 10px;
+    color: var(--fg); text-decoration: none; font: 500 15px/1.2 var(--font);
+  }
+  .langs a:hover { background: var(--blush); }
+  .langs a[aria-current="true"] { color: var(--brand); font-weight: 700; }
+  .langs a span { color: var(--muted); font-size: 12px; font-weight: 600; letter-spacing: .04em; }
+  .langs summary:focus-visible, .langs a:focus-visible { outline: 3px solid var(--brand); outline-offset: 2px; }
+  @media (prefers-reduced-motion: reduce) { .langs summary .chev { transition: none; } }
+</style>
 </head>
 <body>
 <div class="wrap">
   <header class="top">
-    <a class="home" href="../"><img src="../assets/mark.svg" alt="">Nilemy</a>
+    <a class="home" href="/"><img src="/assets/mark.svg" alt="">Nilemy</a>
     <nav class="topbar">
-      <a class="nav-link" href="../story/"><span data-lang-block="tr">Hikayemiz</span><span data-lang-block="en" hidden>Our story</span></a>
-      <div class="lang" role="group" aria-label="Language">
-        <button type="button" id="lang-tr" data-lang="tr" aria-pressed="true">TR</button>
-        <button type="button" id="lang-en" data-lang="en" aria-pressed="false">EN</button>
-      </div>
+      <a class="nav-link" href="/story/">Hikayemiz</a>
+      <details class="langs">
+    <summary aria-label="Dil: Türkçe"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-5.7-3.8-9S9.5 5.7 12 3z"/></svg>TR<svg class="chev" viewBox="0 0 10 10" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3.5l3 3 3-3"/></svg></summary>
+    <ul>
+      <li><a href="/support/" hreflang="tr" lang="tr" data-lang="tr" aria-current="true">Türkçe <span>TR</span></a></li>
+      <li><a href="/en/support/" hreflang="en" lang="en" data-lang="en">English <span>EN</span></a></li>
+      <li><a href="/de/support/" hreflang="de" lang="de" data-lang="de">Deutsch <span>DE</span></a></li>
+      <li><a href="/fr/support/" hreflang="fr" lang="fr" data-lang="fr">Français <span>FR</span></a></li>
+      <li><a href="/pt-br/support/" hreflang="pt-BR" lang="pt-BR" data-lang="pt-br">Português (Brasil) <span>PT</span></a></li>
+      <li><a href="/it/support/" hreflang="it" lang="it" data-lang="it">Italiano <span>IT</span></a></li>
+    </ul>
+  </details>
     </nav>
   </header>
 
-  <main data-lang-block="tr">
-    <h1 data-title="Destek · Nilemy">Destek</h1>
+  <main>
+    <h1>Destek</h1>
     <p class="lead">Bir sorun mu yaşıyorsun ya da bir önerin mi var? Bize yaz, en kısa sürede dönelim.</p>
     <div class="card">
-      <b>E-posta</b>
+      <b><span class="nw">E-posta</span></b>
       <div class="mail"><code>info@nilemy.com</code><button type="button" class="copy" data-copy="info@nilemy.com" data-done="Kopyalandı">Kopyala</button></div>
       <p class="social-line">Bizi takip et: <a href="https://www.instagram.com/nilemy.app/" target="_blank" rel="me noopener">Instagram</a> · <a href="https://www.tiktok.com/@nilemy.app" target="_blank" rel="me noopener">TikTok</a> · <a href="https://www.linkedin.com/company/nilemy/" target="_blank" rel="me noopener">LinkedIn</a></p>
     </div>
@@ -44,27 +104,31 @@
     </details>
     <details>
       <summary>Yeni telefona geçince kayıtlarım gelir mi?</summary>
-      <p>Hesabın varsa evet: yeni telefonda aynı yöntemle giriş yap, kayıtların kendiliğinden gelir. Hesabın yoksa kendiliğinden gelmez; eski telefonunda Ben → Giriş yap ile hesap açabilir ya da Ben → Verilerin → Dışa aktar ile bir kopya alabilirsin.</p>
+      <p>Hesabın varsa evet: yeni telefonda aynı yöntemle giriş yap, kayıtların kendiliğinden gelir. Hesabın yoksa kendiliğinden gelmez; eski telefonunda Profil › Giriş yap ya da hesap aç ile hesap açabilir ya da Profil › Gizlilik ve veriler › Verilerin bölümünden kayıtlarını dosya olarak alabilirsin.</p>
     </details>
     <details>
       <summary>Giriş parolamı unuttum.</summary>
-      <p>E-postayla giriş ekranında “Parolanı mı unuttun?”a dokun; sıfırlama bağlantısı e-postana gelir.</p>
+      <p><span class="nw">E-postayla</span> giriş ekranında “Parolanı mı unuttun?”a dokun; sıfırlama bağlantısı <span class="nw">e-postana</span> gelir.</p>
     </details>
     <details>
       <summary>Hesabımı nasıl silerim?</summary>
-      <p>Ben → Hesap → Hesabı sil. Şifreli yedeğin ve hesabın sunucudan, kayıtların ve ayarların da telefonundan kalıcı olarak silinir. İstersen önce Ben → Verilerin → Dışa aktar ile bir kopya al. Uygulamaya erişemiyorsan info@nilemy.com adresine hesabının e-postasından yaz.</p>
+      <p>Profil › Hesap › Hesabı sil. Şifreli yedeğin ve hesabın sunucudan, kayıtların ve ayarların da telefonundan kalıcı olarak silinir. İstersen önce Profil › Gizlilik ve veriler › Verilerin bölümünden bir kopya al. Uygulamaya erişemiyorsan info@nilemy.com adresine hesabının <span class="nw">e-postasından</span> yaz.</p>
     </details>
     <details>
       <summary>Premium aboneliğimi nasıl iptal ederim?</summary>
-      <p>Ben → Nilemy Premium → Aboneliği yönet, ya da iPhone’da Ayarlar → adın → Abonelikler, Android’de Google Play → Ödemeler ve abonelikler. İptal edersen Premium ödediğin dönemin sonuna kadar açık kalır. İadeler Apple ya da Google tarafından yapılır.</p>
+      <p>Profil › Nilemy Premium › Aboneliği yönet, ya da iPhone’da Ayarlar › adın › Abonelikler, Android’de Google Play › Ödemeler ve abonelikler. İptal edersen Premium ödediğin dönemin sonuna kadar açık kalır. İadeler Apple ya da Google tarafından yapılır.</p>
     </details>
     <details>
       <summary>Neden reklam görüyorum?</summary>
-      <p>Ücretsiz sürüm, ilk haftadan sonra Ana sayfa, Geçmiş ve Analiz ekranlarının altında Google AdMob reklamları gösterir. Reklamlar kişiselleştirilmez ve kayıtların reklam için kullanılmaz. Reklamları kaldırmak için reklamın üstündeki “Reklamları kaldır”a dokun ya da Ben → Nilemy Premium’dan abone ol.</p>
+      <p>Ücretsiz sürüm, ilk haftadan sonra Ana sayfa, Geçmiş ve Analiz ekranlarının altında Google AdMob reklamları gösterir. Reklamlar kişiselleştirilmez ve kayıtların reklam için kullanılmaz. Reklamları kaldırmak için reklamın üstündeki “Reklamları kaldır”a dokun ya da Profil › Nilemy Premium’dan abone ol.</p>
+    </details>
+    <details>
+      <summary>“Senin için bugün” notu nedir?</summary>
+      <p>Premium’da Ana sayfada, kayıtlarına göre o güne dair kısa bir not. Notu Claude yapay zekâsı yazar; bunun için hesabın olmalı ve notu açmalısın. Notların, adın ve ilişki kayıtların gönderilmez. Profil › Gizlilik ve veriler › Günlük not’tan istediğin an kapatabilirsin.</p>
     </details>
     <details>
       <summary>Hamilelik modunu nasıl açarım?</summary>
-      <p>Ben → Takip modu → Hamileyim’i seç, sonra tahmini doğum tarihini ya da son adet tarihini gir. Ana sayfa haftanı, doğuma kalan günleri ve bebeğinin boyunu gösterir; tekme sayacı, kasılma sayacı, kilo, kontroller ve hastane çantası listesi de burada. Hamileliğin bitince aynı ekrandan seçebilirsin.</p>
+      <p>Profil › Takip modu › Hamileyim’i seç, sonra tahmini doğum tarihini ya da son adet tarihini gir. Ana sayfa haftanı, doğuma kalan günleri ve bebeğinin boyunu gösterir; tekme sayacı, kasılma sayacı, kilo, kontroller ve hastane çantası listesi de burada. Hamileliğin bitince aynı ekrandan seçebilirsin.</p>
     </details>
     <details>
       <summary>Tahminler nasıl hesaplanıyor?</summary>
@@ -72,19 +136,19 @@
     </details>
     <details>
       <summary>Uygulama şifremi unuttum.</summary>
-      <p>Face ID ya da parmak izi açıksa kilidi onunla açabilir, sonra Ben → Uygulama kilidi bölümünden şifreni değiştirebilirsin. Şifreni biz de bilmiyoruz; biyometrik kilit kapalıysa kayıtlara ulaşmanın tek yolu uygulamayı silip yeniden yüklemektir, bu da kayıtları siler.</p>
+      <p>Face ID ya da parmak izi açıksa kilidi onunla açabilir, sonra Profil › Gizlilik ve veriler › Uygulama kilidi bölümünden şifreni değiştirebilirsin. Şifreni biz de bilmiyoruz; biyometrik kilit kapalıysa kayıtlara ulaşmanın tek yolu uygulamayı silip yeniden yüklemektir, bu da kayıtları siler.</p>
     </details>
     <details>
       <summary>Hatırlatıcılar gelmiyor.</summary>
-      <p>Telefonunun Ayarlar → Bildirimler bölümünde Nilemy’nin bildirimlerine izin verdiğinden emin ol. Sonra uygulamada Ben → Hatırlatıcılar’ın açık olduğunu kontrol et.</p>
+      <p>Telefonunun Ayarlar › Bildirimler bölümünde Nilemy’nin bildirimlerine izin verdiğinden emin ol. Sonra uygulamada Profil › Hatırlatıcılar’ın açık olduğunu kontrol et.</p>
     </details>
     <details>
       <summary>Dili nasıl değiştiririm?</summary>
-      <p>Ben → Dil bölümünden Türkçe ya da İngilizce seçebilirsin.</p>
+      <p>Nilemy telefonunun dilini kullanır: Türkçe, İngilizce, Almanca, Fransızca, Portekizce (Brezilya) ya da İtalyanca. Telefonun başka bir dildeyse İngilizce açılır. Yalnızca Nilemy’nin dilini değiştirmek için iPhone’da Ayarlar › Nilemy › Dil, Android’de Ayarlar › Uygulamalar › Nilemy › Dil bölümünü kullan.</p>
     </details>
     <details>
       <summary>Tüm verilerimi nasıl silerim?</summary>
-      <p>Ben → Verilerin → Tüm verileri sil, bu telefondaki her şeyi siler. Hesabın varsa yedeğini de silmek için Ben → Hesap → Hesabı sil’i kullan; o, telefondaki kayıtları da siler. Bu işlemler geri alınamaz.</p>
+      <p>Profil › Gizlilik ve veriler › Verilerin › Tüm verileri sil, bu telefondaki her şeyi siler. Hesabın varsa yedeğini de silmek için Profil › Hesap › Hesabı sil’i kullan; o, telefondaki kayıtları da siler. Bu işlemler geri alınamaz.</p>
     </details>
     <details>
       <summary>Nilemy doğum kontrolü için kullanılabilir mi?</summary>
@@ -92,82 +156,18 @@
     </details>
   </main>
 
-  <main data-lang-block="en" hidden>
-    <h1 data-title="Support · Nilemy">Support</h1>
-    <p class="lead">Something not working, or have an idea? Write to us and we’ll get back to you as soon as we can.</p>
-    <div class="card">
-      <b>Email</b>
-      <div class="mail"><code>info@nilemy.com</code><button type="button" class="copy" data-copy="info@nilemy.com" data-done="Copied">Copy</button></div>
-      <p class="social-line">Follow us: <a href="https://www.instagram.com/nilemy.app/" target="_blank" rel="me noopener">Instagram</a> · <a href="https://www.tiktok.com/@nilemy.app" target="_blank" rel="me noopener">TikTok</a> · <a href="https://www.linkedin.com/company/nilemy/" target="_blank" rel="me noopener">LinkedIn</a></p>
-    </div>
-
-    <h2>Common questions</h2>
-    <details>
-      <summary>Where are my logs kept?</summary>
-      <p>On your phone, encrypted. An account is optional; with one, your logs are encrypted on your phone before they’re backed up. We don’t look at your logs.</p>
-    </details>
-    <details>
-      <summary>Will my logs move to a new phone?</summary>
-      <p>With an account, yes: sign in the same way on the new phone and your logs come back. Without one they don’t move on their own; on your old phone, create an account with Me → Sign in, or make a copy with Me → Your data → Export.</p>
-    </details>
-    <details>
-      <summary>I forgot my sign-in password.</summary>
-      <p>On the email sign-in screen, tap “Forgot password?” and a reset link is emailed to you.</p>
-    </details>
-    <details>
-      <summary>How do I delete my account?</summary>
-      <p>Me → Account → Delete account. Your encrypted backup and your account are permanently removed from the server, and your logs and settings are removed from your phone. Export a copy first in Me → Your data → Export if you want one. If you can’t open the app, email info@nilemy.com from your account’s email address.</p>
-    </details>
-    <details>
-      <summary>How do I cancel my Premium subscription?</summary>
-      <p>Me → Nilemy Premium → Manage subscription, or on iPhone Settings → your name → Subscriptions, on Android Google Play → Payments &amp; subscriptions. If you cancel, Premium stays on until the end of the period you paid for. Refunds are handled by Apple or Google.</p>
-    </details>
-    <details>
-      <summary>Why do I see ads?</summary>
-      <p>After the first week, the free version shows Google AdMob ads at the bottom of Home, History and Insights. Ads are never personalised and your logs are never used for ads. To remove them, tap “Remove ads” above an ad, or subscribe in Me → Nilemy Premium.</p>
-    </details>
-    <details>
-      <summary>How do I turn on pregnancy mode?</summary>
-      <p>Choose Me → Tracking mode → I’m pregnant, then enter your due date or your last period. Home shows your week, the days to go and your baby’s size; the kick counter, contraction timer, weight, checkups and hospital bag list are there too. When your pregnancy is over, choose that on the same screen.</p>
-    </details>
-    <details>
-      <summary>How are estimates worked out?</summary>
-      <p>At first, the cycle length you entered is used. Once you’ve logged two cycles, the average of your last six takes over. If your cycles are irregular, you see a range instead of a single date. Estimates are for information only.</p>
-    </details>
-    <details>
-      <summary>I forgot my app passcode.</summary>
-      <p>If Face ID or fingerprint is on, unlock with it, then change your passcode in Me → App lock. We don’t know your passcode either; if biometric unlock is off, the only way back in is to delete and reinstall the app, which deletes your logs.</p>
-    </details>
-    <details>
-      <summary>Reminders aren’t arriving.</summary>
-      <p>Check that notifications are allowed for Nilemy in your phone’s Settings → Notifications, then check that Me → Reminders is on in the app.</p>
-    </details>
-    <details>
-      <summary>How do I change the language?</summary>
-      <p>Choose Turkish or English in Me → Language.</p>
-    </details>
-    <details>
-      <summary>How do I delete all my data?</summary>
-      <p>Me → Your data → Delete all data removes everything on this phone. If you have an account, use Me → Account → Delete account to remove your backup too; it also clears this phone. This can’t be undone.</p>
-    </details>
-    <details>
-      <summary>Can I use Nilemy for contraception?</summary>
-      <p>No. Estimates are not a reliable way to prevent pregnancy. Nilemy isn’t a medical device; talk to a healthcare professional about any health concerns.</p>
-    </details>
-  </main>
-
   <footer>
     <span>© 2026 Nilemy</span>
-    <a href="../">nilemy.com</a>
-    <a href="../story/">Hikayemiz / Our story</a>
-    <a href="../privacy/">Gizlilik / Privacy</a>
-    <a href="../terms/">Koşullar / Terms</a>
-    <a href="../support/">Destek / Support</a>
+    <a href="/">nilemy.com</a>
+    <a href="/story/">Hikayemiz</a>
+    <a href="/privacy/">Gizlilik</a>
+    <a href="/terms/">Koşullar</a>
+    <a href="/support/">Destek</a>
     <a href="https://www.instagram.com/nilemy.app/" target="_blank" rel="me noopener">Instagram</a>
     <a href="https://www.tiktok.com/@nilemy.app" target="_blank" rel="me noopener">TikTok</a>
     <a href="https://www.linkedin.com/company/nilemy/" target="_blank" rel="me noopener">LinkedIn</a>
   </footer>
 </div>
-<script src="../assets/doc.js"></script>
+<script src="/assets/site.js" defer></script>
 </body>
 </html>

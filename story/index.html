@@ -6,30 +6,90 @@
 <title>Hikayemiz · Nilemy</title>
 <meta name="description" content="Nilemy’nin hikayesi: kişisel bir ihtiyaçla başladı, birlikte hayata geçirdik.">
 <meta name="theme-color" content="#FCF5F6">
+<script>
+  (function () {
+    var paths = { tr: '', en: '/en', de: '/de', fr: '/fr', 'pt-br': '/pt-br', it: '/it' };
+    var lang = null;
+    try { lang = localStorage.getItem('nilemy.lang'); } catch (e) {}
+    if (!paths.hasOwnProperty(lang)) {
+      lang = null;
+      if (/bot|crawl|spider|slurp|facebookexternalhit|lighthouse|preview/i.test(navigator.userAgent)) return;
+      var list = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ''];
+      for (var i = 0; i < list.length && !lang; i++) {
+        var code = String(list[i]).toLowerCase().slice(0, 2);
+        if (code === 'pt') code = 'pt-br';
+        if (paths.hasOwnProperty(code)) lang = code;
+      }
+      lang = lang || 'en';
+    }
+    if (lang !== 'tr') location.replace(paths[lang] + location.pathname + location.search + location.hash);
+  })();
+</script>
 <link rel="canonical" href="https://nilemy.com/story/">
+<link rel="alternate" hreflang="tr" href="https://nilemy.com/story/">
+<link rel="alternate" hreflang="en" href="https://nilemy.com/en/story/">
+<link rel="alternate" hreflang="de" href="https://nilemy.com/de/story/">
+<link rel="alternate" hreflang="fr" href="https://nilemy.com/fr/story/">
+<link rel="alternate" hreflang="pt-BR" href="https://nilemy.com/pt-br/story/">
+<link rel="alternate" hreflang="it" href="https://nilemy.com/it/story/">
+<link rel="alternate" hreflang="x-default" href="https://nilemy.com/story/">
 <link rel="icon" href="/favicon.ico" sizes="any">
-<link rel="icon" type="image/png" sizes="192x192" href="../assets/favicon-192.png">
-<link rel="icon" type="image/png" href="../assets/favicon.png">
-<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
-<link rel="preload" href="../assets/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../assets/fonts/fonts.css">
-<link rel="stylesheet" href="../assets/doc.css">
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192.png">
+<link rel="icon" type="image/png" href="/assets/favicon.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preload" href="/assets/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/fonts/fonts.css">
+<link rel="stylesheet" href="/assets/doc.css">
+<style>
+  .langs { position: relative; }
+  .langs summary {
+    list-style: none; cursor: pointer; display: inline-flex; align-items: center; gap: 6px;
+    font: 600 12px/1 var(--font); letter-spacing: .04em; color: var(--muted);
+    background: var(--blush); border-radius: 999px; padding: 9px 12px; user-select: none;
+  }
+  .langs summary::-webkit-details-marker { display: none; }
+  .langs summary svg { width: 14px; height: 14px; flex: none; }
+  .langs summary .chev { width: 10px; height: 10px; transition: transform .2s ease; }
+  .langs[open] summary { background: var(--brand); color: var(--bg); }
+  .langs[open] summary .chev { transform: rotate(180deg); }
+  .langs ul {
+    position: absolute; right: 0; top: calc(100% + 8px); z-index: 10; margin: 0; padding: 6px; list-style: none;
+    min-width: 200px; background: var(--bg); border: 1px solid var(--blush); border-radius: 16px;
+    box-shadow: 0 18px 40px -18px rgba(74, 21, 48, .45);
+  }
+  .langs a {
+    display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 10px 12px; border-radius: 10px;
+    color: var(--fg); text-decoration: none; font: 500 15px/1.2 var(--font);
+  }
+  .langs a:hover { background: var(--blush); }
+  .langs a[aria-current="true"] { color: var(--brand); font-weight: 700; }
+  .langs a span { color: var(--muted); font-size: 12px; font-weight: 600; letter-spacing: .04em; }
+  .langs summary:focus-visible, .langs a:focus-visible { outline: 3px solid var(--brand); outline-offset: 2px; }
+  @media (prefers-reduced-motion: reduce) { .langs summary .chev { transition: none; } }
+</style>
 </head>
 <body>
 <div class="wrap">
   <header class="top">
-    <a class="home" href="../"><img src="../assets/mark.svg" alt="">Nilemy</a>
+    <a class="home" href="/"><img src="/assets/mark.svg" alt="">Nilemy</a>
     <nav class="topbar">
-      <a class="nav-link" href="../story/" aria-current="page"><span data-lang-block="tr">Hikayemiz</span><span data-lang-block="en" hidden>Our story</span></a>
-      <div class="lang" role="group" aria-label="Language">
-        <button type="button" id="lang-tr" data-lang="tr" aria-pressed="true">TR</button>
-        <button type="button" id="lang-en" data-lang="en" aria-pressed="false">EN</button>
-      </div>
+      <a class="nav-link" href="/story/" aria-current="page">Hikayemiz</a>
+      <details class="langs">
+    <summary aria-label="Dil: Türkçe"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-5.7-3.8-9S9.5 5.7 12 3z"/></svg>TR<svg class="chev" viewBox="0 0 10 10" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3.5l3 3 3-3"/></svg></summary>
+    <ul>
+      <li><a href="/story/" hreflang="tr" lang="tr" data-lang="tr" aria-current="true">Türkçe <span>TR</span></a></li>
+      <li><a href="/en/story/" hreflang="en" lang="en" data-lang="en">English <span>EN</span></a></li>
+      <li><a href="/de/story/" hreflang="de" lang="de" data-lang="de">Deutsch <span>DE</span></a></li>
+      <li><a href="/fr/story/" hreflang="fr" lang="fr" data-lang="fr">Français <span>FR</span></a></li>
+      <li><a href="/pt-br/story/" hreflang="pt-BR" lang="pt-BR" data-lang="pt-br">Português (Brasil) <span>PT</span></a></li>
+      <li><a href="/it/story/" hreflang="it" lang="it" data-lang="it">Italiano <span>IT</span></a></li>
+    </ul>
+  </details>
     </nav>
   </header>
 
-    <main class="story" data-lang-block="tr">
-    <h1 data-title="Hikayemiz · Nilemy">Kişisel bir ihtiyaçla başladı. Birlikte hayata geçirdik.</h1>
+  <main class="story">
+    <h1>Kişisel bir ihtiyaçla başladı. Birlikte hayata geçirdik.</h1>
     <p>Nilemy’nin hikayesi bir kadının ihtiyacıyla başladı: Adet döngüsünü takip etmek için kullanmaktan memnun kalacağı bir uygulama bulamıyordu.</p>
     <p>Nasıl bir uygulama olsa gerçekten kullanmak isterdik diye düşünmeye, konuşmaya başladık. Sade, kullanımı kolay ve günlük hayatta gerçekten işe yarayan bir şey yapmak istiyorduk.</p>
     <p>Başlangıçta yalnızca aramızda konuştuğumuz bir fikirdi. Sonra bunu birlikte hayata geçirmeye karar verdik.</p>
@@ -42,38 +102,22 @@
     <p>Başlangıçta yalnızca kendi hayatımızda ihtiyaç duyduğumuz bir şeyi yapmak istemiştik. Şimdi ise aynı ihtiyacı yaşayan başka kadınların da kullanabileceği bir uygulamamız var.</p>
     <p class="end">Nilemy böyle ortaya çıktı.</p>
     <p class="made">Üzerine epey düşünülerek tasarlandı.</p>
-    <a class="back" href="../">← nilemy.com</a>
-  </main>
-
-  <main class="story" data-lang-block="en" hidden>
-    <h1 data-title="Our story · Nilemy">It started with a personal need. We made it together.</h1>
-    <p>Nilemy started with a simple problem: one of us couldn’t find a period tracker she actually wanted to use.</p>
-    <p>We talked about what a better one might look like. Something straightforward, easy to use, and helpful in life.</p>
-    <p>What began as a conversation between the two of us slowly turned into something we decided to build together.</p>
-    <p>From the very beginning, we worked on every part of Nilemy as a team. The name, the colors, the brand, the design, the content, the code, and all the little decisions in between.</p>
-    <p>We had a lot to figure out. We learned new things, changed our minds more than once, and spent a surprising amount of time on details that might seem small to anyone else.</p>
-    <p>But there was also something personal behind all that work.</p>
-    <p>Nilemy came from her own experience as a woman. And for him, making something that could make her everyday life a little easier was reason enough to care about every detail just as much.</p>
-    <p>That mattered to both of us.</p>
-    <p>We took Nilemy from an idea to a real app, working through every step together.</p>
-    <p>It started as something we wanted for ourselves. Now, we’ve made it for anyone who’s been looking for a simpler way to track their period.</p>
-    <p class="end">And that’s how Nilemy came to be.</p>
-    <p class="made">Made with care (and a lot of design decisions).</p>
-    <a class="back" href="../">← nilemy.com</a>
+    <a class="back" href="/">← nilemy.com</a>
+  
   </main>
 
   <footer>
     <span>© 2026 Nilemy</span>
-    <a href="../">nilemy.com</a>
-    <a href="../story/">Hikayemiz / Our story</a>
-    <a href="../privacy/">Gizlilik / Privacy</a>
-    <a href="../terms/">Koşullar / Terms</a>
-    <a href="../support/">Destek / Support</a>
+    <a href="/">nilemy.com</a>
+    <a href="/story/">Hikayemiz</a>
+    <a href="/privacy/">Gizlilik</a>
+    <a href="/terms/">Koşullar</a>
+    <a href="/support/">Destek</a>
     <a href="https://www.instagram.com/nilemy.app/" target="_blank" rel="me noopener">Instagram</a>
     <a href="https://www.tiktok.com/@nilemy.app" target="_blank" rel="me noopener">TikTok</a>
     <a href="https://www.linkedin.com/company/nilemy/" target="_blank" rel="me noopener">LinkedIn</a>
   </footer>
 </div>
-<script src="../assets/doc.js"></script>
+<script src="/assets/site.js" defer></script>
 </body>
 </html>

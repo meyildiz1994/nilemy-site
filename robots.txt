@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /src/
 
 Sitemap: https://nilemy.com/sitemap.xml

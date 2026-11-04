@@ -4,50 +4,110 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Kullanım koşulları · Nilemy</title>
-<meta name="description" content="Nilemy kullanım koşulları: uygulamanın kullanımı, isteğe bağlı hesap, Premium aboneliği ve reklamlar.">
+<meta name="description" content="Nilemy kullanım koşulları ve Premium abonelik bilgileri.">
 <meta name="theme-color" content="#FCF5F6">
+<script>
+  (function () {
+    var paths = { tr: '', en: '/en', de: '/de', fr: '/fr', 'pt-br': '/pt-br', it: '/it' };
+    var lang = null;
+    try { lang = localStorage.getItem('nilemy.lang'); } catch (e) {}
+    if (!paths.hasOwnProperty(lang)) {
+      lang = null;
+      if (/bot|crawl|spider|slurp|facebookexternalhit|lighthouse|preview/i.test(navigator.userAgent)) return;
+      var list = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ''];
+      for (var i = 0; i < list.length && !lang; i++) {
+        var code = String(list[i]).toLowerCase().slice(0, 2);
+        if (code === 'pt') code = 'pt-br';
+        if (paths.hasOwnProperty(code)) lang = code;
+      }
+      lang = lang || 'en';
+    }
+    if (lang !== 'tr') location.replace(paths[lang] + location.pathname + location.search + location.hash);
+  })();
+</script>
 <link rel="canonical" href="https://nilemy.com/terms/">
+<link rel="alternate" hreflang="tr" href="https://nilemy.com/terms/">
+<link rel="alternate" hreflang="en" href="https://nilemy.com/en/terms/">
+<link rel="alternate" hreflang="de" href="https://nilemy.com/de/terms/">
+<link rel="alternate" hreflang="fr" href="https://nilemy.com/fr/terms/">
+<link rel="alternate" hreflang="pt-BR" href="https://nilemy.com/pt-br/terms/">
+<link rel="alternate" hreflang="it" href="https://nilemy.com/it/terms/">
+<link rel="alternate" hreflang="x-default" href="https://nilemy.com/terms/">
 <link rel="icon" href="/favicon.ico" sizes="any">
-<link rel="icon" type="image/png" sizes="192x192" href="../assets/favicon-192.png">
-<link rel="icon" type="image/png" href="../assets/favicon.png">
-<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
-<link rel="preload" href="../assets/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../assets/fonts/fonts.css">
-<link rel="stylesheet" href="../assets/doc.css">
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192.png">
+<link rel="icon" type="image/png" href="/assets/favicon.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preload" href="/assets/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/fonts/fonts.css">
+<link rel="stylesheet" href="/assets/doc.css">
+<style>
+  .langs { position: relative; }
+  .langs summary {
+    list-style: none; cursor: pointer; display: inline-flex; align-items: center; gap: 6px;
+    font: 600 12px/1 var(--font); letter-spacing: .04em; color: var(--muted);
+    background: var(--blush); border-radius: 999px; padding: 9px 12px; user-select: none;
+  }
+  .langs summary::-webkit-details-marker { display: none; }
+  .langs summary svg { width: 14px; height: 14px; flex: none; }
+  .langs summary .chev { width: 10px; height: 10px; transition: transform .2s ease; }
+  .langs[open] summary { background: var(--brand); color: var(--bg); }
+  .langs[open] summary .chev { transform: rotate(180deg); }
+  .langs ul {
+    position: absolute; right: 0; top: calc(100% + 8px); z-index: 10; margin: 0; padding: 6px; list-style: none;
+    min-width: 200px; background: var(--bg); border: 1px solid var(--blush); border-radius: 16px;
+    box-shadow: 0 18px 40px -18px rgba(74, 21, 48, .45);
+  }
+  .langs a {
+    display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 10px 12px; border-radius: 10px;
+    color: var(--fg); text-decoration: none; font: 500 15px/1.2 var(--font);
+  }
+  .langs a:hover { background: var(--blush); }
+  .langs a[aria-current="true"] { color: var(--brand); font-weight: 700; }
+  .langs a span { color: var(--muted); font-size: 12px; font-weight: 600; letter-spacing: .04em; }
+  .langs summary:focus-visible, .langs a:focus-visible { outline: 3px solid var(--brand); outline-offset: 2px; }
+  @media (prefers-reduced-motion: reduce) { .langs summary .chev { transition: none; } }
+</style>
 </head>
 <body>
 <div class="wrap">
   <header class="top">
-    <a class="home" href="../"><img src="../assets/mark.svg" alt="">Nilemy</a>
+    <a class="home" href="/"><img src="/assets/mark.svg" alt="">Nilemy</a>
     <nav class="topbar">
-      <a class="nav-link" href="../story/"><span data-lang-block="tr">Hikayemiz</span><span data-lang-block="en" hidden>Our story</span></a>
-      <div class="lang" role="group" aria-label="Language">
-        <button type="button" id="lang-tr" data-lang="tr" aria-pressed="true">TR</button>
-        <button type="button" id="lang-en" data-lang="en" aria-pressed="false">EN</button>
-      </div>
+      <a class="nav-link" href="/story/">Hikayemiz</a>
+      <details class="langs">
+    <summary aria-label="Dil: Türkçe"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-5.7-3.8-9S9.5 5.7 12 3z"/></svg>TR<svg class="chev" viewBox="0 0 10 10" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3.5l3 3 3-3"/></svg></summary>
+    <ul>
+      <li><a href="/terms/" hreflang="tr" lang="tr" data-lang="tr" aria-current="true">Türkçe <span>TR</span></a></li>
+      <li><a href="/en/terms/" hreflang="en" lang="en" data-lang="en">English <span>EN</span></a></li>
+      <li><a href="/de/terms/" hreflang="de" lang="de" data-lang="de">Deutsch <span>DE</span></a></li>
+      <li><a href="/fr/terms/" hreflang="fr" lang="fr" data-lang="fr">Français <span>FR</span></a></li>
+      <li><a href="/pt-br/terms/" hreflang="pt-BR" lang="pt-BR" data-lang="pt-br">Português (Brasil) <span>PT</span></a></li>
+      <li><a href="/it/terms/" hreflang="it" lang="it" data-lang="it">Italiano <span>IT</span></a></li>
+    </ul>
+  </details>
     </nav>
   </header>
 
-  <main data-lang-block="tr">
-    <h1 data-title="Kullanım koşulları · Nilemy">Kullanım koşulları</h1>
-    <p class="updated">Son güncelleme: 12 Ekim 2026</p>
-    <p class="lead">Nilemy’yi indirerek ve kullanarak bu koşulları kabul etmiş olursun. Kişisel verilerinin nasıl işlendiğini <a href="../privacy/">Gizlilik politikası</a> anlatır.</p>
+  <main>
+    <h1>Kullanım koşulları</h1>
+    <p class="updated">Son güncelleme: 4 Kasım 2026</p>
+    <p class="lead">Nilemy’yi indirerek ve kullanarak bu koşulları kabul etmiş olursun. Kişisel verilerinin nasıl işlendiğini <a href="/privacy/">Gizlilik politikası</a> anlatır.</p>
 
     <h2>1. Nilemy’yi kullanmak</h2>
     <p>Nilemy kişisel bir kayıt defteridir. Tahminler yalnızca senin girdiğin bilgilere dayanır.</p>
 
     <h2>2. Tıbbi tavsiye değildir, doğum kontrolü için kullanılmaz</h2>
-    <p>Nilemy tıbbi bir cihaz değildir. Uygulamadaki hiçbir şey bir sağlık uzmanının tavsiyesinin, teşhisinin ya da tedavisinin yerini tutmaz. Tahminler gebeliği önlemenin güvenilir bir yolu değildir; Nilemy’yi doğum kontrolü için kullanma. Doğurgan gün tahminleri hamile kalmayı garanti etmez. Hamilelik haftaları, tahmini doğum tarihi ve haftalık bilgiler geneldir ve tahminidir; hamileliğinle ilgili her konuda doktoruna ya da ebene danış.</p>
+    <p>Nilemy tıbbi bir cihaz değildir. Uygulamadaki hiçbir şey bir sağlık uzmanının tavsiyesinin, teşhisinin ya da tedavisinin yerini tutmaz. Tahminler gebeliği önlemenin güvenilir bir yolu değildir; Nilemy’yi doğum kontrolü için kullanma. Doğurgan gün tahminleri hamile kalmayı garanti etmez. Hamilelik haftaları, tahmini doğum tarihi ve haftalık bilgiler geneldir ve tahminidir; hamileliğinle ilgili her konuda doktoruna ya da ebene danış. Premium’daki günlük not yapay zekâ ile yazılır ve yanlış olabilir.</p>
 
     <h2>3. Hesabın</h2>
-    <p>Hesap açmak isteğe bağlıdır; Nilemy hesapsız da tamamen çalışır. Hesap açarsan giriş bilgilerini kimseyle paylaşma. Hesabını istediğin zaman uygulamadan (Ben → Hesap → Hesabı sil) silebilirsin.</p>
+    <p>Hesap açmak isteğe bağlıdır; Nilemy hesapsız da tamamen çalışır. Hesap açarsan giriş bilgilerini kimseyle paylaşma. Hesabını istediğin zaman uygulamadan (Profil › Hesap › Hesabı sil) silebilirsin.</p>
 
     <h2>4. Premium aboneliği</h2>
     <ul>
       <li>Nilemy Premium, App Store ya da Google Play üzerinden alınan, otomatik yenilenen bir aboneliktir. Aylık ya da yıllık plan seçebilirsin; fiyat satın almadan önce uygulamada ve mağazada gösterilir.</li>
       <li>Ödeme, satın almayı onayladığında mağaza hesabından alınır.</li>
       <li>Abonelik, dönem bitmeden en az 24 saat önce iptal edilmezse aynı süre ve fiyatla kendiliğinden yenilenir; yenileme ücreti dönem bitmeden önceki 24 saat içinde alınır.</li>
-      <li>Aboneliği mağaza hesap ayarlarından (uygulamada Ben → Nilemy Premium → Aboneliği yönet) yönetebilir ya da iptal edebilirsin. İptal edersen Premium, ödediğin dönemin sonuna kadar açık kalır.</li>
+      <li>Aboneliği mağaza hesap ayarlarından (uygulamada Profil › Nilemy Premium › Aboneliği yönet) yönetebilir ya da iptal edebilirsin. İptal edersen Premium, ödediğin dönemin sonuna kadar açık kalır.</li>
       <li>Ücretsiz deneme sunulursa ve bitmeden iptal edilmezse ücretli aboneliğe dönüşür.</li>
       <li>Fiyat değişirse mağaza seni önceden bilgilendirir ve gerekiyorsa onayını ister.</li>
       <li>Aboneliğini aynı mağaza hesabıyla başka cihazlarda geri yükleyebilirsin. İade talepleri mağazanın kurallarına göre Apple ya da Google’a yapılır.</li>
@@ -58,7 +118,7 @@
     <p>Ücretsiz sürümde, kurulumdan bir hafta sonra bazı ekranlarda reklam gösterilir. Reklamlar kişiselleştirilmez ve kayıtların reklam için kullanılmaz. Reklamları Premium ile kaldırabilirsin.</p>
 
     <h2>6. Hizmetin sürekliliği</h2>
-    <p>Hesap ve eşitleme hizmeti üçüncü taraf altyapısına (Google Firebase) dayanır; kesintisiz çalışacağını garanti edemeyiz. Hizmeti sonlandırmamız gerekirse kayıtlarını telefonuna alabilmen için en az 30 gün önceden uygulamada haber veririz. Önemli kayıtlarının dışa aktarılmış bir kopyasını saklamanı öneririz.</p>
+    <p>Hesap, eşitleme ve günlük not hizmetleri üçüncü taraf altyapısına (Google Firebase, Anthropic, Hostinger) dayanır; kesintisiz çalışacağını garanti edemeyiz. Hizmeti sonlandırmamız gerekirse kayıtlarını telefonuna alabilmen için en az 30 gün önceden uygulamada haber veririz. Önemli kayıtlarının dışa aktarılmış bir kopyasını saklamanı öneririz.</p>
 
     <h2>7. Sorumluluk</h2>
     <p>Nilemy olduğu gibi sunulur. Yürürlükteki hukukun izin verdiği ölçüde, tahminlerin yanlış çıkmasından, veri kaybından ya da hizmet kesintisinden doğan dolaylı zararlardan sorumlu değiliz. Tüketici olarak kanundan doğan hakların saklıdır.</p>
@@ -72,66 +132,21 @@
       <p>Sorun, öneri ya da sorular için:</p>
       <div class="mail"><code>info@nilemy.com</code><button type="button" class="copy" data-copy="info@nilemy.com" data-done="Kopyalandı">Kopyala</button></div>
     </div>
-  </main>
-
-  <main data-lang-block="en" hidden>
-    <h1 data-title="Terms of service · Nilemy">Terms of service</h1>
-    <p class="updated">Last updated October 12, 2026</p>
-    <p class="lead">By downloading and using Nilemy you accept these terms. How your personal data is handled is explained in the <a href="../privacy/">Privacy policy</a>.</p>
-
-    <h2>1. Using Nilemy</h2>
-    <p>Nilemy is a personal log. Estimates are based only on what you enter.</p>
-
-    <h2>2. Not medical advice, not for contraception</h2>
-    <p>Nilemy isn’t a medical device. Nothing in the app replaces advice, diagnosis or treatment from a healthcare professional. Estimates are not a reliable way to prevent pregnancy; don’t use Nilemy for contraception. Fertile-day estimates don’t guarantee a pregnancy. Pregnancy weeks, the due date and the weekly notes are general and estimated; ask your doctor or midwife about anything to do with your pregnancy.</p>
-
-    <h2>3. Your account</h2>
-    <p>An account is optional; Nilemy works fully without one. If you create one, keep your sign-in details private. You can delete your account at any time in the app (Me → Account → Delete account).</p>
-
-    <h2>4. Premium subscription</h2>
-    <ul>
-      <li>Nilemy Premium is an auto-renewing subscription bought through the App Store or Google Play. You can choose a monthly or yearly plan; the price is shown in the app and the store before you buy.</li>
-      <li>Payment is charged to your store account when you confirm the purchase.</li>
-      <li>The subscription renews automatically for the same period and price unless cancelled at least 24 hours before the end of the current period; the renewal is charged within the 24 hours before it ends.</li>
-      <li>You can manage or cancel the subscription in your store account settings (in the app: Me → Nilemy Premium → Manage subscription). If you cancel, Premium stays on until the end of the period you paid for.</li>
-      <li>If a free trial is offered and not cancelled before it ends, it becomes a paid subscription.</li>
-      <li>If the price changes, the store tells you in advance and asks for your consent where required.</li>
-      <li>You can restore the subscription on other devices with the same store account. Refunds are handled by Apple or Google under their rules.</li>
-      <li>When the subscription ends, ads come back and Premium features close. Your logs are not deleted.</li>
-    </ul>
-
-    <h2>5. Ads</h2>
-    <p>In the free version, ads appear on some screens from a week after you install the app. Ads are never personalised and your logs are never used for ads. Premium removes ads.</p>
-
-    <h2>6. Availability</h2>
-    <p>Accounts and sync rely on third-party infrastructure (Google Firebase), so we can’t guarantee they’ll always be available. If we ever need to end the service, we’ll tell you in the app at least 30 days in advance so you can keep your logs on your phone. We recommend keeping an exported copy of important logs.</p>
-
-    <h2>7. Liability</h2>
-    <p>Nilemy is provided as is. To the extent the law allows, we’re not liable for indirect damage from estimates turning out wrong, data loss or service interruptions. Your statutory rights as a consumer are not affected.</p>
-
-    <h2>8. Changes</h2>
-    <p>If these terms change, we’ll update the date on this page and announce significant changes in the app first.</p>
-
-    <h2>Contact</h2>
-    <div class="card">
-      <b>Nilemy</b>
-      <p>For problems, ideas or questions:</p>
-      <div class="mail"><code>info@nilemy.com</code><button type="button" class="copy" data-copy="info@nilemy.com" data-done="Copied">Copy</button></div>
-    </div>
+  
   </main>
 
   <footer>
     <span>© 2026 Nilemy</span>
-    <a href="../">nilemy.com</a>
-    <a href="../story/">Hikayemiz / Our story</a>
-    <a href="../privacy/">Gizlilik / Privacy</a>
-    <a href="../terms/">Koşullar / Terms</a>
-    <a href="../support/">Destek / Support</a>
+    <a href="/">nilemy.com</a>
+    <a href="/story/">Hikayemiz</a>
+    <a href="/privacy/">Gizlilik</a>
+    <a href="/terms/">Koşullar</a>
+    <a href="/support/">Destek</a>
     <a href="https://www.instagram.com/nilemy.app/" target="_blank" rel="me noopener">Instagram</a>
     <a href="https://www.tiktok.com/@nilemy.app" target="_blank" rel="me noopener">TikTok</a>
     <a href="https://www.linkedin.com/company/nilemy/" target="_blank" rel="me noopener">LinkedIn</a>
   </footer>
 </div>
-<script src="../assets/doc.js"></script>
+<script src="/assets/site.js" defer></script>
 </body>
 </html>

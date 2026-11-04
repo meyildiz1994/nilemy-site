@@ -6,16 +6,50 @@
 <title>Nilemy</title>
 <meta name="description" content="Nilemy: adetini saniyeler içinde kaydet, döngünü anla, önünü planla; hamileysen haftalarını takip et. Kayıtların telefonunda, şifreli kalır.">
 <meta name="theme-color" content="#FCF5F6">
+<script>
+  (function () {
+    var paths = { tr: '', en: '/en', de: '/de', fr: '/fr', 'pt-br': '/pt-br', it: '/it' };
+    var lang = null;
+    try { lang = localStorage.getItem('nilemy.lang'); } catch (e) {}
+    if (!paths.hasOwnProperty(lang)) {
+      lang = null;
+      if (/bot|crawl|spider|slurp|facebookexternalhit|lighthouse|preview/i.test(navigator.userAgent)) return;
+      var list = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ''];
+      for (var i = 0; i < list.length && !lang; i++) {
+        var code = String(list[i]).toLowerCase().slice(0, 2);
+        if (code === 'pt') code = 'pt-br';
+        if (paths.hasOwnProperty(code)) lang = code;
+      }
+      lang = lang || 'en';
+    }
+    if (lang !== 'tr') location.replace(paths[lang] + location.pathname + location.search + location.hash);
+  })();
+</script>
 <link rel="canonical" href="https://nilemy.com/">
+<link rel="alternate" hreflang="tr" href="https://nilemy.com/">
+<link rel="alternate" hreflang="en" href="https://nilemy.com/en/">
+<link rel="alternate" hreflang="de" href="https://nilemy.com/de/">
+<link rel="alternate" hreflang="fr" href="https://nilemy.com/fr/">
+<link rel="alternate" hreflang="pt-BR" href="https://nilemy.com/pt-br/">
+<link rel="alternate" hreflang="it" href="https://nilemy.com/it/">
+<link rel="alternate" hreflang="x-default" href="https://nilemy.com/">
 <link rel="icon" href="/favicon.ico" sizes="any">
-<link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png">
-<link rel="icon" type="image/png" href="assets/favicon.png">
-<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192.png">
+<link rel="icon" type="image/png" href="/assets/favicon.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<meta property="og:type" content="website">
 <meta property="og:title" content="Nilemy">
-<meta property="og:description" content="Adetini saniyeler içinde kaydet, döngünü anla, önünü planla.">
-<meta property="og:image" content="assets/screens/tr-home.webp">
-<link rel="preload" href="assets/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/fonts/fonts.css">
+<meta property="og:description" content="Nilemy: adetini saniyeler içinde kaydet, döngünü anla, önünü planla; hamileysen haftalarını takip et. Kayıtların telefonunda, şifreli kalır.">
+<meta property="og:url" content="https://nilemy.com/">
+<meta property="og:image" content="https://nilemy.com/assets/screens/tr-home.webp">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:locale:alternate" content="de_DE">
+<meta property="og:locale:alternate" content="fr_FR">
+<meta property="og:locale:alternate" content="pt_BR">
+<meta property="og:locale:alternate" content="it_IT">
+<link rel="preload" href="/assets/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/fonts/fonts.css">
 <style>
   /* First screen: copy and store buttons on the left, the app in a phone on the right (stacked on
      phones). Below it, our story and the footer. Colours and type are the app's own (plum on blush,
@@ -123,7 +157,7 @@
     position: absolute; top: -9px; right: -8px; font-size: 10px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
     background: var(--brand); color: var(--bg); border-radius: 999px; padding: 3px 7px;
   }
-  .store:focus-visible, .lang button:focus-visible { outline: 3px solid var(--brand); outline-offset: 3px; }
+  .store:focus-visible { outline: 3px solid var(--brand); outline-offset: 3px; }
 
   /* Phone */
   .stage { position: relative; z-index: 1; display: grid; justify-items: center; gap: 14px; min-width: 0; }
@@ -167,15 +201,9 @@
     position: fixed; z-index: 2; top: max(14px, env(safe-area-inset-top)); right: max(16px, env(safe-area-inset-right));
     display: flex; align-items: center; gap: 14px;
   }
-  .nav-link { font: 600 13px/1 var(--font); color: var(--muted); text-decoration: none; padding: 8px 4px; }
+  .nav-link { font: 600 13px/1 var(--font); color: var(--muted); text-decoration: none; padding: 8px 4px; white-space: nowrap; }
   .nav-link:hover { color: var(--brand); }
   .nav-link:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; border-radius: 6px; }
-  .lang { display: flex; padding: 3px; border-radius: 999px; background: var(--blush); }
-  .lang button {
-    font: 600 12px/1 var(--font); letter-spacing: .04em; border: 0; border-radius: 999px; padding: 7px 11px;
-    background: transparent; color: var(--muted); cursor: pointer;
-  }
-  .lang button[aria-pressed="true"] { background: var(--brand); color: var(--bg); }
 
   /* Our story: open, centred text under the first screen on a soft blush glow, under a hand-drawn
      line that loops into a heart, linking to the full story page. */
@@ -261,6 +289,9 @@
     .logo { width: clamp(104px, 10vw, 136px); }
   }
   @media (min-width: 761px) {
+    /* Room above the phone for the story link and the language menu in the corner. */
+    .page { padding-top: max(64px, env(safe-area-inset-top)); }
+    .phone { --h: min(78vh, 720px, calc(100svh - 166px)); }
     .head { display: grid; gap: clamp(20px, 3.6vh, 32px); justify-items: start; }
     .copy { gap: clamp(28px, 5vh, 48px); }
     .logo { margin-bottom: clamp(4px, 1.5vh, 16px); }
@@ -268,15 +299,47 @@
   }
 
   @media (prefers-reduced-motion: reduce) { .screen img, .dots button { transition: none; } .heart-line path { transition: none; } }
+  .langs { position: relative; }
+  .langs summary {
+    list-style: none; cursor: pointer; display: inline-flex; align-items: center; gap: 6px;
+    font: 600 12px/1 var(--font); letter-spacing: .04em; color: var(--muted);
+    background: var(--blush); border-radius: 999px; padding: 9px 12px; user-select: none;
+  }
+  .langs summary::-webkit-details-marker { display: none; }
+  .langs summary svg { width: 14px; height: 14px; flex: none; }
+  .langs summary .chev { width: 10px; height: 10px; transition: transform .2s ease; }
+  .langs[open] summary { background: var(--brand); color: var(--bg); }
+  .langs[open] summary .chev { transform: rotate(180deg); }
+  .langs ul {
+    position: absolute; right: 0; top: calc(100% + 8px); z-index: 10; margin: 0; padding: 6px; list-style: none;
+    min-width: 200px; background: var(--bg); border: 1px solid var(--blush); border-radius: 16px;
+    box-shadow: 0 18px 40px -18px rgba(74, 21, 48, .45);
+  }
+  .langs a {
+    display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 10px 12px; border-radius: 10px;
+    color: var(--fg); text-decoration: none; font: 500 15px/1.2 var(--font);
+  }
+  .langs a:hover { background: var(--blush); }
+  .langs a[aria-current="true"] { color: var(--brand); font-weight: 700; }
+  .langs a span { color: var(--muted); font-size: 12px; font-weight: 600; letter-spacing: .04em; }
+  .langs summary:focus-visible, .langs a:focus-visible { outline: 3px solid var(--brand); outline-offset: 2px; }
+  @media (prefers-reduced-motion: reduce) { .langs summary .chev { transition: none; } }
 </style>
 </head>
 <body>
 <nav class="topbar">
-  <a class="nav-link" href="story/" data-i18n="storyLink">Hikayemiz</a>
-  <div class="lang" role="group" aria-label="Language">
-    <button type="button" id="lang-tr" data-lang="tr" aria-pressed="true">TR</button>
-    <button type="button" id="lang-en" data-lang="en" aria-pressed="false">EN</button>
-  </div>
+  <a class="nav-link" href="/story/">Hikayemiz</a>
+  <details class="langs">
+    <summary aria-label="Dil: Türkçe"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-5.7-3.8-9S9.5 5.7 12 3z"/></svg>TR<svg class="chev" viewBox="0 0 10 10" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3.5l3 3 3-3"/></svg></summary>
+    <ul>
+      <li><a href="/" hreflang="tr" lang="tr" data-lang="tr" aria-current="true">Türkçe <span>TR</span></a></li>
+      <li><a href="/en/" hreflang="en" lang="en" data-lang="en">English <span>EN</span></a></li>
+      <li><a href="/de/" hreflang="de" lang="de" data-lang="de">Deutsch <span>DE</span></a></li>
+      <li><a href="/fr/" hreflang="fr" lang="fr" data-lang="fr">Français <span>FR</span></a></li>
+      <li><a href="/pt-br/" hreflang="pt-BR" lang="pt-BR" data-lang="pt-br">Português (Brasil) <span>PT</span></a></li>
+      <li><a href="/it/" hreflang="it" lang="it" data-lang="it">Italiano <span>IT</span></a></li>
+    </ul>
+  </details>
 </nav>
 
 <main>
@@ -295,19 +358,19 @@
 </g>
 <path id="nilemy" d="M208.50 487.01C202.90 487.95 196.98 486.26 192.35 483.13C177.93 473.38 177.10 455.59 177.05 439.84C177.03 434.33 176.99 428.82 177.00 423.32C177.02 405.79 177.10 388.27 177.10 370.74C177.10 366.57 177.01 362.40 176.94 358.23C176.90 356.19 176.55 353.72 177.03 351.73C177.89 348.21 180.67 346.13 184.21 345.98C187.93 345.82 193.42 345.13 195.91 348.55C196.59 349.48 197.03 350.61 197.21 351.75C197.57 354.01 197.32 356.48 197.35 358.76C197.45 364.43 197.49 370.11 197.45 375.78C197.34 389.63 197.50 403.49 197.46 417.34C197.44 423.51 197.41 429.69 197.44 435.86C197.47 444.25 196.59 455.94 201.12 463.32C202.59 465.72 204.52 467.93 206.93 469.42C210.85 471.83 215.03 471.13 216.13 476.70C217.18 481.96 213.54 486.16 208.50 487.01Z M146.50 374.09C139.44 375.60 132.26 371.80 130.79 364.45C129.39 357.50 132.87 350.13 140.17 348.62C147.25 347.17 154.22 351.12 155.85 358.31C157.43 365.28 153.83 372.53 146.50 374.09Z M110.50 486.57C108.35 487.30 100.25 487.32 98.06 486.68C96.79 486.32 95.64 485.44 94.99 484.29C93.18 481.09 94.03 475.17 94.09 471.49C94.17 465.49 94.02 459.49 94.08 453.48C94.21 441.45 95.19 430.72 88.11 420.23C85.18 415.88 81.25 412.51 76.36 410.55C69.94 407.97 60.96 406.80 54.32 409.23C52.76 409.80 51.13 410.21 49.62 410.90C38.80 415.83 33.01 426.57 32.17 438.05C31.86 442.20 32.11 446.40 32.12 450.55C32.13 458.39 32.02 466.22 32.10 474.06C32.14 477.50 33.03 482.40 30.40 485.11C29.65 485.88 28.41 486.52 27.35 486.71C24.98 487.15 19.36 487.03 16.86 486.81C14.54 486.61 12.55 484.65 11.98 482.42C11.42 480.20 11.88 472.69 11.88 469.93C11.86 461.59 11.93 453.25 11.95 444.92C11.97 440.44 11.53 435.88 12.19 431.43C15.95 405.88 35.05 391.19 60.27 389.98C64.33 389.78 68.21 390.42 72.23 390.69C79.96 391.19 87.69 394.27 94.10 398.52C106.33 406.63 113.51 419.94 114.77 434.46C115.03 437.43 114.88 440.48 114.87 443.46C114.87 448.63 114.86 453.79 114.85 458.96C114.84 464.30 114.86 469.63 114.83 474.97C114.82 477.31 115.24 480.19 114.52 482.44C113.89 484.38 112.43 485.92 110.50 486.57Z M149.99 486.49C148.19 487.23 139.47 487.28 137.56 486.71C136.09 486.27 134.87 485.39 134.08 484.06C133.59 483.23 133.16 482.24 133.05 481.28C132.62 477.35 133.11 473.21 133.15 469.27C133.23 461.43 133.14 453.59 133.14 445.75C133.14 433.74 132.99 421.73 133.05 409.72C133.08 405.62 132.53 399.58 133.33 395.73C133.75 393.71 134.74 391.95 136.68 391.07C138.91 390.06 147.74 390.10 150.05 390.99C151.12 391.41 152.06 392.24 152.65 393.23C153.24 394.21 153.61 395.39 153.72 396.53C154.18 401.14 153.85 405.91 153.83 410.54C153.81 417.71 153.90 424.88 153.83 432.05C153.72 444.06 153.76 456.08 153.75 468.08C153.74 471.88 154.47 478.66 153.70 482.08C153.26 484.04 151.85 485.72 149.99 486.49Z M513.00 525.01C509.84 525.10 506.66 525.07 503.50 524.97C497.02 524.76 489.10 524.07 489.57 515.46C489.73 512.52 491.43 510.05 494.13 508.87C498.26 507.06 499.32 508.25 503.35 508.63C506.16 508.89 509.01 508.97 511.84 508.91C527.18 508.57 542.14 502.25 550.90 489.35C553.58 485.40 555.88 480.96 556.95 476.29C557.20 475.21 558.79 468.58 557.72 468.25C556.99 468.02 556.24 469.08 555.78 469.48C550.47 474.05 543.65 477.66 536.63 478.57C532.69 479.07 528.61 479.24 524.65 479.05C505.74 478.16 488.81 464.68 485.92 445.55C485.45 442.44 485.48 439.21 485.41 436.07C485.25 429.57 485.37 423.07 485.41 416.57C485.43 412.79 485.02 396.52 486.16 394.16C487.46 391.48 490.00 390.66 492.78 390.67C495.70 390.69 500.14 390.01 502.34 392.41C503.11 393.25 503.59 394.43 503.78 395.54C504.45 399.22 504.00 403.30 504.01 407.03C504.02 413.86 504.25 420.70 504.22 427.53C504.17 438.20 504.76 450.19 514.68 456.70C522.04 461.53 530.50 462.93 538.98 460.43C551.10 456.86 557.52 447.09 558.55 434.86C558.87 431.07 558.59 427.17 558.58 423.37C558.56 417.70 558.67 412.03 558.62 406.36C558.59 403.37 557.83 398.10 559.28 395.49C561.48 391.51 567.84 392.27 571.70 392.49C573.71 392.60 575.73 393.11 576.94 394.85C578.61 397.25 578.29 400.30 578.30 403.08C578.32 412.08 578.23 421.08 578.24 430.08C578.25 436.59 578.44 443.06 578.27 449.57C578.14 454.57 578.68 459.58 578.35 464.57C577.04 484.86 569.36 501.61 552.19 513.20C542.74 519.59 533.04 522.27 521.90 523.85C518.90 524.27 516.05 524.93 513.00 525.01Z M464.00 487.04C460.57 487.28 455.09 488.04 452.54 485.14C450.16 482.42 451.17 474.97 451.27 471.46C451.48 464.29 451.29 457.13 451.34 449.96C451.37 445.46 451.36 440.96 451.33 436.46C451.29 431.00 451.47 425.91 449.64 420.67C447.96 415.88 443.86 411.70 439.11 409.94C434.60 408.26 428.94 408.09 424.38 409.56C418.16 411.56 413.28 416.76 411.11 422.86C408.78 429.42 409.79 437.81 409.78 444.72C409.77 454.22 409.83 463.72 409.84 473.22C409.84 476.90 410.70 481.76 408.33 484.88C406.86 486.81 404.79 487.05 402.53 487.08C399.54 487.13 395.27 487.79 392.95 485.50C390.29 482.87 391.17 476.94 391.19 473.46C391.24 463.79 391.12 454.13 391.14 444.46C391.15 438.07 391.77 431.31 390.66 424.98C390.29 422.89 389.51 420.76 388.59 418.85C386.03 413.57 380.89 410.43 375.40 409.06C369.21 407.51 361.85 409.05 357.11 413.27C349.23 420.28 348.95 427.99 348.98 437.85C349.01 444.02 348.98 450.18 348.96 456.35C348.94 460.78 349.72 481.70 348.24 484.22C346.83 486.64 344.41 487.11 341.81 487.14C337.91 487.18 332.63 487.95 330.81 483.53C329.65 480.70 330.59 461.12 330.59 456.59C330.59 449.42 330.47 442.26 330.48 435.09C330.49 431.28 330.27 427.39 330.94 423.61C333.32 410.01 342.01 399.59 354.81 394.53C357.13 393.61 359.45 392.64 361.92 392.18C365.18 391.56 368.58 391.58 371.89 391.61C376.11 391.66 380.16 392.01 384.23 393.19C389.44 394.69 394.49 397.40 398.63 400.93C399.38 401.57 403.20 405.68 403.57 405.74C404.51 405.90 405.20 404.53 405.72 403.95C408.23 401.19 411.51 398.72 414.79 396.97C417.79 395.36 421.11 393.70 424.45 392.96C433.11 391.02 442.81 391.52 450.85 395.45C454.88 397.43 458.54 400.21 461.51 403.57C469.57 412.71 470.04 421.87 470.01 433.47C470.00 438.47 470.02 443.47 469.98 448.47C469.88 458.97 470.07 469.47 469.96 479.97C469.91 483.97 468.30 486.74 464.00 487.04Z M277.00 488.53C268.54 489.18 259.89 488.21 251.85 485.55C249.31 484.71 246.99 483.35 244.68 482.04C230.88 474.22 222.53 461.92 220.55 446.20C219.06 434.32 221.96 422.85 228.73 413.02C241.82 394.03 268.47 387.81 289.72 394.93C292.26 395.78 294.54 397.17 296.86 398.48C308.40 405.00 316.21 414.87 317.90 428.31C318.61 434.01 318.90 442.21 313.43 445.85C312.20 446.66 310.67 447.10 309.21 447.28C303.93 447.90 298.06 447.34 292.70 447.36C278.03 447.43 263.32 447.01 248.66 447.48C247.24 447.52 241.64 447.33 240.71 447.83C239.79 448.33 240.43 449.75 240.60 450.50C241.99 456.58 245.57 462.42 250.32 466.47C260.79 475.39 278.14 475.80 289.98 469.54C293.97 467.43 296.88 463.67 301.17 462.09C304.75 460.76 309.32 461.89 311.35 465.20C317.12 474.58 299.30 483.11 292.65 485.44C287.62 487.19 282.30 488.12 277.00 488.53Z M294.89 434.00C295.97 433.95 297.90 434.13 298.66 433.20C299.49 432.19 299.24 430.52 299.10 429.34C298.51 424.21 296.60 419.20 293.10 415.32C290.09 411.99 286.48 409.86 282.33 408.29C270.83 403.94 256.58 407.22 248.11 416.07C244.23 420.12 241.64 425.61 240.48 431.02C240.29 431.90 239.83 433.12 240.86 433.66C242.15 434.33 255.40 434.18 257.83 434.19C266.01 434.25 274.19 434.09 282.37 434.02C286.55 433.98 290.71 434.21 294.89 434.00Z" class="wordmark" fill-rule="evenodd"/>
 </svg>
-      <h1 data-i18n="title">Adet takibi,<br> <em>artık çok daha kolay.</em></h1>
-      <p class="lede" data-i18n="lede">Nilemy ile adet tarihlerini kolayca kaydet, önceki döngülerine göz at ve bir sonraki adetinin ne zaman başlayabileceğini gör. Hamileysen haftalarını da takip et.</p>
-      <a class="cta" href="https://apps.apple.com/tr/app/nilemy-d%C3%B6ng%C3%BC-takibi/id6820723427?l=tr" id="cta" data-i18n="cta">Nilemy’yi Keşfet</a>
+      <h1>Adet takibi,<br> <em>artık çok daha kolay.</em></h1>
+      <p class="lede">Nilemy ile adet tarihlerini kolayca kaydet, önceki döngülerine göz at ve bir sonraki adetinin ne zaman başlayabileceğini gör. Hamileysen haftalarını da takip et.</p>
+      <a class="cta" href="https://apps.apple.com/tr/app/nilemy-d%C3%B6ng%C3%BC-takibi/id6820723427?l=tr" id="cta">Nilemy’yi Keşfet</a>
     </div>
     <div class="stores" id="stores">
       <a class="store" href="https://apps.apple.com/tr/app/nilemy-d%C3%B6ng%C3%BC-takibi/id6820723427?l=tr" id="store-ios">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.37 12.53c-.02-2.28 1.86-3.38 1.95-3.44-1.06-1.55-2.71-1.76-3.3-1.78-1.4-.14-2.74.83-3.45.83-.71 0-1.8-.81-2.97-.79-1.53.02-2.94.89-3.72 2.25-1.59 2.76-.41 6.84 1.14 9.08.76 1.1 1.66 2.33 2.85 2.28 1.14-.05 1.57-.74 2.95-.74 1.38 0 1.77.74 2.97.71 1.23-.02 2-1.11 2.75-2.21.87-1.27 1.22-2.5 1.24-2.57-.03-.01-2.38-.91-2.41-3.62zM14.11 5.84c.63-.76 1.05-1.82.94-2.88-.91.04-2.01.61-2.66 1.37-.58.67-1.09 1.75-.96 2.79 1.02.08 2.05-.52 2.68-1.28z"/></svg>
-        <span><small data-i18n="iosSmall">App Store’dan</small><b data-i18n="iosBig">İndir</b></span>
+        <span><small>App Store’dan</small><b>İndir</b></span>
       </a>
       <a class="store" href="#" aria-disabled="true" id="store-android">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.6 2.3c-.2.2-.3.6-.3 1v17.4c0 .4.1.8.3 1l9.7-9.7L3.6 2.3zm10.8 10.8 2.6 2.6-10.9 6.2c-.4.2-.8.3-1.1.2l9.4-9zm3.9-3.1 2.8 1.6c.8.5.8 1.2 0 1.7l-2.8 1.6-2.9-2.9 2.9-2zM5.4 2.1l10.9 6.2-2.6 2.6-9.4-9c.3 0 .7 0 1.1.2z"/></svg>
-        <span><small data-i18n="playSmall">Google Play’den</small><b data-i18n="playBig">İndir</b></span>
-        <i class="soon" data-i18n="soon">Yakında</i>
+        <span><small>Google Play’den</small><b>İndir</b></span>
+        <i class="soon">Yakında</i>
       </a>
     </div>
   </section>
@@ -315,102 +378,48 @@
   <section class="stage" aria-label="Nilemy">
     <div class="phone">
       <div class="island" aria-hidden="true"></div>
-      <div class="screen"><div class="status" aria-hidden="true">9:41<i></i></div><div id="screen"></div></div>
+      <div class="screen"><div class="status" aria-hidden="true">9:41<i></i></div><div id="screen"><img src="/assets/screens/tr-home.webp?v=5" alt="Ana sayfa" class="on" decoding="async" width="780" height="1594"><img src="/assets/screens/tr-history.webp?v=5" alt="Geçmiş" loading="lazy" decoding="async" width="780" height="1594"><img src="/assets/screens/tr-insights.webp?v=5" alt="Analiz" loading="lazy" decoding="async" width="780" height="1594"><img src="/assets/screens/tr-daily.webp?v=5" alt="Günlük kayıt" loading="lazy" decoding="async" width="780" height="1594"></div></div>
     </div>
-    <div class="dots" id="dots"></div>
+    <div class="dots" id="dots"><button type="button" id="dot-home" aria-label="Ana sayfa" aria-current="true"></button><button type="button" id="dot-history" aria-label="Geçmiş" aria-current="false"></button><button type="button" id="dot-insights" aria-label="Analiz" aria-current="false"></button><button type="button" id="dot-daily" aria-label="Günlük kayıt" aria-current="false"></button></div>
   </section>
 </div>
 </div>
 
 <section class="story" aria-labelledby="story-title">
   <svg class="heart-line" viewBox="0 0 1200 160" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><path pathLength="1" d="M0 112C140 150 300 148 430 124C505 110 560 112 600 132C556 106 522 84 524 58C526 34 552 22 574 32C588 39 596 50 600 62C604 50 612 39 626 32C648 22 674 34 676 58C678 84 644 106 600 132C650 150 710 146 800 122C930 90 1060 70 1200 84"/></svg>
-  <h2 id="story-title" data-i18n="storyTitle">Her döngü 28 gün sürmez.<br> <em>Biz bunu biliyoruz.</em></h2>
-  <p data-i18n="storyText">Nilemy, kullanmak istediği uygulamayı bulamayan bir kadının fikriyle doğdu. Adından renklerine kadar her şey sıfırdan tasarlandı. Nasıl başladığını hikayemizde anlattık.</p>
-  <a class="cta" href="story/" data-i18n="storyCta">Hikayemizi oku</a>
+  <h2 id="story-title">Her döngü 28 gün sürmez.<br> <em>Biz bunu biliyoruz.</em></h2>
+  <p>Nilemy, kullanmak istediği uygulamayı bulamayan bir kadının fikriyle doğdu. Adından renklerine kadar her şey sıfırdan tasarlandı. Nasıl başladığını hikayemizde anlattık.</p>
+  <a class="cta" href="/story/">Hikayemizi oku</a>
 </section>
 </main>
 
 <footer class="foot">
-  <p class="made" data-i18n="made">Üzerine epey düşünülerek tasarlandı.</p>
-    <p class="legal"><span data-i18n="foot">Nilemy tıbbi bir cihaz değildir · Doğum kontrolü için kullanılmaz</span> · <a href="story/" data-i18n="storyLink">Hikayemiz</a> · <a href="privacy/" data-i18n="privacy">Gizlilik</a> · <a href="terms/" data-i18n="terms">Koşullar</a> · <a href="support/" data-i18n="support">Destek</a> · © 2026 Nilemy <span class="socials"><a class="social" href="https://www.instagram.com/nilemy.app/" target="_blank" rel="me noopener" aria-label="Instagram @nilemy.app"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.3" cy="6.7" r="1.3" fill="currentColor"/></svg></a><a class="social" href="https://www.tiktok.com/@nilemy.app" target="_blank" rel="me noopener" aria-label="TikTok @nilemy.app"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5M14 3c.4 2.6 2.2 4.4 5 4.6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a class="social" href="https://www.linkedin.com/company/nilemy/" target="_blank" rel="me noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 10.5v6M8 7.6v.1M11.5 16.5v-6m0 2.7c0-1.7 1-2.9 2.4-2.9s2.1 1 2.1 2.6v3.6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></a></span></p>
+  <p class="made">Üzerine epey düşünülerek tasarlandı.</p>
+    <p class="legal"><span>Nilemy tıbbi bir cihaz değildir · Doğum kontrolü için kullanılmaz</span> · <a href="/story/">Hikayemiz</a> · <a href="/privacy/">Gizlilik</a> · <a href="/terms/">Koşullar</a> · <a href="/support/">Destek</a> · © 2026 Nilemy <span class="socials"><a class="social" href="https://www.instagram.com/nilemy.app/" target="_blank" rel="me noopener" aria-label="Instagram @nilemy.app"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.3" cy="6.7" r="1.3" fill="currentColor"/></svg></a><a class="social" href="https://www.tiktok.com/@nilemy.app" target="_blank" rel="me noopener" aria-label="TikTok @nilemy.app"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5M14 3c.4 2.6 2.2 4.4 5 4.6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a class="social" href="https://www.linkedin.com/company/nilemy/" target="_blank" rel="me noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 10.5v6M8 7.6v.1M11.5 16.5v-6m0 2.7c0-1.7 1-2.9 2.4-2.9s2.1 1 2.1 2.6v3.6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></a></span></p>
 </footer>
 
 
+<script src="/assets/site.js" defer></script>
 <script>
-  // Copy for both languages; the page follows the browser until a language is picked.
-  const COPY = {
-    tr: {
-      title: 'Adet takibi,<br> <em>artık çok daha kolay.</em>',
-      lede: 'Nilemy ile adet tarihlerini kolayca kaydet, önceki döngülerine göz at ve bir sonraki adetinin ne zaman başlayabileceğini gör. Hamileysen haftalarını da takip et.',
-      cta: 'Nilemy’yi Keşfet',
-      iosSmall: 'App Store’dan', iosBig: 'İndir', playSmall: 'Google Play’den', playBig: 'İndir', soon: 'Yakında',
-      storyTitle: 'Her döngü 28 gün sürmez.<br> <em>Biz bunu biliyoruz.</em>',
-      storyText: 'Nilemy, kullanmak istediği uygulamayı bulamayan bir kadının fikriyle doğdu. Adından renklerine kadar her şey sıfırdan tasarlandı. Nasıl başladığını hikayemizde anlattık.',
-      storyCta: 'Hikayemizi oku',
-      made: 'Üzerine epey düşünülerek tasarlandı.',
-      foot: 'Nilemy tıbbi bir cihaz değildir · Doğum kontrolü için kullanılmaz',
-      storyLink: 'Hikayemiz', privacy: 'Gizlilik', terms: 'Koşullar', support: 'Destek',
-      screens: ['Ana sayfa', 'Geçmiş', 'Analiz', 'Günlük kayıt'],
-    },
-    en: {
-      title: 'Period tracking,<br> <em>now so much easier.</em>',
-      lede: 'With Nilemy, log your period dates easily, look back at past cycles and see when your next period might start. Pregnant? Follow it week by week.',
-      cta: 'Get Nilemy',
-      iosSmall: 'Download on the', iosBig: 'App Store', playSmall: 'Get it on', playBig: 'Google Play', soon: 'Soon',
-      storyTitle: 'Not every cycle lasts 28 days.<br> <em>We know that.</em>',
-      storyText: 'Nilemy was born from the idea of a woman who couldn’t find the app she wanted to use. Everything, from the name to the colors, was designed from scratch. We tell how it all began in our story.',
-      storyCta: 'Read our story',
-      made: 'Made with care (and a lot of design decisions).',
-      foot: 'Nilemy isn’t a medical device · Not for contraception',
-      storyLink: 'Our story', privacy: 'Privacy', terms: 'Terms', support: 'Support',
-      screens: ['Home', 'History', 'Insights', 'Daily log'],
-    },
-  };
-  // Turkish visitors get the Turkish store page; everyone else gets the language-neutral link so Apple opens their own store.
-  const APP_STORE = { tr: 'https://apps.apple.com/tr/app/nilemy-d%C3%B6ng%C3%BC-takibi/id6820723427?l=tr', en: 'https://apps.apple.com/app/id6820723427' };
-  const SCREENS = ['home', 'history', 'insights', 'daily'];
-  const screen = document.getElementById('screen');
-  const dots = document.getElementById('dots');
+  // The phone shows the app's screens in turn; the dots pick one. The heart line draws itself in.
+  const shots = document.querySelectorAll('#screen img');
+  const dots = document.querySelectorAll('#dots button');
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  let lang = 'tr';
   let current = 0;
   let timer = null;
-
-  function read(key) { try { return localStorage.getItem(key); } catch (e) { return null; } }
-  function write(key, v) { try { localStorage.setItem(key, v); } catch (e) {} }
-
   function show(i) {
     current = i;
-    screen.querySelectorAll('img').forEach((img, n) => img.classList.toggle('on', n === i));
-    dots.querySelectorAll('button').forEach((b, n) => b.setAttribute('aria-current', String(n === i)));
+    shots.forEach((img, n) => img.classList.toggle('on', n === i));
+    dots.forEach((b, n) => b.setAttribute('aria-current', String(n === i)));
   }
-
-  function render() {
-    const c = COPY[lang];
-    document.documentElement.lang = lang;
-    document.querySelectorAll('[data-i18n]').forEach((el) => { el.innerHTML = c[el.dataset.i18n]; });
-    document.querySelectorAll('.lang button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.lang === lang)));
-    document.getElementById('store-ios').href = APP_STORE[lang];
-    document.getElementById('cta').href = APP_STORE[lang];
-    screen.innerHTML = SCREENS.map((s, n) =>
-      `<img src="assets/screens/${lang}-${s}.webp?v=4" alt="${c.screens[n]}" ${n === 0 ? '' : 'loading="lazy"'} decoding="async">`).join('');
-    dots.innerHTML = SCREENS.map((s, n) => `<button type="button" id="dot-${s}" aria-label="${c.screens[n]}"></button>`).join('');
-    dots.querySelectorAll('button').forEach((b, n) => b.addEventListener('click', () => { show(n); restart(); }));
-    show(current);
-  }
-
   function restart() {
     if (reduce) return;
     clearInterval(timer);
-    timer = setInterval(() => show((current + 1) % SCREENS.length), 3600);
+    timer = setInterval(() => show((current + 1) % shots.length), 3600);
   }
-
-  document.querySelectorAll('.lang button').forEach((b) => b.addEventListener('click', () => {
-    lang = b.dataset.lang; write('nilemy.lang', lang); render();
-  }));
+  dots.forEach((b, n) => b.addEventListener('click', () => { show(n); restart(); }));
   document.querySelectorAll('.store[aria-disabled="true"]').forEach((a) => a.addEventListener('click', (e) => e.preventDefault()));
 
-  // The heart line under the first screen draws itself in when it comes into view.
   const heart = document.querySelector('.heart-line');
   if (!reduce && 'IntersectionObserver' in window) {
     heart.classList.add('ready');
@@ -419,10 +428,6 @@
     }, { threshold: 0.6 });
     io.observe(heart);
   }
-
-  const saved = read('nilemy.lang');
-  lang = saved === 'tr' || saved === 'en' ? saved : (navigator.language || '').toLowerCase().startsWith('tr') ? 'tr' : 'en';
-  render();
   restart();
 </script>
 </body>
