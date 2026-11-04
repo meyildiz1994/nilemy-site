@@ -122,27 +122,24 @@
       <li><b>What the server sees unencrypted:</b> The account details above, sync times, the size of the encrypted data and a version number. The content of your logs never reaches the server unencrypted; the key is in your account too.</li>
     </ul>
 
-    <h2>AI features (Premium, optional)</h2>
-    <p>Two Premium features work with Claude, Anthropic’s AI: the daily note on Home (“For you today”) and “What repeats in your cycles” in Insights. One setting turns both on. They need an account and stay off until you turn them on. Before anything is sent, you see what is sent and are asked for your separate consent; if you don’t agree, nothing is sent.</p>
+    <h2>Daily note (Premium)</h2>
+    <p>With Premium, Home shows a short note each day under “For you today”. It’s written by Claude, Anthropic’s AI.</p>
     <ul>
-      <li><b>Sent for the daily note:</b> Language, tracking mode, cycle day and phase, days until your next period, whether today is in your fertile window and whether your cycles are irregular, your usual cycle and period length, how many cycles you’ve logged, the symptoms and moods that came back in earlier cycles, and the flow, pain, mood, energy and symptoms you logged today; if you’re trying to get pregnant, today’s ovulation test result.</li>
-      <li><b>Sent for “What repeats in your cycles”:</b> Language, the cycle and period lengths of your last completed cycles (8 at most) and, for each logged day, the cycle day, the days until the next period, flow, pain, mood, energy, symptoms and the products you used. No dates are sent.</li>
-      <li><b>Never sent to Anthropic:</b> Your notes, name, email, photo, sex logs, pregnancy test results and pregnancy details. Symptoms you added yourself are sent by the name you gave them.</li>
-      <li><b>How it travels:</b> It goes through our server at nilemy.com to Anthropic, and Claude processes it in the US. Our server checks that the request comes from your account and passes it on without your account details. Today’s date goes only to our server, so it keeps one note a day. Anthropic doesn’t train its models on it and deletes it within 30 days under its own terms.</li>
-      <li><b>How long it’s kept:</b> On our server, with your account ID, the last daily note for up to two days and the latest repeats for up to 60 days. Both are deleted when you turn the features off, delete all data or delete your account.</li>
-      <li><b>Turning them off:</b> Any time in Profile › Privacy and data › AI features.</li>
+      <li><b>Sent to our server:</b> Only your cycle phase, your tracking mode (“Track my cycle” or “Trying to get pregnant”), the language and today’s date. Never your logs, your account or anything else about you.</li>
+      <li><b>Sent to Anthropic:</b> The same without the date, plus the day’s topic, such as food or sleep. Claude processes it in the US.</li>
+      <li><b>Not linked to you:</b> Everyone with the same phase, mode and language gets the same note that day. Each note stays on our server for up to 3 days, and nothing is kept about who asked for it.</li>
     </ul>
-    <p>What they write comes from AI, can be wrong and isn’t medical advice.</p>
+    <p>The note is general, can be wrong and isn’t medical advice.</p>
 
     <h2>What we process and why</h2>
     <ul>
       <li><b>Your logs (with an account):</b> For backup and sync, only with your explicit consent, asked separately when you turn on your backup. You can withdraw it at any time by deleting your account.</li>
-      <li><b>Part of your logs for the AI features:</b> To write the daily note and the repeats, only with your explicit consent. You can withdraw it by turning the features off.</li>
+      <li><b>Daily note (Premium):</b> Your cycle phase, tracking mode, the language and the date, only to get the note and never linked to you.</li>
       <li><b>Account details:</b> To create your account, sign you in, send password reset emails and keep your account secure.</li>
       <li><b>Technical details for ads (free version):</b> See “Ads in the free version” below.</li>
       <li><b>Subscription status:</b> To know whether Premium is active.</li>
     </ul>
-    <p>If you’re in the European Economic Area or the UK, the GDPR applies: we rely on your explicit consent for your logs and the AI features (Art. <span class="nw">6(1)(a)</span> and <span class="nw">9(2)(a)),</span> on our contract with you for your account and subscription (Art. <span class="nw">6(1)(b)),</span> and on our legitimate interest in keeping accounts secure (Art. <span class="nw">6(1)(f)).</span></p>
+    <p>If you’re in the European Economic Area or the UK, the GDPR applies: we rely on your explicit consent for your logs (Art. <span class="nw">6(1)(a)</span> and <span class="nw">9(2)(a)),</span> on our contract with you for your account and subscription (Art. <span class="nw">6(1)(b)),</span> and on our legitimate interest in keeping accounts secure (Art. <span class="nw">6(1)(f)).</span></p>
 
     <h2>What we don’t collect</h2>
     <ul>
@@ -162,25 +159,24 @@
     </ul>
 
     <h2>Premium subscription</h2>
-    <p>Nilemy Premium is a monthly or yearly subscription that removes ads and adds deeper insights, a cycle summary PDF, pregnancy insights and a pregnancy summary PDF, a year in review, smart reminders, custom symptoms, themes, app icons and the AI features. Everything except the AI features runs on your phone; your logs aren’t sent anywhere for it. The PDF and the <span class="nw">year-in-review</span> image leave your phone only if you share them. Payment and the subscription itself are handled by the App Store or Google Play; we never see your payment details. The app only reads from the store whether your subscription is active and which plan it is.</p>
+    <p>Nilemy Premium is a monthly or yearly subscription that removes ads and adds deeper insights, a cycle summary PDF, pregnancy insights and a pregnancy summary PDF, a year in review, smart reminders, custom symptoms, themes, app icons and the daily note. Everything except the daily note runs on your phone, and your logs aren’t sent for the daily note either. The PDF and the <span class="nw">year-in-review</span> image leave your phone only if you share them. Payment and the subscription itself are handled by the App Store or Google Play; we never see your payment details. The app only reads from the store whether your subscription is active and which plan it is.</p>
 
     <h2>Who receives data</h2>
     <ul>
       <li><b>Google (Firebase Authentication):</b> Account details, for <span class="nw">sign-in</span>. Google’s servers worldwide, including the US.</li>
       <li><b>Google (Cloud Firestore):</b> Your encrypted backup and sync details. European Union.</li>
       <li><b>Apple:</b> To confirm who you are if you sign in with Apple.</li>
-      <li><b>Anthropic:</b> Only if you turn on the AI features, the details listed above, to write the note and the repeats. US.</li>
-      <li><b>Hostinger:</b> Hosts nilemy.com and our AI features server.</li>
+      <li><b>Anthropic:</b> For the daily note, only the cycle phase, tracking mode, language and the day’s topic; nothing about you. US.</li>
+      <li><b>Hostinger:</b> Hosts nilemy.com and the daily note server.</li>
       <li><b>Google (AdMob):</b> Technical details for ads, free version only.</li>
       <li><b>Apple App Store / Google Play:</b> Subscription and payment.</li>
     </ul>
-    <p><b>Transfers abroad:</b> These providers’ servers may be outside your country. Your consent to this is asked when you turn on your backup and the AI features.</p>
+    <p><b>Transfers abroad:</b> These providers’ servers may be outside your country. Your consent to this is asked when you turn on your backup.</p>
 
     <h2>How long we keep data</h2>
     <ul>
       <li><b>Logs on your phone:</b> Until you delete them or the app.</li>
       <li><b>Your account and encrypted backup:</b> Until you delete your account. Delete account removes both from the server straight away; they leave the provider’s system backups within its own deletion periods.</li>
-      <li><b>AI features:</b> On our server, the last note for up to two days and the latest repeats for up to 60 days, deleted straight away when you turn the features off, delete all data or delete your account. Anthropic deletes it within 30 days.</li>
       <li><b>Ad data:</b> As set out in Google’s policies.</li>
     </ul>
 
@@ -197,8 +193,8 @@
     <p>You can ask whether we process your data, what for and who receives it, and ask for it to be corrected, deleted or handed to you. You can also complain to your data protection authority. Most of this you can do yourself in the app:</p>
     <ul>
       <li><b>Save as a file:</b> Profile › Privacy and data › Your data › Save your logs as a file creates a CSV or JSON copy of your logs. The file isn’t encrypted, and you choose where it goes.</li>
-      <li><b>Delete all data:</b> Profile › Privacy and data › Your data › Delete all data permanently removes every cycle, daily log and pregnancy entry from your phone and, if you have an account, from your backup, and the AI answers from our server. Your account and settings stay.</li>
-      <li><b>Delete account:</b> Profile › Account › Delete account permanently removes your encrypted backup, your account and your AI answers from the server, and your logs from your phone.</li>
+      <li><b>Delete all data:</b> Profile › Privacy and data › Your data › Delete all data permanently removes every cycle, daily log and pregnancy entry from your phone and, if you have an account, from your backup. Your account and settings stay.</li>
+      <li><b>Delete account:</b> Profile › Account › Delete account permanently removes your encrypted backup and your account from the server, and your logs from your phone.</li>
     </ul>
     <p>For anything else, write to <a href="mailto:info@nilemy.com">info@nilemy.com</a>; we reply within 30 days, free of charge.</p>
 
