@@ -21,5 +21,5 @@ The landing page (the app on the first screen, then our story and the footer) an
 - The App Store button links to the live listing. The Google Play button is marked as coming soon and goes nowhere until the Android app is out.
 - `favicon.ico` (16/32/48) and `assets/favicon-192.png` are the logo mark for browsers and search results.
 - `robots.txt` points crawlers to `sitemap.xml`. `app-ads.txt` is for AdMob and stays at the root.
-- `api/` is the server behind the app's Premium daily note, reached at `/api/` (set up with `deploy/add-api.sh`).
+- `api/` is the server behind the app's Premium AI features (daily note, what repeats in your cycles), reached at `/api/` (set up with `deploy/add-api.sh`; `update` rolls back if the new version fails its health check).
 - Hosting: Emre's Hostinger VPS (2.24.113.154), next to other projects behind a dockerized Caddy (`proxy-caddy-1`). An `nginx:alpine` container `nilemy-site` serves `/opt/nilemy-site`, and a systemd timer pulls `main` there every 2 minutes, so merging to `main` publishes. `deploy/add-to-vps.sh` sets this up (`stage`, `live` with HTTPS, or `remove`); it only edits a marked block at the end of the shared Caddyfile. `deploy/check-vps.sh` is a read-only look at the server. Until November 2026 the site was on GitHub Pages; `CNAME` is left over from that.
