@@ -16,6 +16,7 @@ next to the sources. Edit src/ and run this again; never edit the built pages by
 import html
 import json
 import re
+import struct
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -26,6 +27,8 @@ LANGS = list(S)  # Turkish first: it is the root
 PAGES = ['', 'story', 'privacy', 'terms', 'support']
 SCREENS = ['home', 'history', 'insights', 'daily']
 SCREENS_VERSION = 5  # bump when assets/screens change, so browsers fetch the new ones
+DOC_CSS_VERSION = 2  # bump when assets/doc.css changes, for the same reason
+SHARE_IMAGE = '/assets/share.png'  # the picture shared links show, made from src/share.html (steps there)
 
 
 def base(lang):
@@ -118,6 +121,41 @@ def head_links(lang, page):
     return '\n'.join(links)
 
 
+def png_size(path):
+    """A PNG's width and height, read from its header."""
+    head = path.read_bytes()[:24]
+    assert head[:8] == b'\x89PNG\r\n\x1a\n', f'{path} is not a PNG'
+    return struct.unpack('>II', head[16:24])
+
+
+def share_tags(lang, page):
+    """Open Graph and X tags, so a link shared in WhatsApp, iMessage, X or Facebook shows the logo
+    (SHARE_IMAGE) with the page's title and description. The title leaves out " · Nilemy", because
+    apps show the site name next to it."""
+    s = S[lang]
+    title, desc = s['meta'][page or 'home']
+    title = title.removesuffix(' · Nilemy')
+    image = SITE + SHARE_IMAGE
+    width, height = png_size(ROOT / SHARE_IMAGE.lstrip('/'))  # stops the build if the picture is missing
+    return '\n'.join([
+        '<meta property="og:type" content="website">',
+        '<meta property="og:site_name" content="Nilemy">',
+        f'<meta property="og:title" content="{esc(title)}">',
+        f'<meta property="og:description" content="{esc(desc)}">',
+        f'<meta property="og:url" content="{SITE}{url(lang, page)}">',
+        f'<meta property="og:image" content="{image}">',
+        '<meta property="og:image:type" content="image/png">',
+        f'<meta property="og:image:width" content="{width}">',
+        f'<meta property="og:image:height" content="{height}">',
+        '<meta property="og:image:alt" content="Nilemy">',
+        f'<meta property="og:locale" content="{s["og"]}">',
+    ] + [f'<meta property="og:locale:alternate" content="{S[l]["og"]}">' for l in LANGS if l != lang] + [
+        '<meta name="twitter:card" content="summary_large_image">',
+        f'<meta name="twitter:image" content="{image}">',
+        '<meta name="twitter:image:alt" content="Nilemy">',
+    ])
+
+
 def mail(lang):
     ui = S[lang]['ui']
     return (f'<div class="mail"><code>info@nilemy.com</code><button type="button" class="copy" data-copy="info@nilemy.com" '
@@ -160,14 +198,7 @@ def home(lang):
         'metaTitle': esc(s['meta']['home'][0]),
         'metaDesc': esc(s['meta']['home'][1]),
         'headLinks': (REDIRECT + '\n' if lang == 'tr' else '') + head_links(lang, ''),
-        'og': '\n'.join([
-            '<meta property="og:type" content="website">',
-            '<meta property="og:title" content="Nilemy">',
-            f'<meta property="og:description" content="{esc(s["meta"]["home"][1])}">',
-            f'<meta property="og:url" content="{SITE}{url(lang, "")}">',
-            f'<meta property="og:image" content="{SITE}/assets/screens/{lang}-home.webp">',
-            f'<meta property="og:locale" content="{s["og"]}">',
-        ] + [f'<meta property="og:locale:alternate" content="{S[l]["og"]}">' for l in LANGS if l != lang]),
+        'og': share_tags(lang, ''),
         'switcherCss': SWITCHER_CSS,
         'switcher': switcher(lang, ''),
         'base': base(lang),
@@ -235,9 +266,10 @@ DOC = """<!doctype html>
 <link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192.png">
 <link rel="icon" type="image/png" href="/assets/favicon.png">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+{{og}}
 <link rel="preload" href="/assets/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/fonts/fonts.css">
-<link rel="stylesheet" href="/assets/doc.css">
+<link rel="stylesheet" href="/assets/doc.css?v={{cssVersion}}">
 <style>
 {{switcherCss}}
 </style>
@@ -281,7 +313,9 @@ def doc(lang, page):
         'title': esc(s['meta'][page][0]),
         'desc': esc(s['meta'][page][1]),
         'headLinks': (REDIRECT + '\n' if lang == 'tr' else '') + head_links(lang, page),
+        'og': share_tags(lang, page),
         'switcherCss': SWITCHER_CSS,
+        'cssVersion': str(DOC_CSS_VERSION),
         'switcher': switcher(lang, page),
         'base': base(lang),
         'storyCurrent': ' aria-current="page"' if page == 'story' else '',

@@ -38,7 +38,7 @@
     "meta": {
       "home": [
         "Nilemy",
-        "Nilemy: adetini saniyeler içinde kaydet, döngünü anla, önünü planla; hamileysen haftalarını takip et. Kayıtların telefonunda, şifreli kalır."
+        "Nilemy: adetini saniyeler içinde kaydet, döngünü anla, önünü planla; hamileysen haftalarını takip et. Kayıtların telefonunda şifrelenir."
       ],
       "story": [
         "Hikayemiz · Nilemy",
@@ -46,7 +46,7 @@
       ],
       "privacy": [
         "Gizlilik politikası · Nilemy",
-        "Nilemy gizlilik politikası ve KVKK aydınlatma metni: kayıtların telefonunda şifreli kalır, satılmaz, reklam için kullanılmaz."
+        "Nilemy gizlilik politikası ve KVKK aydınlatma metni: kayıtların telefonunda şifrelenir, satılmaz ve reklam için kullanılmaz."
       ],
       "terms": [
         "Kullanım koşulları · Nilemy",
@@ -97,7 +97,7 @@
     "meta": {
       "home": [
         "Nilemy",
-        "Nilemy: log your period in seconds, understand your cycle and plan ahead; follow your pregnancy week by week. Your logs stay on your phone, encrypted."
+        "Nilemy: log your period in seconds, understand your cycle and plan ahead; follow your pregnancy week by week. Your logs are encrypted on your phone."
       ],
       "story": [
         "Our story · Nilemy",
@@ -105,7 +105,7 @@
       ],
       "privacy": [
         "Privacy policy · Nilemy",
-        "Nilemy privacy policy: your logs stay on your phone, encrypted, and are never sold or used for ads."
+        "Nilemy privacy policy: your logs are encrypted on your phone and never sold or used for ads."
       ],
       "terms": [
         "Terms of service · Nilemy",
@@ -156,7 +156,7 @@
     "meta": {
       "home": [
         "Nilemy",
-        "Nilemy: Periode in Sekunden eintragen, Zyklus verstehen und vorausplanen; Schwangerschaft Woche für Woche verfolgen. Deine Einträge bleiben verschlüsselt auf deinem Handy."
+        "Nilemy: Periode in Sekunden eintragen, Zyklus verstehen und vorausplanen; Schwangerschaft Woche für Woche verfolgen. Deine Einträge werden auf deinem Handy verschlüsselt."
       ],
       "story": [
         "Unsere Geschichte · Nilemy",
@@ -164,7 +164,7 @@
       ],
       "privacy": [
         "Datenschutzerklärung · Nilemy",
-        "Datenschutzerklärung von Nilemy: Deine Einträge bleiben verschlüsselt auf deinem Handy und werden nie verkauft oder für Werbung genutzt."
+        "Datenschutzerklärung von Nilemy: Deine Einträge werden auf deinem Handy verschlüsselt und nie verkauft oder für Werbung genutzt."
       ],
       "terms": [
         "Nutzungsbedingungen · Nilemy",
@@ -215,7 +215,7 @@
     "meta": {
       "home": [
         "Nilemy",
-        "Nilemy : note tes règles en quelques secondes, comprends ton cycle et anticipe ; suis ta grossesse semaine après semaine. Tes données restent chiffrées sur ton téléphone."
+        "Nilemy : note tes règles en quelques secondes, comprends ton cycle et anticipe ; suis ta grossesse semaine après semaine. Ce que tu notes est chiffré sur ton téléphone."
       ],
       "story": [
         "Notre histoire · Nilemy",
@@ -223,7 +223,7 @@
       ],
       "privacy": [
         "Politique de confidentialité · Nilemy",
-        "Politique de confidentialité de Nilemy : tes données restent chiffrées sur ton téléphone, ne sont jamais vendues ni utilisées pour la pub."
+        "Politique de confidentialité de Nilemy : ce que tu notes est chiffré sur ton téléphone, jamais vendu ni utilisé pour la pub."
       ],
       "terms": [
         "Conditions d’utilisation · Nilemy",
@@ -274,7 +274,7 @@
     "meta": {
       "home": [
         "Nilemy",
-        "Nilemy: registre a menstruação em segundos, entenda seu ciclo e planeje; acompanhe a gravidez semana a semana. Seus registros ficam criptografados no seu celular."
+        "Nilemy: registre a menstruação em segundos, entenda seu ciclo e planeje; acompanhe a gravidez semana a semana. Seus registros são criptografados no seu celular."
       ],
       "story": [
         "Nossa história · Nilemy",
@@ -282,7 +282,7 @@
       ],
       "privacy": [
         "Política de privacidade · Nilemy",
-        "Política de privacidade do Nilemy: seus registros ficam criptografados no seu celular e nunca são vendidos nem usados para anúncios."
+        "Política de privacidade do Nilemy: seus registros são criptografados no seu celular e nunca são vendidos nem usados para anúncios."
       ],
       "terms": [
         "Termos de uso · Nilemy",
@@ -333,7 +333,7 @@
     "meta": {
       "home": [
         "Nilemy",
-        "Nilemy: segna le mestruazioni in pochi secondi, capisci il tuo ciclo e organizzati; segui la gravidanza settimana per settimana. I tuoi dati restano cifrati sul telefono."
+        "Nilemy: segna le mestruazioni in pochi secondi, capisci il tuo ciclo e organizzati; segui la gravidanza settimana per settimana. Ciò che registri viene cifrato sul telefono."
       ],
       "story": [
         "La nostra storia · Nilemy",
@@ -341,7 +341,7 @@
       ],
       "privacy": [
         "Informativa sulla privacy · Nilemy",
-        "Informativa sulla privacy di Nilemy: i tuoi dati restano cifrati sul telefono, non vengono mai venduti né usati per la pubblicità."
+        "Informativa sulla privacy di Nilemy: ciò che registri viene cifrato sul telefono e non viene mai venduto né usato per la pubblicità."
       ],
       "terms": [
         "Termini di servizio · Nilemy",

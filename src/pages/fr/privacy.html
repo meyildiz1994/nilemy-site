@@ -1,9 +1,9 @@
     <h1>Politique de confidentialité</h1>
     <p class="updated">Dernière mise à jour : 4 novembre 2026</p>
-    <p class="lead">Nilemy est une app pour suivre ton cycle menstruel et ta grossesse. Sans compte, tes données restent chiffrées sur ton téléphone et rien ne nous parvient. Avec un compte, tes données sont chiffrées sur ton téléphone avant d’être sauvegardées. Nous ne vendons jamais tes données et ne les utilisons pas pour la publicité ; elles ne vont à nos prestataires que pour une fonction que tu actives toi-même, comme décrit ci-dessous.</p>
+    <p class="lead">Nilemy est une app pour suivre ton cycle menstruel et ta grossesse. Sans compte, tes données restent chiffrées sur ton téléphone et rien ne nous parvient. Avec un compte, tes données sont chiffrées sur ton téléphone avant d’être sauvegardées. Nous ne vendons jamais ce que tu notes et ne l’utilisons pas pour la publicité ; cela ne va à nos prestataires que pour une fonction que tu actives toi-même, comme décrit ci-dessous.</p>
 
     <h2>Responsable du traitement</h2>
-    <p>Nilemy · <a href="mailto:info@nilemy.com">info@nilemy.com</a></p>
+    <p>Nilüfer Akten (Nilemy) · <a href="mailto:info@nilemy.com">info@nilemy.com</a></p>
 
     <h2>Ce que l’app enregistre</h2>
     <p>Uniquement ce que tu saisis :</p>
@@ -12,13 +12,14 @@
       <li>Si tu essaies d’avoir un bébé : résultats des tests d’ovulation et de grossesse</li>
       <li>Si tu es enceinte : date prévue d’accouchement, poids, mouvements du bébé, contractions, date, heure et notes des rendez-vous médicaux, et les listes de choses à faire et de valise de maternité</li>
       <li>Après une grossesse : la date de naissance et si tu allaites, ou le jour où une grossesse s’est arrêtée sans naissance (nous ne demandons jamais pourquoi)</li>
-      <li>Le prénom affiché sur l’Accueil et, si tu en ajoutes une, une photo de profil (chiffrée sur ton téléphone, jamais sauvegardée dans ton compte)</li>
-      <li>Tes réglages : durée du cycle et des règles, rappels, verrouillage, thème et icône de l’app</li>
+      <li>Si tu n’as pas de règles en ce moment : la raison (naissance, allaitement, ménopause ou contraception) et depuis quand</li>
+      <li>Le prénom affiché sur l’Accueil et, si tu en ajoutes une, une photo de profil (reste sur ton téléphone, jamais sauvegardée dans ton compte)</li>
+      <li>Tes réglages : mode de suivi, régularité de tes cycles, durée du cycle et des règles, rappels, verrouillage, thème et icône de l’app</li>
     </ul>
     <p>Une partie de ces données concerne ta santé et ta vie sexuelle (catégories particulières au sens de l’article 9 du RGPD). Le code de verrouillage n’est jamais enregistré en clair : seule une empreinte salée et irréversible (hash) est conservée, et elle ne quitte jamais ton téléphone.</p>
 
-    <h2>Sans compte : tout reste sur ton téléphone</h2>
-    <p>Le compte est facultatif. Sans compte, tout reste sur ton téléphone dans un seul fichier chiffré en AES-256. La clé est gardée dans l’espace sécurisé de ton téléphone (Trousseau sur iPhone, Keystore sur Android) et ne peut pas quitter cet appareil. Tes données ne sont jamais envoyées à nous ni à personne. Si tu supprimes l’app ou perds ton téléphone, tes données sont perdues aussi.</p>
+    <h2>Sans compte : ce que tu notes reste sur ton téléphone</h2>
+    <p>Le compte est facultatif. Sans compte, tout ce que tu notes reste sur ton téléphone, chiffré en AES-256. La clé est gardée dans l’espace sécurisé de ton téléphone (Trousseau sur iPhone, Keystore sur Android) et ne peut pas quitter cet appareil. Tes données ne sont jamais envoyées à nous ni à personne. Si tu supprimes l’app ou perds ton téléphone, tes données sont perdues aussi.</p>
 
     <h2>Compte et sauvegarde chiffrée</h2>
     <p>Tu peux créer un compte avec Google, Apple (sur iPhone) ou une adresse e-mail, pour restaurer tes données sur un nouveau téléphone et synchroniser plusieurs téléphones. Notre prestataire est Google Firebase (Firebase Authentication et Cloud Firestore).</p>
@@ -30,22 +31,19 @@
       <li><b>Ce que le serveur voit en clair :</b> Les données du compte ci-dessus, les heures de synchronisation, la taille des données chiffrées et un numéro de version. Le contenu de tes données n’arrive jamais en clair sur le serveur ; la clé est dans ton compte.</li>
     </ul>
 
-    <h2>Fonctions IA (Premium, facultatives)</h2>
-    <p>Deux fonctions Premium utilisent Claude, l’IA d’Anthropic : la note du jour sur l’Accueil (« Pour toi aujourd’hui ») et « Ce qui revient dans tes cycles » dans l’Analyse. Un seul réglage active les deux. Il faut un compte, et elles restent désactivées tant que tu ne les actives pas. Avant tout envoi, tu vois ce qui est envoyé et ton consentement distinct t’est demandé ; sans lui, rien n’est envoyé.</p>
+    <h2>Note du jour (Premium)</h2>
+    <p>Avec Premium, l’Accueil affiche chaque jour une courte note sous « Pour toi aujourd’hui ». Elle est écrite par Claude, l’IA d’Anthropic.</p>
     <ul>
-      <li><b>Envoyé pour la note du jour :</b> Langue, mode de suivi, jour et phase du cycle, nombre de jours avant tes prochaines règles, si aujourd’hui est un jour fertile et si tes cycles sont irréguliers, durée du cycle et des règles, nombre de cycles notés, symptômes et humeurs revenus lors des cycles précédents, et flux, douleur, humeur, énergie et symptômes notés aujourd’hui ; si tu essaies d’avoir un bébé, le résultat du test d’ovulation du jour.</li>
-      <li><b>Envoyé pour « Ce qui revient dans tes cycles » :</b> La durée de tes derniers cycles terminés (8 au plus) et, pour chaque jour noté, le jour du cycle, le nombre de jours avant les règles suivantes, le flux, la douleur, l’humeur, l’énergie, les symptômes et les produits utilisés. Aucune date n’est envoyée.</li>
-      <li><b>Jamais envoyé :</b> Tes notes, ton prénom, ton e-mail, ta photo, tes rapports notés, les résultats des tests de grossesse et les informations de grossesse.</li>
-      <li><b>Comment ça circule :</b> Par notre serveur sur nilemy.com vers Anthropic ; Claude les traite aux États-Unis. Notre serveur vérifie que la demande vient de ton compte et la transmet sans tes données de compte. La date du jour ne va qu’à notre serveur, pour garder une note par jour. Anthropic ne s’en sert pas pour entraîner ses modèles et les supprime sous 30 jours selon ses propres conditions.</li>
-      <li><b>Combien de temps c’est gardé :</b> Sur notre serveur, avec l’identifiant de ton compte, la dernière note du jour deux jours au plus et le dernier résultat « ce qui revient » 60 jours au plus. Les deux sont supprimés quand tu désactives les fonctions, supprimes toutes tes données ou supprimes ton compte.</li>
-      <li><b>Les désactiver :</b> À tout moment dans Profil › Confidentialité et données › Fonctions IA.</li>
+      <li><b>Envoyé à notre serveur :</b> Seulement ta phase du cycle, ton mode de suivi (« Suivre mon cycle » ou « Projet bébé »), la langue et la date du jour. Jamais tes saisies, ton compte ni rien d’autre sur toi.</li>
+      <li><b>Envoyé à Anthropic :</b> La même chose sans la date, plus le thème du jour, par exemple l’alimentation ou le sommeil. Claude traite ces informations aux États-Unis.</li>
+      <li><b>Aucun lien avec toi :</b> Tout le monde avec la même phase, le même mode et la même langue reçoit la même note ce jour-là. Chaque note reste au plus 3 jours sur notre serveur, et rien n’est conservé sur la personne qui l’a demandée.</li>
     </ul>
-    <p>Ces textes sont écrits par une IA, peuvent se tromper et ne constituent pas un avis médical.</p>
+    <p>La note est générale, peut se tromper et ne constitue pas un avis médical.</p>
 
     <h2>Ce que nous traitons et pourquoi (bases légales)</h2>
     <ul>
       <li><b>Tes données (avec un compte) :</b> Pour la sauvegarde et la synchronisation, uniquement avec ton consentement explicite (art. 6.1.a et 9.2.a du RGPD), demandé à part quand tu actives la sauvegarde. Tu peux le retirer à tout moment en supprimant ton compte.</li>
-      <li><b>Une partie de tes données pour les fonctions IA :</b> Pour écrire la note du jour et « ce qui revient », uniquement avec ton consentement explicite (art. 6.1.a et 9.2.a du RGPD). Tu le retires en désactivant les fonctions.</li>
+      <li><b>Note du jour (Premium) :</b> Ta phase du cycle, ton mode de suivi, la langue et la date, seulement pour obtenir la note, sans jamais être liés à toi.</li>
       <li><b>Données du compte :</b> Pour créer ton compte, te connecter, envoyer les e-mails de réinitialisation du mot de passe et protéger ton compte ; exécution du contrat (art. 6.1.b du RGPD) et notre intérêt légitime à sécuriser les comptes (art. 6.1.f du RGPD).</li>
       <li><b>Données techniques pour la pub (version gratuite) :</b> Voir « La publicité dans la version gratuite » ci-dessous.</li>
       <li><b>Statut de l’abonnement :</b> Pour savoir si Premium est actif ; exécution du contrat (art. 6.1.b du RGPD).</li>
@@ -55,11 +53,11 @@
     <ul>
       <li>Nous n’utilisons aucun outil d’analyse et ne collectons aucune statistique d’utilisation.</li>
       <li>Nous ne te suivons pas d’une app ou d’un site à l’autre et n’utilisons pas ton identifiant publicitaire (IDFA / identifiant publicitaire Android).</li>
-      <li>Nous ne vendons jamais tes données et ne les utilisons pas pour la publicité.</li>
+      <li>Nous ne vendons jamais ce que tu notes et ne l’utilisons pas pour la publicité.</li>
     </ul>
 
     <h2>La publicité dans la version gratuite</h2>
-    <p>Une semaine après l’installation, la version gratuite affiche des bannières Google AdMob en bas de l’Accueil, de l’Historique et de l’Analyse. Pendant la première semaine, le SDK publicitaire n’est pas du tout lancé. Aucune pub n’apparaît sur les écrans où tu notes tes données.</p>
+    <p>Une semaine après la configuration de Nilemy, la version gratuite affiche des bannières Google AdMob en bas de l’Accueil, de l’Historique et de l’Analyse. Pendant la première semaine, le SDK publicitaire n’est pas du tout lancé. Aucune pub n’apparaît sur les écrans où tu notes tes données.</p>
     <ul>
       <li><b>Uniquement des pubs non personnalisées :</b> Les pubs ne sont pas choisies selon tes centres d’intérêt ou ton historique. Aucun identifiant publicitaire n’est utilisé, donc l’app ne demande pas l’autorisation de suivi (App Tracking Transparency).</li>
       <li><b>Tes données de santé ne servent jamais à la pub :</b> Tes dates de règles, symptômes, notes, prénom et données de compte ne sont jamais transmis au fournisseur de pub.</li>
@@ -69,25 +67,24 @@
     </ul>
 
     <h2>Abonnement Premium</h2>
-    <p>Nilemy Premium est un abonnement mensuel ou annuel qui supprime les pubs et ajoute des analyses plus poussées, un PDF de résumé du cycle, l’analyse de grossesse et un PDF de résumé de grossesse, un bilan de l’année, des rappels intelligents, des symptômes personnalisés, des thèmes, des icônes d’app et les fonctions IA. Tout, sauf les fonctions IA, fonctionne sur ton téléphone ; tes données ne sont envoyées nulle part pour cela. Le PDF et l’image du bilan de l’année ne quittent ton téléphone que si tu les partages. Le paiement et l’abonnement passent par l’App Store ou Google Play ; nous ne voyons jamais tes informations de paiement. L’app lit seulement dans le store si ton abonnement est actif et de quelle formule il s’agit.</p>
+    <p>Nilemy Premium est un abonnement mensuel ou annuel qui supprime les pubs et ajoute des analyses plus poussées, un PDF de résumé du cycle, l’analyse de grossesse et un PDF de résumé de grossesse, un bilan de l’année, des rappels intelligents, des symptômes personnalisés, des thèmes, des icônes d’app et la note du jour. Tout, sauf la note du jour, fonctionne sur ton téléphone, et tes saisies ne sont pas envoyées non plus pour la note du jour. Le PDF et l’image du bilan de l’année ne quittent ton téléphone que si tu les partages. Le paiement et l’abonnement passent par l’App Store ou Google Play ; nous ne voyons jamais tes informations de paiement. L’app lit seulement dans le store si ton abonnement est actif et de quelle formule il s’agit.</p>
 
     <h2>Qui reçoit des données</h2>
     <ul>
       <li><b>Google (Firebase Authentication) :</b> Données du compte, pour la connexion. Serveurs de Google dans le monde, y compris aux États-Unis.</li>
       <li><b>Google (Cloud Firestore) :</b> Ta sauvegarde chiffrée et les informations de synchronisation. Union européenne.</li>
       <li><b>Apple :</b> Pour confirmer ton identité si tu te connectes avec Apple.</li>
-      <li><b>Anthropic :</b> Seulement si tu actives les fonctions IA, les informations listées plus haut, pour écrire la note et « ce qui revient ». États-Unis.</li>
-      <li><b>Hostinger :</b> Héberge nilemy.com et notre serveur des fonctions IA.</li>
+      <li><b>Anthropic :</b> Pour la note du jour, seulement la phase du cycle, le mode de suivi, la langue et le thème du jour ; rien sur toi. États-Unis.</li>
+      <li><b>Hostinger :</b> Héberge nilemy.com et le serveur de la note du jour.</li>
       <li><b>Google (AdMob) :</b> Données techniques pour la pub, version gratuite uniquement.</li>
       <li><b>Apple App Store / Google Play :</b> Abonnement et paiement.</li>
     </ul>
-    <p><b>Transferts hors de ton pays :</b> Les serveurs de ces prestataires peuvent se trouver hors de ton pays, y compris aux États-Unis. Ton consentement est demandé quand tu actives la sauvegarde et les fonctions IA. Le prestataire ne peut pas lire le contenu de ta sauvegarde chiffrée.</p>
+    <p><b>Transferts hors de ton pays :</b> Les serveurs de ces prestataires peuvent se trouver hors de ton pays, y compris aux États-Unis. Ton consentement est demandé quand tu actives la sauvegarde.</p>
 
     <h2>Durée de conservation</h2>
     <ul>
       <li><b>Données sur ton téléphone :</b> Jusqu’à ce que tu les supprimes ou que tu supprimes l’app.</li>
       <li><b>Ton compte et ta sauvegarde chiffrée :</b> Jusqu’à la suppression de ton compte. « Supprimer le compte » efface les deux du serveur immédiatement ; ils disparaissent des sauvegardes système du prestataire dans ses propres délais de suppression.</li>
-      <li><b>Fonctions IA :</b> Sur notre serveur, la dernière note deux jours au plus et le dernier résultat « ce qui revient » 60 jours au plus, supprimés dès que tu désactives les fonctions, supprimes toutes tes données ou supprimes ton compte. Anthropic supprime sous 30 jours.</li>
       <li><b>Données publicitaires :</b> Selon les règles de Google.</li>
     </ul>
 
@@ -98,14 +95,14 @@
     </ul>
 
     <h2>Sauvegardes du téléphone</h2>
-    <p>Si la sauvegarde iCloud ou Google est activée, le fichier chiffré peut y être inclus. La clé reste sur ce téléphone, donc le fichier ne peut pas être ouvert sur un autre appareil. Pour transférer tes données sur un nouveau téléphone, crée un compte ou enregistre tes données dans un fichier.</p>
+    <p>Si la sauvegarde iCloud ou Google est activée, le fichier chiffré peut y être inclus. La clé reste sur ce téléphone, donc le fichier ne peut pas être ouvert sur un autre appareil. Pour transférer tes données sur un nouveau téléphone, il te faut un compte.</p>
 
     <h2>Tes droits</h2>
     <p>Selon le RGPD, tu as le droit d’accéder à tes données, de les rectifier, de les effacer, d’en limiter le traitement, de les récupérer (portabilité) et de t’opposer au traitement, ainsi que de retirer ton consentement à tout moment pour l’avenir. Tu peux aussi introduire une réclamation auprès de la CNIL ou de l’autorité de protection des données de ton pays. Tu peux faire la plupart de ces démarches toi-même dans l’app :</p>
     <ul>
       <li><b>Enregistrer dans un fichier :</b> Profil › Confidentialité et données › Tes données › Enregistrer tes données crée une copie CSV ou JSON de tes données. Le fichier n’est pas chiffré, et tu choisis où il va.</li>
-      <li><b>Tout supprimer :</b> Profil › Confidentialité et données › Tes données › Tout supprimer efface définitivement tous tes cycles, saisies du jour et données de grossesse de ton téléphone et, si tu as un compte, de ta sauvegarde ; les réponses IA sont aussi effacées de notre serveur. Ton compte et tes réglages restent.</li>
-      <li><b>Supprimer le compte :</b> Profil › Compte › Supprimer le compte efface définitivement ta sauvegarde chiffrée, ton compte et tes réponses IA du serveur, et tes données de ton téléphone.</li>
+      <li><b>Tout supprimer :</b> Profil › Confidentialité et données › Tes données › Tout supprimer efface définitivement tous tes cycles, saisies du jour et données de grossesse de ton téléphone et, si tu as un compte, de ta sauvegarde. Ton compte et tes réglages restent.</li>
+      <li><b>Supprimer le compte :</b> Profil › Compte › Supprimer le compte efface définitivement ta sauvegarde chiffrée et ton compte du serveur, et tes données de ton téléphone.</li>
     </ul>
     <p>Pour toute autre demande, écris à <a href="mailto:info@nilemy.com">info@nilemy.com</a> ; nous répondons sous 30 jours, gratuitement.</p>
 

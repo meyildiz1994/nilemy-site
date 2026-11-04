@@ -1,0 +1,26 @@
+<!doctype html>
+<!-- The picture a shared link shows (WhatsApp, iMessage, X, Facebook...): the file SHARE_IMAGE names
+     in src/build.py, now assets/share.png. The logo sits on the site's background, in the middle, so
+     a square crop still holds all of it.
+     To change it:
+     1. Edit this page, then take a 1200×630 shot of it from the repo root:
+          google-chrome --headless --hide-scrollbars --force-device-scale-factor=1 --window-size=1200,630 --screenshot=assets/share-2.png src/share.html
+        On a Mac the program is "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome".
+        A screenshot of a browser window comes out the wrong size. Keep the file well under 600 KB,
+        WhatsApp's limit.
+     2. Give it a new file name, as above, because apps keep old previews. Set SHARE_IMAGE to it and
+        run python3 src/build.py; the pages take the picture's size from the file.
+     3. Commit the picture together with the rebuilt pages, and leave the old file in place. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<title>Nilemy link preview</title>
+<style>
+  html, body { margin: 0; }
+  body { width: 1200px; height: 630px; overflow: hidden; background: #FCF5F6; display: grid; place-items: center; }
+  img { height: 380px; width: auto; display: block; }
+</style>
+</head>
+<body><img src="../assets/logo.svg" alt="Nilemy"></body>
+</html>
