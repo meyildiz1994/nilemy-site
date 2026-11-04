@@ -16,6 +16,7 @@ next to the sources. Edit src/ and run this again; never edit the built pages by
 import html
 import json
 import re
+import struct
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -26,7 +27,7 @@ LANGS = list(S)  # Turkish first: it is the root
 PAGES = ['', 'story', 'privacy', 'terms', 'support']
 SCREENS = ['home', 'history', 'insights', 'daily']
 SCREENS_VERSION = 5  # bump when assets/screens change, so browsers fetch the new ones
-SHARE_IMAGE = '/assets/share.png'  # the picture shared links show, made from src/share.html
+SHARE_IMAGE = '/assets/share.png'  # the picture shared links show, made from src/share.html (steps there)
 
 
 def base(lang):
@@ -119,12 +120,22 @@ def head_links(lang, page):
     return '\n'.join(links)
 
 
+def png_size(path):
+    """A PNG's width and height, read from its header."""
+    head = path.read_bytes()[:24]
+    assert head[:8] == b'\x89PNG\r\n\x1a\n', f'{path} is not a PNG'
+    return struct.unpack('>II', head[16:24])
+
+
 def share_tags(lang, page):
     """Open Graph and X tags, so a link shared in WhatsApp, iMessage, X or Facebook shows the logo
-    (assets/share.png, 1200×630) with the page's title and description."""
+    (SHARE_IMAGE) with the page's title and description. The title leaves out " · Nilemy", because
+    apps show the site name next to it."""
     s = S[lang]
     title, desc = s['meta'][page or 'home']
+    title = title.removesuffix(' · Nilemy')
     image = SITE + SHARE_IMAGE
+    width, height = png_size(ROOT / SHARE_IMAGE.lstrip('/'))  # stops the build if the picture is missing
     return '\n'.join([
         '<meta property="og:type" content="website">',
         '<meta property="og:site_name" content="Nilemy">',
@@ -133,8 +144,8 @@ def share_tags(lang, page):
         f'<meta property="og:url" content="{SITE}{url(lang, page)}">',
         f'<meta property="og:image" content="{image}">',
         '<meta property="og:image:type" content="image/png">',
-        '<meta property="og:image:width" content="1200">',
-        '<meta property="og:image:height" content="630">',
+        f'<meta property="og:image:width" content="{width}">',
+        f'<meta property="og:image:height" content="{height}">',
         '<meta property="og:image:alt" content="Nilemy">',
         f'<meta property="og:locale" content="{s["og"]}">',
     ] + [f'<meta property="og:locale:alternate" content="{S[l]["og"]}">' for l in LANGS if l != lang] + [

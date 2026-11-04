@@ -1,9 +1,16 @@
 <!doctype html>
-<!-- The picture a shared link shows (WhatsApp, iMessage, X, Facebook...): assets/share.png, 1200×630.
-     The logo sits on the site's background, in the middle, so a square crop still holds all of it.
-     To change it: edit this page, open it in a browser window of exactly 1200×630, save a screenshot
-     as assets/share.png (keep it under 300 KB, or WhatsApp skips it) and give the file a new name or
-     bump SHARE_IMAGE in build.py, because apps keep old previews. -->
+<!-- The picture a shared link shows (WhatsApp, iMessage, X, Facebook...): the file SHARE_IMAGE names
+     in src/build.py, now assets/share.png. The logo sits on the site's background, in the middle, so
+     a square crop still holds all of it.
+     To change it:
+     1. Edit this page, then take a 1200×630 shot of it from the repo root:
+          google-chrome --headless --hide-scrollbars --force-device-scale-factor=1 --window-size=1200,630 --screenshot=assets/share-2.png src/share.html
+        On a Mac the program is "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome".
+        A screenshot of a browser window comes out the wrong size. Keep the file well under 600 KB,
+        WhatsApp's limit.
+     2. Give it a new file name, as above, because apps keep old previews. Set SHARE_IMAGE to it and
+        run python3 src/build.py; the pages take the picture's size from the file.
+     3. Commit the picture together with the rebuilt pages, and leave the old file in place. -->
 <html lang="en">
 <head>
 <meta charset="utf-8">
