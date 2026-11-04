@@ -2,10 +2,12 @@
 // container next to the site (deploy/add-api.sh) and is reached at https://nilemy.com/api/ through
 // the existing Caddy proxy.
 //
-// GET /api/daily-note?lang=tr&mode=cycle&phase=Luteal&date=2026-11-04
+// GET /api/daily-note?lang=tr&mode=cycle&phase=Luteal&date=2026-11-04&n=3
 //                        -> { text }   A general note for that cycle phase and mode, in that language.
-//                        Written once a day per phase, mode and language and given to everyone who asks
-//                        for the same: nothing about a person is sent, to this server or to Claude.
+//                        Each day a set of notes (one per topic) is written once per phase, mode and
+//                        language and given to everyone who asks; `n` (the phone counts its app opens)
+//                        picks which one, so each open shows a different note. Nothing about a person
+//                        is sent, to this server or to Claude.
 // GET /api/health        -> ok once Claude has taken the key and settings (asked once at start)
 //
 // Env: ANTHROPIC_API_KEY (required), MODEL (default claude-opus-5-5), INFERENCE_GEO (default us),
@@ -48,16 +50,17 @@ const MODES = {
 /** What today's note is about, so the note changes from day to day. */
 const TOPICS = ['what happens in the body now', 'food and drink', 'movement and exercise', 'sleep and energy', 'mood', 'a practical tip for logging or planning the day'];
 
-const SYSTEM = `You write the "For you today" note on the home screen of Nilemy, a period tracking app.
-The note is general: you know only the person's cycle phase, whether they are trying to get pregnant, and the language.
-Everyone in the same phase, mode and language reads the same note today.
+const SYSTEM = `You write the "For you today" notes on the home screen of Nilemy, a period tracking app.
+The notes are general: you know only the reader's cycle phase, whether they are trying to get pregnant, and the language.
+Everyone in the same phase, mode and language reads the same notes today; the app shows a different one each time it opens.
 
 What a good note does:
-- Says one useful, well-established thing about this phase for the topic given, and one practical thing to do.
+- Says one useful, well-established thing about this phase for its topic, and one practical thing to do.
 - In conceive mode, focus on fertility, timing and tests.
+- Each note in the set is about its own topic and says something the others don't; no two start the same way.
 
 Style:
-- At most 2 sentences and 220 characters. Plain text: no emoji, no markdown, no quotes, no greeting, no sign-off.
+- Each note at most 2 sentences and 220 characters. Plain text: no emoji, no markdown, no quotes, no greeting, no sign-off.
 - Address the reader informally (tr: "sen", de: "du", fr: "tu", pt: "você", it: "tu").
 - Never claim to know anything about the reader's own logs or body ("your logs", "you logged", "you usually").
 - Not medical: no diagnosis, no medication names or doses, no reassurance or warning about health. Never call anything "normal" or "abnormal". Never say "studies show".
@@ -66,12 +69,12 @@ Style:
 - Never use these words or anything that sounds like them: calm, gentle, soft, soothing, relax, sakin, nazik, yumuşak, rahatla, sanft, ruhig, doux, doucement, calme, tranquilo, suave, calmo, dolce.`;
 
 /** One Claude call with the settings the note and the start check share. */
-function ask({ system, content, maxTokens }, options) {
+function ask({ system, content, maxTokens, format }, options) {
   return claude.beta.messages.create(
     {
       model: MODEL,
       max_tokens: maxTokens,
-      output_config: { effort: 'low' },
+      output_config: { effort: 'low', ...(format ? { format } : null) },
       ...(GEO ? { inference_geo: GEO } : null),
       betas: ['server-side-fallback-2026-07-01'],
       fallbacks: 'default',
@@ -101,7 +104,7 @@ function checkClaude() {
   return ready;
 }
 
-// "date|lang|mode|phase" -> { text, at }, or the request still being written.
+// "date|lang|mode|phase" -> { texts, at }: the day's set of notes.
 const notes = new Map();
 const writing = new Map();
 let made = { day: '', count: 0 };
@@ -123,17 +126,34 @@ function validDate(date) {
   return Math.abs(diff) <= 1.6 * DAY;
 }
 
+const NOTES_FORMAT = {
+  type: 'json_schema',
+  schema: {
+    type: 'object',
+    properties: { notes: { type: 'array', items: { type: 'string' } } },
+    required: ['notes'],
+    additionalProperties: false,
+  },
+};
+
+/** Today's set: one note per topic, the topics in a different order each day. */
 async function write(lang, mode, phase, date) {
   const day = Math.floor(Date.parse(date) / DAY);
-  const topic = TOPICS[day % TOPICS.length];
+  const topics = TOPICS.map((_, i) => TOPICS[(i + day) % TOPICS.length]);
   const res = await ask({
     system: SYSTEM,
-    maxTokens: 2000,
-    content: `Write today's note in ${LANG_NAME[lang]}. The reader is in ${PHASES[phase]} and is ${MODES[mode]}. Topic for today: ${topic}.`,
+    maxTokens: 4000,
+    format: NOTES_FORMAT,
+    content: `Write ${topics.length} notes in ${LANG_NAME[lang]}, one for each topic, in this order: ${topics.join('; ')}. The reader is in ${PHASES[phase]} and is ${MODES[mode]}.`,
   });
-  if (res.stop_reason === 'refusal') return null;
-  const text = res.content.map((b) => (b.type === 'text' ? b.text : '')).join('').trim();
-  return text.replace(/^["“”']+|["“”']+$/g, '').slice(0, 400) || null;
+  if (res.stop_reason === 'refusal' || res.stop_reason === 'max_tokens') return null;
+  const notes = JSON.parse(res.content.map((b) => (b.type === 'text' ? b.text : '')).join('')).notes;
+  if (!Array.isArray(notes)) return null;
+  const clean = notes
+    .filter((t) => typeof t === 'string')
+    .map((t) => t.trim().replace(/^["“”']+|["“”']+$/g, '').slice(0, 400))
+    .filter(Boolean);
+  return clean.length ? clean : null;
 }
 
 async function dailyNote(res, query) {
@@ -141,12 +161,14 @@ async function dailyNote(res, query) {
   const mode = query.get('mode');
   const phase = query.get('phase');
   const date = query.get('date');
+  // Which note of the set: any whole number; old app versions send none and get the first.
+  const n = Math.min(Math.max(0, Number.parseInt(query.get('n') ?? '0', 10) || 0), 1e6);
   if (!Object.hasOwn(LANG_NAME, lang) || !Object.hasOwn(MODES, mode) || !Object.hasOwn(PHASES, phase) || !validDate(date)) {
     return send(res, 400, { error: 'bad-request' });
   }
   const key = `${date}|${lang}|${mode}|${phase}`;
   const kept = notes.get(key);
-  if (kept) return send(res, 200, { text: kept.text }, 'public, max-age=3600');
+  if (kept) return send(res, 200, { text: kept.texts[n % kept.texts.length] }, 'public, max-age=3600');
 
   let job = writing.get(key);
   if (!job) {
@@ -157,17 +179,17 @@ async function dailyNote(res, query) {
     job = write(lang, mode, phase, date).finally(() => writing.delete(key));
     writing.set(key, job);
   }
-  let text;
+  let texts;
   try {
-    text = await job;
+    texts = await job;
   } catch (e) {
     logClaude('claude', e);
     return send(res, 503, { error: 'busy' });
   }
-  if (!text) return send(res, 503, { error: 'no-note' });
+  if (!texts) return send(res, 503, { error: 'no-note' });
   prune();
-  notes.set(key, { text, at: Date.now() });
-  return send(res, 200, { text }, 'public, max-age=3600');
+  notes.set(key, { texts, at: Date.now() });
+  return send(res, 200, { text: texts[n % texts.length] }, 'public, max-age=3600');
 }
 
 http
