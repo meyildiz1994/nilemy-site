@@ -1,0 +1,125 @@
+    <h1>Datenschutzerklärung</h1>
+    <p class="updated">Zuletzt aktualisiert am 4. November 2026</p>
+    <p class="lead">Nilemy ist eine App, mit der du deinen Zyklus und deine Schwangerschaft verfolgst. Ohne Konto bleiben deine Einträge verschlüsselt auf deinem Handy, und nichts davon erreicht uns. Mit Konto werden deine Einträge auf deinem Handy verschlüsselt, bevor sie gesichert werden. Wir verkaufen deine Daten nie und nutzen sie nicht für Werbung; sie gehen nur für eine Funktion, die du selbst einschaltest, an unsere Dienstleister, wie unten beschrieben.</p>
+
+    <h2>Verantwortlicher</h2>
+    <p>Nilemy · <a href="mailto:info@nilemy.com">info@nilemy.com</a></p>
+
+    <h2>Was die App speichert</h2>
+    <p>Nur, was du eingibst:</p>
+    <ul>
+      <li>Beginn und Ende deiner Periode, Blutung, Schmerz, Stimmung, Energie, Symptome, die Produkte, die du verwendest, und Notizen</li>
+      <li>Bei Kinderwunsch: Sex und Ergebnisse von Ovulations- und Schwangerschaftstests</li>
+      <li>In der Schwangerschaft: Geburtstermin, Gewicht, gezählte Tritte, Wehen, Datum, Uhrzeit und Notizen deiner Vorsorgetermine sowie die To-do- und Kliniktaschen-Listen</li>
+      <li>Nach einer Schwangerschaft: das Geburtsdatum und ob du stillst, oder der Tag, an dem eine Schwangerschaft ohne Geburt endete (nach dem Grund fragen wir nie)</li>
+      <li>Der Name auf der Startseite und, wenn du eins hinzufügst, ein Profilfoto (verschlüsselt auf deinem Handy, nie in dein Konto gesichert)</li>
+      <li>Deine Einstellungen: Zyklus- und Periodenlänge, Erinnerungen, App-Sperre, Farbthema und App-Icon</li>
+    </ul>
+    <p>Ein Teil davon sind Gesundheitsdaten und Daten zu deinem Sexualleben (besondere Kategorien nach Art. 9 DSGVO). Den Code deiner App-Sperre speichern wir nie im Klartext; nur ein nicht umkehrbarer, gesalzener Hash wird aufbewahrt, und er verlässt dein Handy nie.</p>
+
+    <h2>Ohne Konto: Alles bleibt auf deinem Handy</h2>
+    <p>Ein Konto ist freiwillig. Ohne Konto bleibt alles auf deinem Handy in einer einzigen, mit AES-256 verschlüsselten Datei. Der Schlüssel liegt im sicheren Speicher deines Handys (Schlüsselbund auf dem iPhone, Keystore auf Android) und kann dieses Gerät nicht verlassen. Deine Einträge werden nie an uns oder andere gesendet. Löschst du die App oder verlierst du dein Handy, sind auch deine Einträge weg.</p>
+
+    <h2>Konto und verschlüsseltes Backup</h2>
+    <p>Du kannst ein Konto mit Google, Apple (auf dem iPhone) oder E-Mail erstellen, um deine Einträge auf einem neuen Handy wiederherzustellen und mehrere Handys synchron zu halten. Unser Dienstleister ist Google Firebase (Firebase Authentication und Cloud Firestore).</p>
+    <ul>
+      <li><b>Deine Einträge werden verschlüsselt:</b> Einträge und Einstellungen werden auf deinem Handy mit einem zufälligen Schlüssel (AES-256) verschlüsselt, und nur die verschlüsselte Kopie wird hochgeladen.</li>
+      <li><b>Kein zusätzliches Passwort:</b> Der Schlüssel liegt ebenfalls in deinem Konto, wo nur dein Konto ihn erreicht. So öffnet sich dein Backup von selbst, wenn du dich auf einem neuen Handy auf dieselbe Weise anmeldest. Weil der Schlüssel in deinem Konto liegt, ist das Backup nicht Ende-zu-Ende-verschlüsselt: Jemand mit Administratorzugriff auf den Server könnte es technisch öffnen. Wir sehen uns dein Backup nicht an.</li>
+      <li><b>Wo das Backup liegt:</b> In der Europäischen Union (Google Cloud eur3: Belgien und Niederlande).</li>
+      <li><b>Kontodaten:</b> Deine E-Mail-Adresse, Konto-ID, Anmeldemethode, Name und Profilfoto-Link, die Google teilt, wenn du dich mit Google anmeldest, Anmeldezeiten, IP-Adresse und Gerätedaten zur Sicherheit, die letzte Synchronisierung und der Zeitpunkt deiner Einwilligung. Diese Daten können auf Servern von Google im Ausland verarbeitet werden, auch in den USA. E-Mail-Passwörter speichert Firebase nur als nicht umkehrbaren Hash; wir können sie nicht sehen.</li>
+      <li><b>Was der Server unverschlüsselt sieht:</b> Die Kontodaten oben, Synchronisierungszeiten, die Größe der verschlüsselten Daten und eine Versionsnummer. Der Inhalt deiner Einträge erreicht den Server nie unverschlüsselt; der Schlüssel liegt in deinem Konto.</li>
+    </ul>
+
+    <h2>Tagesnotiz (Premium, freiwillig)</h2>
+    <p>Mit Premium kannst du auf der Startseite die Notiz „Für dich heute“ einschalten. Sie wird von Claude geschrieben, der KI von Anthropic. Dafür brauchst du ein Konto und musst beim Einschalten gesondert einwilligen; ohne das wird nichts gesendet.</p>
+    <ul>
+      <li><b>Was gesendet wird:</b> Eine kurze Zusammenfassung deiner Einträge: Sprache, heutiges Datum, Modus, Zyklustag und -phase, Tage bis zur nächsten Periode, Zyklus- und Periodenlänge, wie viele Zyklen du erfasst hast, die Symptome, die du in früheren Zyklen um diesen Tag eingetragen hast, sowie Blutung, Schmerz, Stimmung, Energie und Symptome von heute.</li>
+      <li><b>Was nicht gesendet wird:</b> Deine Notizen, dein Name, deine E-Mail, Sex-Einträge und jedes andere Datum als das heutige.</li>
+      <li><b>Wie es übertragen wird:</b> Die Zusammenfassung geht über unseren Server bei nilemy.com an Anthropic in den USA. Unser Server prüft, ob die Anfrage von deinem Konto kommt, und speichert die Zusammenfassung nicht. Anthropic nutzt sie nicht zum Training seiner Modelle.</li>
+      <li><b>Wie lange sie bleibt:</b> Die Notiz wird mit deiner Konto-ID höchstens zwei Tage auf unserem Server gespeichert, falls sie am selben Tag noch einmal abgerufen wird, und dann gelöscht. Auf deinem Handy bleibt sie bis zum Ende des Tages.</li>
+      <li><b>Ausschalten:</b> Jederzeit unter Profil › Datenschutz und Daten › Tagesnotiz. Wenn du dein Konto löschst, wird auch die Notiz auf dem Server gelöscht.</li>
+    </ul>
+    <p>Die Notiz schreibt eine KI. Sie kann falsch sein und ist keine medizinische Beratung.</p>
+
+    <h2>Was wir verarbeiten und warum (Rechtsgrundlagen)</h2>
+    <ul>
+      <li><b>Deine Einträge (mit Konto):</b> Für Backup und Synchronisierung, nur mit deiner ausdrücklichen Einwilligung (Art. 6 Abs. 1 lit. a und Art. 9 Abs. 2 lit. a DSGVO), die beim Einschalten des Backups gesondert abgefragt wird. Du kannst sie jederzeit widerrufen, indem du dein Konto löschst.</li>
+      <li><b>Die Zusammenfassung für die Tagesnotiz:</b> Um die Notiz zu schreiben, nur mit deiner ausdrücklichen Einwilligung (Art. 6 Abs. 1 lit. a und Art. 9 Abs. 2 lit. a DSGVO). Du widerrufst sie, indem du die Notiz ausschaltest.</li>
+      <li><b>Kontodaten:</b> Um dein Konto anzulegen, dich anzumelden, E-Mails zum Zurücksetzen des Passworts zu senden und dein Konto zu schützen; zur Erfüllung des Vertrags (Art. 6 Abs. 1 lit. b DSGVO) und aus unserem berechtigten Interesse an sicheren Konten (Art. 6 Abs. 1 lit. f DSGVO).</li>
+      <li><b>Technische Daten für Werbung (kostenlose Version):</b> Siehe „Werbung in der kostenlosen Version“ unten.</li>
+      <li><b>Abo-Status:</b> Um zu wissen, ob Premium aktiv ist; zur Erfüllung des Vertrags (Art. 6 Abs. 1 lit. b DSGVO).</li>
+    </ul>
+
+    <h2>Was wir nicht erfassen</h2>
+    <ul>
+      <li>Wir nutzen keine Analyse-Tools und erfassen keine Nutzungsstatistiken.</li>
+      <li>Wir verfolgen dich nicht über Apps und Websites hinweg und nutzen deine Werbe-ID (IDFA / Android-Werbe-ID) nicht.</li>
+      <li>Wir verkaufen deine Daten nie und nutzen sie nicht für Werbung.</li>
+    </ul>
+
+    <h2>Werbung in der kostenlosen Version</h2>
+    <p>Eine Woche nach der Installation zeigt die kostenlose Version Banner von Google AdMob unten auf Start, Verlauf und Analyse. In der ersten Woche wird das Werbe-SDK gar nicht gestartet. Auf den Bildschirmen, auf denen du etwas einträgst, erscheint nie Werbung.</p>
+    <ul>
+      <li><b>Nur nicht personalisierte Werbung:</b> Anzeigen werden nicht nach deinen Interessen oder deinem Verlauf ausgewählt. Es wird keine Werbe-ID genutzt, deshalb fragt die App nicht nach der Erlaubnis zum Tracking (App Tracking Transparency).</li>
+      <li><b>Deine Gesundheitsdaten werden nie für Werbung genutzt:</b> Periodendaten, Symptome, Notizen, Name und Kontodaten gehen nie an den Werbeanbieter.</li>
+      <li><b>Was Google verarbeitet:</b> Um eine Anzeige zu zeigen, Betrug zu verhindern und die Leistung von Anzeigen zu messen, kann Google technische Daten verarbeiten, etwa IP-Adresse, Gerätemodell und Betriebssystem, App-Version, den ungefähren Standort aus der IP-Adresse (Land/Stadt) und Interaktionen mit Anzeigen (Aufrufe, Tippen). Dafür gelten die <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">Richtlinien</a> von Google.</li>
+      <li><b>Einwilligung:</b> Wo es gesetzlich nötig ist, etwa im Europäischen Wirtschaftsraum, im Vereinigten Königreich, in der Schweiz und in einigen US-Bundesstaaten, zeigt Google vor der ersten Anzeige ein Einwilligungsformular. Du kannst deine Wahl jederzeit unter Profil › Datenschutz und Daten › Werbe-Datenschutz ändern.</li>
+      <li><b>Keine Werbung:</b> Ein Premium-Abo entfernt die Werbung; mit Premium wird das Werbe-SDK nicht gestartet.</li>
+    </ul>
+
+    <h2>Premium-Abo</h2>
+    <p>Nilemy Premium ist ein Monats- oder Jahresabo, das die Werbung entfernt und mehr Analysen, ein PDF mit deiner Zyklusübersicht, Schwangerschaftsanalysen und ein Schwangerschafts-PDF, einen Jahresrückblick, smarte Erinnerungen, eigene Symptome, Farbthemen, App-Icons und die Tagesnotiz hinzufügt. Alles außer der Tagesnotiz läuft auf deinem Handy; deine Einträge werden dafür nirgendwohin gesendet. Das PDF und das Bild des Jahresrückblicks verlassen dein Handy nur, wenn du sie teilst. Zahlung und Abo laufen über den App Store oder Google Play; wir sehen deine Zahlungsdaten nie. Die App liest im Store nur, ob dein Abo aktiv ist und welcher Plan es ist.</p>
+
+    <h2>Wer Daten erhält</h2>
+    <ul>
+      <li><b>Google (Firebase Authentication):</b> Kontodaten, für die Anmeldung. Server von Google weltweit, auch in den USA.</li>
+      <li><b>Google (Cloud Firestore):</b> Dein verschlüsseltes Backup und Synchronisierungsdaten. Europäische Union.</li>
+      <li><b>Apple:</b> Um dich zu bestätigen, wenn du dich mit Apple anmeldest.</li>
+      <li><b>Anthropic:</b> Nur wenn du die Tagesnotiz einschaltest, die Zusammenfassung deiner Einträge, um sie zu schreiben. USA.</li>
+      <li><b>Hostinger:</b> Hostet nilemy.com und unseren Server für die Tagesnotiz.</li>
+      <li><b>Google (AdMob):</b> Technische Daten für Werbung, nur in der kostenlosen Version.</li>
+      <li><b>Apple App Store / Google Play:</b> Abo und Zahlung.</li>
+    </ul>
+    <p><b>Übermittlung ins Ausland:</b> Die Server dieser Anbieter können außerhalb deines Landes liegen, auch in den USA. Deine Einwilligung dazu wird beim Einschalten des Backups und der Tagesnotiz abgefragt. Den Inhalt deines verschlüsselten Backups kann der Anbieter nicht lesen.</p>
+
+    <h2>Wie lange wir Daten speichern</h2>
+    <ul>
+      <li><b>Einträge auf deinem Handy:</b> Bis du sie oder die App löschst.</li>
+      <li><b>Dein Konto und das verschlüsselte Backup:</b> Bis du dein Konto löschst. „Konto löschen“ entfernt beides sofort vom Server; aus den Systembackups des Anbieters verschwinden sie innerhalb seiner eigenen Löschfristen.</li>
+      <li><b>Tagesnotiz:</b> Höchstens zwei Tage auf unserem Server.</li>
+      <li><b>Werbedaten:</b> Nach den Richtlinien von Google.</li>
+    </ul>
+
+    <h2>Berechtigungen</h2>
+    <ul>
+      <li><b>Mitteilungen</b> (freiwillig): Erinnerungen werden auf deinem Handy geplant und angezeigt; nichts kommt von einem Server. Schwangerschaftsnotizen und Erinnerungen an Termine haben einen neutralen Titel wie „Eine Nachricht von Nilemy“, damit dein Sperrbildschirm deine Schwangerschaft nicht verrät.</li>
+      <li><b>Face ID / Fingerabdruck</b> (freiwillig): Zum Entsperren der App-Sperre. Deine biometrischen Daten bleiben im Betriebssystem deines Handys; Nilemy hat keinen Zugriff darauf.</li>
+    </ul>
+
+    <h2>Handy-Backups</h2>
+    <p>Ist das iCloud- oder Google-Backup an, kann die verschlüsselte Datei darin enthalten sein. Der Schlüssel bleibt auf diesem Handy, daher lässt sich die Datei auf einem anderen Gerät nicht öffnen. Um deine Einträge auf ein neues Handy zu bringen, erstelle ein Konto oder sichere deine Einträge als Datei.</p>
+
+    <h2>Deine Rechte</h2>
+    <p>Nach der DSGVO hast du das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch sowie das Recht, eine Einwilligung jederzeit für die Zukunft zu widerrufen. Außerdem kannst du dich bei einer Datenschutz-Aufsichtsbehörde beschweren. Vieles davon erledigst du selbst in der App:</p>
+    <ul>
+      <li><b>Als Datei sichern:</b> Profil › Datenschutz und Daten › Deine Daten › Einträge als Datei sichern erstellt eine CSV- oder JSON-Kopie deiner Einträge. Die Datei ist nicht verschlüsselt, und du entscheidest, wohin sie geht.</li>
+      <li><b>Alle Daten löschen:</b> Profil › Datenschutz und Daten › Deine Daten › Alle Daten löschen entfernt die Datendatei und ihren Schlüssel dauerhaft von deinem Handy. Hast du ein Konto, wird dieses Handy auch abgemeldet; dein Backup bleibt in deinem Konto.</li>
+      <li><b>Konto löschen:</b> Profil › Konto › Konto löschen entfernt dein verschlüsseltes Backup, dein Konto und deine Tagesnotiz dauerhaft vom Server und deine Einträge von deinem Handy.</li>
+    </ul>
+    <p>Für alles andere schreib an <a href="mailto:info@nilemy.com">info@nilemy.com</a>; wir antworten innerhalb von 30 Tagen, kostenlos.</p>
+
+    <h2>Kinder</h2>
+    <p>Nilemy ist nicht für Kinder unter 13 Jahren gedacht. Werbung in der kostenlosen Version ist auf Inhalte für Jugendliche begrenzt (höchstens „T“) und nie personalisiert.</p>
+
+    <h2>Diese Website</h2>
+    <p>nilemy.com läuft auf einem Server, den wir bei Hostinger mieten. Wir nutzen keine Cookies und keine Analyse-Tools. Deine Sprachwahl wird nur in deinem Browser gespeichert. Der Server speichert zur Sicherheit und für den Betrieb technische Protokolle wie IP-Adresse, Browserdaten und die aufgerufene Seite. Auch die Schriften kommen von dieser Website; es gibt keine Verbindung zu Google Fonts oder anderen externen Diensten.</p>
+
+    <h2>Änderungen</h2>
+    <p>Ändert sich diese Erklärung, aktualisieren wir das Datum auf dieser Seite und kündigen wichtige Änderungen vorher in der App an.</p>
+
+    <h2>Kontakt</h2>
+    <div class="card">
+      <b>Nilemy</b>
+      <p>Schreib uns bei jeder Frage zum Datenschutz:</p>
+      {{mail}}
+    </div>

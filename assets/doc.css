@@ -16,10 +16,7 @@ body { margin: 0; background: var(--bg); color: var(--fg); font-family: var(--fo
 .top { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 8px 28px; }
 .home { display: inline-flex; align-items: center; gap: 10px; color: var(--wordmark); text-decoration: none; font-weight: 700; font-size: 20px; letter-spacing: -0.02em; }
 .home img { width: 36px; height: 36px; }
-.lang { display: flex; padding: 3px; border-radius: 999px; background: var(--blush); }
-.lang button { font: 600 12px/1 var(--font); letter-spacing: .04em; border: 0; border-radius: 999px; padding: 7px 11px; background: transparent; color: var(--muted); cursor: pointer; }
-.lang button[aria-pressed="true"] { background: var(--brand); color: var(--bg); }
-.lang button:focus-visible, a:focus-visible, .copy:focus-visible { outline: 3px solid var(--brand); outline-offset: 3px; }
+a:focus-visible, .copy:focus-visible { outline: 3px solid var(--brand); outline-offset: 3px; }
 
 h1 { font-size: clamp(30px, 6vw, 44px); line-height: 1.08; letter-spacing: -0.03em; font-weight: 800; margin: 0 0 8px; text-wrap: balance; }
 .updated { color: var(--muted); font-size: 14px; margin: 0 0 28px; }
@@ -33,13 +30,14 @@ a { color: var(--brand); }
 .mail { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: 10px; }
 .mail code { font: 600 15px/1.4 var(--font); background: var(--bg); border-radius: 10px; padding: 8px 12px; user-select: all; word-break: break-all; }
 .copy { font: 600 13px/1 var(--font); border: 0; border-radius: 999px; padding: 9px 14px; background: var(--brand); color: var(--bg); cursor: pointer; }
-details { border-top: 1px solid var(--line); padding: 14px 0; }
-details:last-of-type { border-bottom: 1px solid var(--line); }
-summary { cursor: pointer; font-weight: 700; font-size: 17px; list-style: none; display: flex; justify-content: space-between; gap: 12px; }
-summary::-webkit-details-marker { display: none; }
-summary::after { content: "+"; color: var(--brand); font-weight: 700; }
-details[open] summary::after { content: "–"; }
-details p { margin: 10px 0 0; color: var(--muted); }
+/* Questions on the support page (the language menu is a <details> too, so these stay inside main). */
+main details { border-top: 1px solid var(--line); padding: 14px 0; }
+main details:last-of-type { border-bottom: 1px solid var(--line); }
+main summary { cursor: pointer; font-weight: 700; font-size: 17px; list-style: none; display: flex; justify-content: space-between; gap: 12px; }
+main summary::-webkit-details-marker { display: none; }
+main summary::after { content: "+"; color: var(--brand); font-weight: 700; }
+main details[open] summary::after { content: "–"; }
+main details p { margin: 10px 0 0; color: var(--muted); }
 footer { margin-top: 48px; font-size: 13px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 6px 16px; }
 footer a { color: var(--muted); }
 .social-line { margin: 12px 0 0; font-size: 14px; color: var(--muted); }
@@ -53,5 +51,25 @@ footer a { color: var(--muted); }
 .story .back { font-weight: 700; text-decoration: none; }
 
 .topbar { display: flex; align-items: center; gap: 14px; }
-.nav-link { font: 600 13px/1 var(--font); color: var(--muted); text-decoration: none; padding: 8px 4px; }
+.nav-link { font: 600 13px/1 var(--font); color: var(--muted); text-decoration: none; padding: 8px 4px; white-space: nowrap; }
 .nav-link:hover, .nav-link[aria-current="page"] { color: var(--brand); }
+
+/* Words that read badly split at their hyphen (e-mail, AES-256) stay on one line; build.py marks them. */
+.nw { white-space: nowrap; }
+
+/* Phones: the logo, the story link and the language menu stay on one row in every language. Below
+   360 px there is no room for the story link next to the others; it stays in the footer. */
+@media (max-width: 440px) {
+  /* The longest title word (Nutzungsbedingungen) still fits a 320 px screen. */
+  h1 { font-size: min(30px, 8.4vw); }
+  .wrap { padding-inline: 16px; }
+  .top { gap: 12px; }
+  .home { gap: 8px; font-size: 18px; }
+  .home img { width: 30px; height: 30px; }
+  .top .topbar { gap: 8px; }
+  .top .nav-link { padding-inline: 0; }
+  .top .langs summary { padding: 8px 10px; gap: 4px; }
+}
+@media (max-width: 359px) {
+  .top .nav-link { display: none; }
+}

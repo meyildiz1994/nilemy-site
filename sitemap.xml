@@ -1,23 +1,303 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://nilemy.com/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://nilemy.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nilemy.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://nilemy.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nilemy.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://nilemy.com/pt-br/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://nilemy.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nilemy.com/"/>
+  </url>
+  <url>
+    <loc>https://nilemy.com/en/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://nilemy.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nilemy.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://nilemy.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nilemy.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://nilemy.com/pt-br/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://nilemy.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nilemy.com/"/>
+  </url>
+  <url>
+    <loc>https://nilemy.com/de/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://nilemy.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nilemy.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://nilemy.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nilemy.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://nilemy.com/pt-br/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://nilemy.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nilemy.com/"/>
+  </url>
+  <url>
+    <loc>https://nilemy.com/fr/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://nilemy.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nilemy.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://nilemy.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nilemy.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://nilemy.com/pt-br/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://nilemy.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nilemy.com/"/>
+  </url>
+  <url>
+    <loc>https://nilemy.com/pt-br/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://nilemy.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nilemy.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://nilemy.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nilemy.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://nilemy.com/pt-br/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://nilemy.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nilemy.com/"/>
+  </url>
+  <url>
+    <loc>https://nilemy.com/it/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://nilemy.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nilemy.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://nilemy.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nilemy.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://nilemy.com/pt-br/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://nilemy.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nilemy.com/"/>
   </url>
   <url>
     <loc>https://nilemy.com/story/</loc>
-    <lastmod>2026-10-11</lastmod>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://nilemy.com/story/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nilemy.com/en/story/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://nilemy.com/de/story/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nilemy.com/fr/story/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://nilemy.com/pt-br/story/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://nilemy.com/it/story/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nilemy.com/story/"/>
+  </url>
+  <url>
+    <loc>https://nilemy.com/en/story/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://nilemy.com/story/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nilemy.com/en/story/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://nilemy.com/de/story/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nilemy.com/fr/story/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://nilemy.com/pt-br/story/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://nilemy.com/it/story/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nilemy.com/story/"/>
+  </url>
+  <url>
+    <loc>https://nilemy.com/de/story/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://nilemy.com/story/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nilemy.com/en/story/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://nilemy.com/de/story/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nilemy.com/fr/story/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://nilemy.com/pt-br/story/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://nilemy.com/it/story/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nilemy.com/story/"/>
+  </url>
+  <url>
+    <loc>https://nilemy.com/fr/story/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://nilemy.com/story/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nilemy.com/en/story/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://nilemy.com/de/story/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nilemy.com/fr/story/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://nilemy.com/pt-br/story/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://nilemy.com/it/story/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nilemy.com/story/"/>
+  </url>
+  <url>
+    <loc>https://nilemy.com/pt-br/story/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://nilemy.com/story/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nilemy.com/en/story/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://nilemy.com/de/story/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nilemy.com/fr/story/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://nilemy.com/pt-br/story/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://nilemy.com/it/story/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nilemy.com/story/"/>
+  </url>
+  <url>
+    <loc>https://nilemy.com/it/story/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://nilemy.com/story/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nilemy.com/en/story/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://nilemy.com/de/story/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nilemy.com/fr/story/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://nilemy.com/pt-br/story/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://nilemy.com/it/story/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nilemy.com/story/"/>
   </url>
   <url>
     <loc>https://nilemy.com/privacy/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://nilemy.com/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nilemy.com/en/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://nilemy.com/de/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nilemy.com/fr/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://nilemy.com/pt-br/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://nilemy.com/it/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nilemy.com/privacy/"/>
+  </url>
+  <url>
+    <loc>https://nilemy.com/en/privacy/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://nilemy.com/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nilemy.com/en/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://nilemy.com/de/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nilemy.com/fr/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://nilemy.com/pt-br/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://nilemy.com/it/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nilemy.com/privacy/"/>
+  </url>
+  <url>
+    <loc>https://nilemy.com/de/privacy/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://nilemy.com/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nilemy.com/en/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://nilemy.com/de/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nilemy.com/fr/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://nilemy.com/pt-br/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://nilemy.com/it/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nilemy.com/privacy/"/>
+  </url>
+  <url>
+    <loc>https://nilemy.com/fr/privacy/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://nilemy.com/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nilemy.com/en/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://nilemy.com/de/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nilemy.com/fr/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://nilemy.com/pt-br/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://nilemy.com/it/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nilemy.com/privacy/"/>
+  </url>
+  <url>
+    <loc>https://nilemy.com/pt-br/privacy/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://nilemy.com/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nilemy.com/en/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://nilemy.com/de/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nilemy.com/fr/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://nilemy.com/pt-br/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://nilemy.com/it/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nilemy.com/privacy/"/>
+  </url>
+  <url>
+    <loc>https://nilemy.com/it/privacy/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://nilemy.com/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nilemy.com/en/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://nilemy.com/de/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nilemy.com/fr/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://nilemy.com/pt-br/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://nilemy.com/it/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nilemy.com/privacy/"/>
   </url>
   <url>
     <loc>https://nilemy.com/terms/</loc>
-    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://nilemy.com/terms/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nilemy.com/en/terms/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://nilemy.com/de/terms/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nilemy.com/fr/terms/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://nilemy.com/pt-br/terms/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://nilemy.com/it/terms/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nilemy.com/terms/"/>
+  </url>
+  <url>
+    <loc>https://nilemy.com/en/terms/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://nilemy.com/terms/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nilemy.com/en/terms/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://nilemy.com/de/terms/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nilemy.com/fr/terms/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://nilemy.com/pt-br/terms/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://nilemy.com/it/terms/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nilemy.com/terms/"/>
+  </url>
+  <url>
+    <loc>https://nilemy.com/de/terms/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://nilemy.com/terms/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nilemy.com/en/terms/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://nilemy.com/de/terms/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nilemy.com/fr/terms/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://nilemy.com/pt-br/terms/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://nilemy.com/it/terms/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nilemy.com/terms/"/>
+  </url>
+  <url>
+    <loc>https://nilemy.com/fr/terms/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://nilemy.com/terms/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nilemy.com/en/terms/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://nilemy.com/de/terms/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nilemy.com/fr/terms/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://nilemy.com/pt-br/terms/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://nilemy.com/it/terms/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nilemy.com/terms/"/>
+  </url>
+  <url>
+    <loc>https://nilemy.com/pt-br/terms/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://nilemy.com/terms/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nilemy.com/en/terms/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://nilemy.com/de/terms/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nilemy.com/fr/terms/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://nilemy.com/pt-br/terms/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://nilemy.com/it/terms/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nilemy.com/terms/"/>
+  </url>
+  <url>
+    <loc>https://nilemy.com/it/terms/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://nilemy.com/terms/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nilemy.com/en/terms/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://nilemy.com/de/terms/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nilemy.com/fr/terms/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://nilemy.com/pt-br/terms/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://nilemy.com/it/terms/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nilemy.com/terms/"/>
   </url>
   <url>
     <loc>https://nilemy.com/support/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://nilemy.com/support/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nilemy.com/en/support/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://nilemy.com/de/support/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nilemy.com/fr/support/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://nilemy.com/pt-br/support/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://nilemy.com/it/support/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nilemy.com/support/"/>
+  </url>
+  <url>
+    <loc>https://nilemy.com/en/support/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://nilemy.com/support/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nilemy.com/en/support/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://nilemy.com/de/support/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nilemy.com/fr/support/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://nilemy.com/pt-br/support/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://nilemy.com/it/support/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nilemy.com/support/"/>
+  </url>
+  <url>
+    <loc>https://nilemy.com/de/support/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://nilemy.com/support/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nilemy.com/en/support/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://nilemy.com/de/support/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nilemy.com/fr/support/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://nilemy.com/pt-br/support/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://nilemy.com/it/support/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nilemy.com/support/"/>
+  </url>
+  <url>
+    <loc>https://nilemy.com/fr/support/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://nilemy.com/support/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nilemy.com/en/support/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://nilemy.com/de/support/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nilemy.com/fr/support/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://nilemy.com/pt-br/support/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://nilemy.com/it/support/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nilemy.com/support/"/>
+  </url>
+  <url>
+    <loc>https://nilemy.com/pt-br/support/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://nilemy.com/support/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nilemy.com/en/support/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://nilemy.com/de/support/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nilemy.com/fr/support/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://nilemy.com/pt-br/support/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://nilemy.com/it/support/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nilemy.com/support/"/>
+  </url>
+  <url>
+    <loc>https://nilemy.com/it/support/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://nilemy.com/support/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nilemy.com/en/support/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://nilemy.com/de/support/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nilemy.com/fr/support/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://nilemy.com/pt-br/support/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://nilemy.com/it/support/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nilemy.com/support/"/>
   </url>
 </urlset>

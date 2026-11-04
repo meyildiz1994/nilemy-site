@@ -1,0 +1,126 @@
+    <h1>Privacy policy</h1>
+    <p class="updated">Last updated November 4, 2026</p>
+    <p class="lead">Nilemy is an app for tracking your menstrual cycle and your pregnancy. Without an account your logs stay on your phone, encrypted, and nothing reaches us. With an account your logs are encrypted on your phone before they’re backed up. We never sell your data or use it for ads; it only goes to our service providers for a feature you turn on, as described below.</p>
+
+    <h2>Data controller</h2>
+    <p>Nilemy · <a href="mailto:info@nilemy.com">info@nilemy.com</a></p>
+
+    <h2>What the app stores</h2>
+    <p>Only what you enter:</p>
+    <ul>
+      <li>Period start and end dates, flow, pain, mood, energy, symptoms, the products you use and notes</li>
+      <li>If you’re trying to get pregnant: sex, ovulation and pregnancy test results</li>
+      <li>If you’re pregnant: due date, weight, kick counts, contractions, checkup dates, times and notes, and the to-do and hospital bag lists</li>
+      <li>When a pregnancy is over: the birth date and whether you’re breastfeeding, or the day a pregnancy ended without a birth (we never ask why)</li>
+      <li>The name used on Home and, if you add one, a profile photo (kept encrypted on your phone and never backed up to your account)</li>
+      <li>Your settings: cycle and period length, reminders, app lock, theme and app icon</li>
+    </ul>
+    <p>Some of this is health data, and some is about your sex life. Your app lock passcode is never stored as plain text; only a one-way, salted hash is kept, and it never leaves your phone.</p>
+
+    <h2>Without an account: everything stays on your phone</h2>
+    <p>An account is optional. Without one, everything stays on your phone in a single file encrypted with AES-256. The key is held in your phone’s secure storage (Keychain on iPhone, Keystore on Android) and can’t leave that device. Your logs are never sent to us or anyone else. If you delete the app or lose your phone, your logs are lost too.</p>
+
+    <h2>Account and encrypted backup</h2>
+    <p>You can create an account with Google, Apple (on iPhone) or email, so you can restore your logs on a new phone and keep phones in sync. Our service provider is Google Firebase (Firebase Authentication and Cloud Firestore).</p>
+    <ul>
+      <li><b>Your logs are encrypted:</b> Your logs and settings are encrypted on your phone with a random key (AES-256), and only the encrypted copy is uploaded.</li>
+      <li><b>No separate password:</b> The key is kept in your account too, where only your account can reach it, so your backup opens by itself when you sign in the same way on a new phone. Because the key is in your account, this backup is not end-to-end encrypted: someone with admin access to the server could technically open it. We don’t look at your backup.</li>
+      <li><b>Where the backup is kept:</b> In the European Union (Google Cloud eur3: Belgium and the Netherlands).</li>
+      <li><b>Account details:</b> Your email address, account ID, sign-in method, the name and profile photo link Google shares if you sign in with Google, sign-in times, your IP address and device details for security, the last sync time and when you gave consent. These may be processed on Google’s servers abroad, including the US. Email passwords are stored one-way by Firebase; we can’t see them.</li>
+      <li><b>What the server sees unencrypted:</b> The account details above, sync times, the size of the encrypted data and a version number. The content of your logs never reaches the server unencrypted; the key is in your account too.</li>
+    </ul>
+
+    <h2>Daily note (Premium, optional)</h2>
+    <p>With Premium you can turn on the “For you today” note on Home. The note is written by Claude, Anthropic’s AI. It needs an account and your separate consent when you turn it on; if you don’t, nothing is sent.</p>
+    <ul>
+      <li><b>What is sent:</b> A short summary of your logs: language, today’s date, tracking mode, cycle day and phase, days until your next period, cycle and period length, how many cycles you’ve logged, the symptoms you logged around this day in earlier cycles, and today’s flow, pain, mood, energy and symptoms.</li>
+      <li><b>What is not sent:</b> Your notes, name, email, sex logs and any date other than today’s.</li>
+      <li><b>How it travels:</b> The summary goes through our server at nilemy.com to Anthropic in the US. Our server checks that the request comes from your account and doesn’t keep the summary. Anthropic doesn’t use it to train its models.</li>
+      <li><b>How long it’s kept:</b> The note is kept on our server with your account ID for at most two days, in case it’s asked for again the same day, then deleted. On your phone it stays until the end of the day.</li>
+      <li><b>Turning it off:</b> Any time in Profile › Privacy and data › Daily note. Deleting your account also deletes the note on the server.</li>
+    </ul>
+    <p>The note is written by AI, can be wrong and isn’t medical advice.</p>
+
+    <h2>What we process and why</h2>
+    <ul>
+      <li><b>Your logs (with an account):</b> For backup and sync, only with your explicit consent, asked separately when you turn on your backup. You can withdraw it at any time by deleting your account.</li>
+      <li><b>The summary for the daily note:</b> To write the note, only with your explicit consent. You can withdraw it by turning the note off.</li>
+      <li><b>Account details:</b> To create your account, sign you in, send password reset emails and keep your account secure.</li>
+      <li><b>Technical details for ads (free version):</b> See “Ads in the free version” below.</li>
+      <li><b>Subscription status:</b> To know whether Premium is active.</li>
+    </ul>
+    <p>If you’re in the European Economic Area or the UK, the GDPR applies: we rely on your explicit consent for your logs and the daily note (Art. 6(1)(a) and 9(2)(a)), on our contract with you for your account and subscription (Art. 6(1)(b)), and on our legitimate interest in keeping accounts secure (Art. 6(1)(f)).</p>
+
+    <h2>What we don’t collect</h2>
+    <ul>
+      <li>We use no analytics tools and collect no usage statistics.</li>
+      <li>We don’t track you across apps and websites, and don’t use your advertising ID (IDFA / Android advertising ID).</li>
+      <li>We never sell your data or use it for ads.</li>
+    </ul>
+
+    <h2>Ads in the free version</h2>
+    <p>A week after you install the app, the free version starts showing Google AdMob banner ads at the bottom of Home, History and Insights. During the first week the ads SDK isn’t started at all. Ads never appear on the screens where you log.</p>
+    <ul>
+      <li><b>Non-personalised ads only:</b> Ads aren’t chosen from your interests or history. No advertising ID is used, so the app doesn’t ask for tracking permission (App Tracking Transparency).</li>
+      <li><b>Your health data is never used for ads:</b> Your period dates, symptoms, notes, name and account details are never given to the ad provider.</li>
+      <li><b>What Google handles:</b> To show an ad, prevent fraud and measure ad performance, Google may process technical information such as your IP address, device model and operating system, app version, approximate location derived from your IP (country/city) and ad interactions (views, taps). This is covered by Google’s <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">policies</a>.</li>
+      <li><b>Consent:</b> Where the law requires it, such as the European Economic Area, the UK, Switzerland and some US states, Google’s consent form is shown before any ad loads. You can change your choice at any time in Profile › Privacy and data › Ad privacy choices.</li>
+      <li><b>No ads:</b> A Premium subscription removes ads; with Premium the ads SDK isn’t started.</li>
+    </ul>
+
+    <h2>Premium subscription</h2>
+    <p>Nilemy Premium is a monthly or yearly subscription that removes ads and adds deeper insights, a cycle summary PDF, pregnancy insights and a pregnancy summary PDF, a year in review, smart reminders, custom symptoms, themes, app icons and the daily note. Everything except the daily note runs on your phone; your logs aren’t sent anywhere for it. The PDF and the year-in-review image leave your phone only if you share them. Payment and the subscription itself are handled by the App Store or Google Play; we never see your payment details. The app only reads from the store whether your subscription is active and which plan it is.</p>
+
+    <h2>Who receives data</h2>
+    <ul>
+      <li><b>Google (Firebase Authentication):</b> Account details, for sign-in. Google’s servers worldwide, including the US.</li>
+      <li><b>Google (Cloud Firestore):</b> Your encrypted backup and sync details. European Union.</li>
+      <li><b>Apple:</b> To confirm who you are if you sign in with Apple.</li>
+      <li><b>Anthropic:</b> Only if you turn on the daily note, the summary of your logs to write it. US.</li>
+      <li><b>Hostinger:</b> Hosts nilemy.com and our daily note server.</li>
+      <li><b>Google (AdMob):</b> Technical details for ads, free version only.</li>
+      <li><b>Apple App Store / Google Play:</b> Subscription and payment.</li>
+    </ul>
+    <p><b>Transfers abroad:</b> These providers’ servers may be outside your country. Your consent to this is asked when you turn on your backup and the daily note. The provider can’t read the content of your encrypted backup.</p>
+
+    <h2>How long we keep data</h2>
+    <ul>
+      <li><b>Logs on your phone:</b> Until you delete them or the app.</li>
+      <li><b>Your account and encrypted backup:</b> Until you delete your account. Delete account removes both from the server straight away; they leave the provider’s system backups within its own deletion periods.</li>
+      <li><b>Daily note:</b> At most two days on our server.</li>
+      <li><b>Ad data:</b> As set out in Google’s policies.</li>
+    </ul>
+
+    <h2>Permissions</h2>
+    <ul>
+      <li><b>Notifications</b> (optional): Reminders are scheduled and shown on your phone; nothing comes from a server. Pregnancy notes and checkup reminders use a neutral title such as “A note from Nilemy”, so your lock screen doesn’t give your pregnancy away.</li>
+      <li><b>Face ID / fingerprint</b> (optional): Used to unlock the app lock. Your biometric data stays in your phone’s operating system; Nilemy can’t access it.</li>
+    </ul>
+
+    <h2>Phone backups</h2>
+    <p>If iCloud or Google backup is on, the encrypted data file may be included in it. The key stays on this phone, so the file can’t be opened on another device. To move your logs to a new phone, create an account or save your logs as a file.</p>
+
+    <h2>Your rights and controls</h2>
+    <p>You can ask whether we process your data, what for and who receives it, and ask for it to be corrected, deleted or handed to you. You can also complain to your data protection authority. Most of this you can do yourself in the app:</p>
+    <ul>
+      <li><b>Save as a file:</b> Profile › Privacy and data › Your data › Save your logs as a file creates a CSV or JSON copy of your logs. The file isn’t encrypted, and you choose where it goes.</li>
+      <li><b>Delete all data:</b> Profile › Privacy and data › Your data › Delete all data permanently removes the data file and its key from your phone. If you have an account, this phone is also signed out; your backup stays in your account.</li>
+      <li><b>Delete account:</b> Profile › Account › Delete account permanently removes your encrypted backup, your account and your daily note from the server, and your logs from your phone.</li>
+    </ul>
+    <p>For anything else, write to <a href="mailto:info@nilemy.com">info@nilemy.com</a>; we reply within 30 days, free of charge.</p>
+
+    <h2>Children</h2>
+    <p>Nilemy isn’t designed for children under 13. Ads in the free version are limited to content suitable for teens (at most “T”) and are never personalised.</p>
+
+    <h2>This website</h2>
+    <p>nilemy.com runs on a server we rent from Hostinger. We use no cookies or analytics. Your language choice is stored only in your browser. The server keeps technical logs such as IP address, browser details and the page asked for, for security and operation. Fonts are served from this site too, with no calls to Google Fonts or other outside services.</p>
+
+    <h2>Changes</h2>
+    <p>If this policy changes, we’ll update the date on this page and announce significant changes in the app first.</p>
+
+    <h2>Contact</h2>
+    <div class="card">
+      <b>Nilemy</b>
+      <p>Write to us with any privacy question:</p>
+      {{mail}}
+    </div>
