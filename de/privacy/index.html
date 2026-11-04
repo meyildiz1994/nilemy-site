@@ -124,11 +124,11 @@
     <h2><span class="nw">KI-Funktionen</span> (Premium, freiwillig)</h2>
     <p>Zwei Premium-Funktionen arbeiten mit Claude, der KI von Anthropic: die Tagesnotiz auf der Startseite („Für dich heute“) und „Was sich bei dir wiederholt“ in der Analyse. Eine Einstellung schaltet beide ein. Sie brauchen ein Konto und bleiben aus, bis du sie einschaltest. Vorher siehst du, was gesendet wird, und wirst gesondert um deine Einwilligung gebeten; ohne sie wird nichts gesendet.</p>
     <ul>
-      <li><b>Für die Tagesnotiz gesendet:</b> Sprache, heutiges Datum, Modus, Zyklustag und <span class="nw">-phase</span>, Tage bis zur nächsten Periode, Zyklus- und Periodenlänge, wie viele Zyklen du eingetragen hast, die Symptome, die du in früheren Zyklen um diesen Tag eingetragen hast, und Blutung, Schmerz, Stimmung, Energie und Symptome von heute; bei Kinderwunsch das heutige Ovulationstest-Ergebnis.</li>
+      <li><b>Für die Tagesnotiz gesendet:</b> Sprache, Modus, Zyklustag und <span class="nw">-phase</span>, Tage bis zur nächsten Periode, ob heute ein fruchtbarer Tag ist und ob deine Zyklen unregelmäßig sind, Zyklus- und Periodenlänge, wie viele Zyklen du eingetragen hast, Symptome und Stimmungen, die in früheren Zyklen wiederkamen, und Blutung, Schmerz, Stimmung, Energie und Symptome von heute; bei Kinderwunsch das heutige Ovulationstest-Ergebnis.</li>
       <li><b>Für „Was sich bei dir wiederholt“ gesendet:</b> Die Längen deiner letzten abgeschlossenen Zyklen (höchstens 8) und für jeden eingetragenen Tag Zyklustag, Tage bis zur nächsten Periode, Blutung, Schmerz, Stimmung, Energie, Symptome und benutzte Produkte. Es werden keine Daten (Kalenderdaten) gesendet.</li>
       <li><b>Nie gesendet:</b> Deine Notizen, dein Name, deine <span class="nw">E-Mail</span>, dein Foto, <span class="nw">Sex-Einträge</span>, Schwangerschaftstest-Ergebnisse und Angaben zur Schwangerschaft.</li>
-      <li><b>Wie es übertragen wird:</b> Über unseren Server bei nilemy.com an Anthropic in den USA. Unser Server prüft, ob die Anfrage von deinem Konto kommt, und leitet sie ohne deine Kontodaten weiter. Anthropic nutzt sie nicht zum Training seiner Modelle und löscht sie nach eigenen Bedingungen innerhalb von 30 Tagen.</li>
-      <li><b>Wie lange es bleibt:</b> Auf unserem Server mit deiner <span class="nw">Konto-ID</span> die letzte Tagesnotiz höchstens zwei Tage und das letzte Ergebnis zu Wiederholungen höchstens 60 Tage. Beides wird gelöscht, wenn du die Funktionen ausschaltest oder dein Konto löschst.</li>
+      <li><b>Wie es übertragen wird:</b> Über unseren Server bei nilemy.com an Anthropic; Claude verarbeitet es in den USA. Unser Server prüft, ob die Anfrage von deinem Konto kommt, und leitet sie ohne deine Kontodaten weiter. Das heutige Datum geht nur an unseren Server, damit er eine Notiz pro Tag behält. Anthropic nutzt sie nicht zum Training seiner Modelle und löscht sie nach eigenen Bedingungen innerhalb von 30 Tagen.</li>
+      <li><b>Wie lange es bleibt:</b> Auf unserem Server mit deiner <span class="nw">Konto-ID</span> die letzte Tagesnotiz höchstens zwei Tage und das letzte Ergebnis zu Wiederholungen höchstens 60 Tage. Beides wird gelöscht, wenn du die Funktionen ausschaltest, alle Daten löschst oder dein Konto löschst.</li>
       <li><b>Ausschalten:</b> Jederzeit unter Profil › Datenschutz und Daten › <span class="nw">KI-Funktionen</span>.</li>
     </ul>
     <p>Die Texte schreibt eine KI. Sie können falsch sein und sind keine medizinische Beratung.</p>
@@ -178,7 +178,7 @@
     <ul>
       <li><b>Einträge auf deinem Handy:</b> Bis du sie oder die App löschst.</li>
       <li><b>Dein Konto und das verschlüsselte Backup:</b> Bis du dein Konto löschst. „Konto löschen“ entfernt beides sofort vom Server; aus den Systembackups des Anbieters verschwinden sie innerhalb seiner eigenen Löschfristen.</li>
-      <li><b><span class="nw">KI-Funktionen</span>:</b> Auf unserem Server die letzte Notiz höchstens zwei Tage und die letzten Wiederholungen höchstens 60 Tage; gelöscht, sobald du die Funktionen ausschaltest oder dein Konto löschst. Anthropic löscht innerhalb von 30 Tagen.</li>
+      <li><b><span class="nw">KI-Funktionen</span>:</b> Auf unserem Server die letzte Notiz höchstens zwei Tage und die letzten Wiederholungen höchstens 60 Tage; gelöscht, sobald du die Funktionen ausschaltest, alle Daten löschst oder dein Konto löschst. Anthropic löscht innerhalb von 30 Tagen.</li>
       <li><b>Werbedaten:</b> Nach den Richtlinien von Google.</li>
     </ul>
 
@@ -195,7 +195,7 @@
     <p>Nach der DSGVO hast du das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch sowie das Recht, eine Einwilligung jederzeit für die Zukunft zu widerrufen. Außerdem kannst du dich bei einer Datenschutz-Aufsichtsbehörde beschweren. Vieles davon erledigst du selbst in der App:</p>
     <ul>
       <li><b>Als Datei sichern:</b> Profil › Datenschutz und Daten › Deine Daten › Einträge als Datei sichern erstellt eine CSV- oder JSON-Kopie deiner Einträge. Die Datei ist nicht verschlüsselt, und du entscheidest, wohin sie geht.</li>
-      <li><b>Alle Daten löschen:</b> Profil › Datenschutz und Daten › Deine Daten › Alle Daten löschen entfernt die Datendatei und ihren Schlüssel dauerhaft von deinem Handy. Hast du ein Konto, wird dieses Handy auch abgemeldet; dein Backup bleibt in deinem Konto.</li>
+      <li><b>Alle Daten löschen:</b> Profil › Datenschutz und Daten › Deine Daten › Alle Daten löschen entfernt alle Zyklen, Tageseinträge und Schwangerschaftseinträge dauerhaft von deinem Handy und, wenn du ein Konto hast, aus deinem Backup; auch die <span class="nw">KI-Antworten</span> auf unserem Server werden gelöscht. Konto und Einstellungen bleiben.</li>
       <li><b>Konto löschen:</b> Profil › Konto › Konto löschen entfernt dein verschlüsseltes Backup, dein Konto und deine <span class="nw">KI-Antworten</span> dauerhaft vom Server und deine Einträge von deinem Handy.</li>
     </ul>
     <p>Für alles andere schreib an <a href="mailto:info@nilemy.com">info@nilemy.com</a>; wir antworten innerhalb von 30 Tagen, kostenlos.</p>
