@@ -146,6 +146,8 @@
     position: absolute; top: -9px; right: -8px; font-size: 10px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
     background: var(--brand); color: var(--bg); border-radius: 999px; padding: 3px 7px;
   }
+  .stores.ping .store { animation: ping .9s ease 2; }
+  @keyframes ping { 50% { transform: scale(1.04); } }
   .store:focus-visible { outline: 3px solid var(--brand); outline-offset: 3px; }
 
   /* Phone */
@@ -349,12 +351,13 @@
 </svg>
       <h1>Tracciare il ciclo,<br> <em>ora è molto più facile.</em></h1>
       <p class="lede">Con Nilemy segni le mestruazioni in pochi secondi, rivedi i cicli passati e scopri quando potrebbero arrivare le prossime. Sei incinta? Segui la gravidanza settimana per settimana.</p>
-      <a class="cta" href="https://apps.apple.com/app/id6820723427" id="cta">Scopri Nilemy</a>
+      <a class="cta" href="#stores" id="cta">Scopri Nilemy</a>
     </div>
     <div class="stores" id="stores">
-      <a class="store" href="https://apps.apple.com/app/id6820723427" id="store-ios">
+      <a class="store" href="#" aria-disabled="true" id="store-ios">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.37 12.53c-.02-2.28 1.86-3.38 1.95-3.44-1.06-1.55-2.71-1.76-3.3-1.78-1.4-.14-2.74.83-3.45.83-.71 0-1.8-.81-2.97-.79-1.53.02-2.94.89-3.72 2.25-1.59 2.76-.41 6.84 1.14 9.08.76 1.1 1.66 2.33 2.85 2.28 1.14-.05 1.57-.74 2.95-.74 1.38 0 1.77.74 2.97.71 1.23-.02 2-1.11 2.75-2.21.87-1.27 1.22-2.5 1.24-2.57-.03-.01-2.38-.91-2.41-3.62zM14.11 5.84c.63-.76 1.05-1.82.94-2.88-.91.04-2.01.61-2.66 1.37-.58.67-1.09 1.75-.96 2.79 1.02.08 2.05-.52 2.68-1.28z"/></svg>
         <span><small>Scarica su</small><b>App Store</b></span>
+        <i class="soon">Presto</i>
       </a>
       <a class="store" href="#" aria-disabled="true" id="store-android">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.6 2.3c-.2.2-.3.6-.3 1v17.4c0 .4.1.8.3 1l9.7-9.7L3.6 2.3zm10.8 10.8 2.6 2.6-10.9 6.2c-.4.2-.8.3-1.1.2l9.4-9zm3.9-3.1 2.8 1.6c.8.5.8 1.2 0 1.7l-2.8 1.6-2.9-2.9 2.9-2zM5.4 2.1l10.9 6.2-2.6 2.6-9.4-9c.3 0 .7 0 1.1.2z"/></svg>
@@ -408,6 +411,15 @@
   }
   dots.forEach((b, n) => b.addEventListener('click', () => { show(n); restart(); }));
   document.querySelectorAll('.store[aria-disabled="true"]').forEach((a) => a.addEventListener('click', (e) => e.preventDefault()));
+  // While the app is off the stores, the main button points at the store badges and makes them pulse.
+  // To go live again: set the CTA and iOS badge href back to the home.appStore value in home.html and drop the iOS "soon" tag.
+  document.getElementById('cta').addEventListener('click', (e) => {
+    if (e.currentTarget.getAttribute('href') !== '#stores') return;
+    e.preventDefault();
+    const stores = document.getElementById('stores');
+    stores.classList.remove('ping'); void stores.offsetWidth; stores.classList.add('ping');
+    stores.querySelector('.store').focus({ preventScroll: true });
+  });
 
   const heart = document.querySelector('.heart-line');
   if (!reduce && 'IntersectionObserver' in window) {
