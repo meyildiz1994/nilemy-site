@@ -240,6 +240,15 @@ HOME_SCRIPT = """<script src="/assets/site.js" defer></script>
   }
   dots.forEach((b, n) => b.addEventListener('click', () => { show(n); restart(); }));
   document.querySelectorAll('.store[aria-disabled="true"]').forEach((a) => a.addEventListener('click', (e) => e.preventDefault()));
+  // While the app is off the stores, the main button points at the store badges and makes them pulse.
+  // To go live again: set the CTA and iOS badge href back to the home.appStore value in home.html and drop the iOS "soon" tag.
+  document.getElementById('cta').addEventListener('click', (e) => {
+    if (e.currentTarget.getAttribute('href') !== '#stores') return;
+    e.preventDefault();
+    const stores = document.getElementById('stores');
+    stores.classList.remove('ping'); void stores.offsetWidth; stores.classList.add('ping');
+    stores.querySelector('.store').focus({ preventScroll: true });
+  });
 
   const heart = document.querySelector('.heart-line');
   if (!reduce && 'IntersectionObserver' in window) {
