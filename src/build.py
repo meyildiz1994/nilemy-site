@@ -26,9 +26,9 @@ S = json.loads((SRC / 'strings.json').read_text(encoding='utf-8'))
 LANGS = list(S)  # Turkish first: it is the root
 PAGES = ['', 'story', 'privacy', 'terms', 'support']
 SCREENS = ['home', 'daily', 'history', 'insights', 'themes', 'pregnancy', 'day']
-SCREENS_VERSION = 7  # bump when assets/screens change, so browsers fetch the new ones
+SCREENS_VERSION = 8  # bump when assets/screens change, so browsers fetch the new ones
 DOC_CSS_VERSION = 3  # bump when assets/doc.css changes, for the same reason
-SHARE_IMAGE = '/assets/share.png'  # the picture shared links show, made from src/share.html (steps there)
+SHARE_IMAGE = '/assets/share-2.png'  # the picture shared links show, made from src/share.html (steps there)
 
 
 def base(lang):
@@ -204,7 +204,7 @@ def home(lang):
         'base': base(lang),
         'screens': ''.join(
             f'<img src="/assets/screens/{lang}-{name}.webp?v={SCREENS_VERSION}" alt="{esc(h["screens"][n])}"'
-            f'{first if n == 0 else lazy} decoding="async" width="780" height="1594">'
+            f'{first if n == 0 else lazy} decoding="async" width="780" height="1688">'
             for n, name in enumerate(SCREENS)),
         'dots': ''.join(
             f'<button type="button" id="dot-{name}" aria-label="{esc(h["screens"][n])}" aria-current="{str(n == 0).lower()}"></button>'
