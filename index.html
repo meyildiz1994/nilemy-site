@@ -125,7 +125,7 @@
 
   /* Warm apricot light behind the window. */
   .glow {
-    position: absolute; inset: 0; pointer-events: none; z-index: 0;
+    position: absolute; inset: 0; pointer-events: none; z-index: 0; contain: strict; transform: translateZ(0);
   }
   .glow::before, .glow::after {
     content: ""; position: absolute; border-radius: 50%; filter: blur(70px); opacity: .9;
@@ -133,7 +133,7 @@
   .glow::before { width: 46vmax; height: 30vmax; right: -8vmax; top: 8vh; background: var(--glow); transform: rotate(-24deg); }
   .glow::after { width: 30vmax; height: 22vmax; right: 22vw; bottom: -10vmax; background: var(--blush); transform: rotate(18deg); }
 
-  .copy { position: relative; z-index: 1; display: grid; gap: clamp(16px, 3vh, 28px); justify-items: start; min-width: 0; }
+  .copy { position: relative; z-index: 2; isolation: isolate; display: grid; gap: clamp(16px, 3vh, 28px); justify-items: start; min-width: 0; }
   .logo { width: clamp(120px, 12vw, 160px); height: auto; display: block; }
   .logo .wordmark { fill: var(--wordmark); }
   h1 {
@@ -200,8 +200,12 @@
   .mirnav {
     position: absolute; z-index: 3; width: calc(var(--h) * .27); height: calc(var(--h) * .27 * 440 / 343);
     bottom: calc(var(--h) * .052); left: 50%; margin-left: max(calc(var(--h) * -.47), calc(8px - 50vw));
-    filter: drop-shadow(0 6px 8px rgba(46,33,29,.22));
-    will-change: transform;
+  }
+  /* A soft shadow under the paws, drawn as a gradient (a filter on a moving element makes some
+     browsers repaint the whole first screen every frame). */
+  .mirnav::after {
+    content: ""; position: absolute; z-index: -1; left: 8%; right: 18%; bottom: -3%; height: 9%; border-radius: 50%;
+    background: radial-gradient(closest-side, rgba(46,33,29,.28), rgba(46,33,29,0));
   }
   .mirnav img { position: absolute; left: 0; bottom: 0; width: 100%; height: auto; }
   .mirnav .walk {
