@@ -506,7 +506,7 @@
   const cat = document.getElementById('mirnav');
   const sill = document.querySelector('.sill');
   const sit = document.getElementById('mirnav-sit');
-  if (!reduce && cat && sill) {
+  if (!reduce && cat && sill && !/[?&]kedi=0/.test(location.search)) {
     const poses = ['/assets/pet/cat-wave.webp?v=1', '/assets/pet/cat-smile.webp?v=1'];
     new Image().src = poses[1];
     new Image().src = '/assets/pet/cat-walk.webp?v=1';
