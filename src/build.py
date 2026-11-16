@@ -259,6 +259,45 @@ HOME_SCRIPT = """<script src="/assets/site.js" defer></script>
     io.observe(heart);
   }
   restart();
+
+  // Mırnav: waves on the left of the sill, walks to the right end, sits there, walks back, and so on.
+  const cat = document.getElementById('mirnav');
+  const sill = document.querySelector('.sill');
+  const sit = document.getElementById('mirnav-sit');
+  if (!reduce && cat && sill && cat.animate) {
+    const poses = ['/assets/pet/cat-wave.webp?v=1', '/assets/pet/cat-smile.webp?v=1'];
+    new Image().src = poses[1];
+    new Image().src = '/assets/pet/cat-walk.webp?v=1';
+    let x = 0;
+    const wait = (ms) => new Promise((r) => setTimeout(r, ms));
+    function span() {
+      cat.style.transform = 'none';
+      const c = cat.getBoundingClientRect(), s = sill.getBoundingClientRect();
+      cat.style.transform = `translateX(${x}px)`;
+      const walkW = cat.querySelector('.walk').getBoundingClientRect().width || c.width * .69;
+      return { min: Math.max(s.left - c.left, -c.left + 4), max: Math.min(s.right - c.left - c.width, innerWidth - c.left - c.width - 4) };
+    }
+    async function walkTo(to) {
+      const from = x, h = cat.getBoundingClientRect().height;
+      cat.classList.add('walking');
+      cat.classList.toggle('back', to < from);
+      const ms = Math.abs(to - from) / (h * .55) * 1000;
+      await cat.animate([{ transform: `translateX(${from}px)` }, { transform: `translateX(${to}px)` }], { duration: ms, easing: 'linear', fill: 'forwards' }).finished;
+      x = to; cat.style.transform = `translateX(${x}px)`;
+      cat.getAnimations().forEach((a) => a.cancel());
+      cat.classList.remove('walking', 'back');
+    }
+    (async function loop() {
+      await wait(3500);
+      for (;;) {
+        let r = span();
+        sit.src = poses[1];
+        await walkTo(r.max); await wait(3000);
+        r = span();
+        await walkTo(Math.max(r.min, 0)); sit.src = poses[0]; await wait(4000);
+      }
+    })();
+  }
 </script>"""
 
 

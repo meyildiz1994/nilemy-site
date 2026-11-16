@@ -152,11 +152,23 @@
     width: calc(var(--h) * .92); height: calc(var(--h) * .03); border-radius: 999px; background: var(--sill);
     box-shadow: 0 10px 20px -12px rgba(46,33,29,.3);
   }
+  /* Mırnav sits on the sill, then walks along it (4-frame walk cycle) and sits again at the other end. */
   .mirnav {
-    position: absolute; z-index: 3; width: calc(var(--h) * .27); height: auto;
+    position: absolute; z-index: 3; width: calc(var(--h) * .27); height: calc(var(--h) * .27 * 440 / 343);
     bottom: calc(var(--h) * .052); left: 50%; margin-left: max(calc(var(--h) * -.47), calc(8px - 50vw));
     filter: drop-shadow(0 6px 8px rgba(46,33,29,.22));
+    will-change: transform;
   }
+  .mirnav img { position: absolute; left: 0; bottom: 0; width: 100%; height: auto; }
+  .mirnav .walk {
+    display: none; position: absolute; left: 0; bottom: 0;
+    height: calc(var(--h) * .29); aspect-ratio: 355 / 381;
+    background: url("/assets/pet/cat-walk.webp?v=1") 0 0 / 400% 100% no-repeat;
+  }
+  .mirnav.walking img { display: none; }
+  .mirnav.walking .walk { display: block; animation: walk .6s steps(4) infinite; }
+  .mirnav.back .walk { transform: scaleX(-1); }
+  @keyframes walk { to { background-position: 133.333% 0; } }
   .phone {
     height: calc(var(--h) * .9); z-index: 1; margin-bottom: calc(var(--h) * .1); aspect-ratio: 390 / 844; max-width: 100%;
     padding: calc(var(--h) * .0144); border-radius: calc(var(--h) * .0765);
@@ -294,7 +306,7 @@
     .lede { max-width: 40ch; }
   }
 
-  @media (prefers-reduced-motion: reduce) { .screen img, .dots button { transition: none; } .heart-line path { transition: none; } }
+  @media (prefers-reduced-motion: reduce) { .screen img, .dots button { transition: none; } .heart-line path { transition: none; } .mirnav.walking .walk { animation: none; } }
 {{switcherCss}}
 </style>
 </head>
@@ -346,7 +358,7 @@
         <div class="screen"><div class="status" aria-hidden="true">9:41<i></i></div><div id="screen">{{screens}}</div></div>
       </div>
       <div class="sill" aria-hidden="true"></div>
-      <img class="mirnav" src="/assets/pet/cat-wave.webp?v=1" alt="Mırnav" width="343" height="440" decoding="async">
+      <div class="mirnav" id="mirnav" role="img" aria-label="Mırnav"><img id="mirnav-sit" src="/assets/pet/cat-wave.webp?v=1" alt="" width="343" height="440" decoding="async"><i class="walk"></i></div>
     </div>
     <div class="dots" id="dots">{{dots}}</div>
   </section>

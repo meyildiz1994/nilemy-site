@@ -177,11 +177,23 @@
     width: calc(var(--h) * .92); height: calc(var(--h) * .03); border-radius: 999px; background: var(--sill);
     box-shadow: 0 10px 20px -12px rgba(46,33,29,.3);
   }
+  /* Mırnav sits on the sill, then walks along it (4-frame walk cycle) and sits again at the other end. */
   .mirnav {
-    position: absolute; z-index: 3; width: calc(var(--h) * .27); height: auto;
+    position: absolute; z-index: 3; width: calc(var(--h) * .27); height: calc(var(--h) * .27 * 440 / 343);
     bottom: calc(var(--h) * .052); left: 50%; margin-left: max(calc(var(--h) * -.47), calc(8px - 50vw));
     filter: drop-shadow(0 6px 8px rgba(46,33,29,.22));
+    will-change: transform;
   }
+  .mirnav img { position: absolute; left: 0; bottom: 0; width: 100%; height: auto; }
+  .mirnav .walk {
+    display: none; position: absolute; left: 0; bottom: 0;
+    height: calc(var(--h) * .29); aspect-ratio: 355 / 381;
+    background: url("/assets/pet/cat-walk.webp?v=1") 0 0 / 400% 100% no-repeat;
+  }
+  .mirnav.walking img { display: none; }
+  .mirnav.walking .walk { display: block; animation: walk .6s steps(4) infinite; }
+  .mirnav.back .walk { transform: scaleX(-1); }
+  @keyframes walk { to { background-position: 133.333% 0; } }
   .phone {
     height: calc(var(--h) * .9); z-index: 1; margin-bottom: calc(var(--h) * .1); aspect-ratio: 390 / 844; max-width: 100%;
     padding: calc(var(--h) * .0144); border-radius: calc(var(--h) * .0765);
@@ -319,7 +331,7 @@
     .lede { max-width: 40ch; }
   }
 
-  @media (prefers-reduced-motion: reduce) { .screen img, .dots button { transition: none; } .heart-line path { transition: none; } }
+  @media (prefers-reduced-motion: reduce) { .screen img, .dots button { transition: none; } .heart-line path { transition: none; } .mirnav.walking .walk { animation: none; } }
   .langs { position: relative; }
   .langs summary {
     list-style: none; cursor: pointer; display: inline-flex; align-items: center; gap: 6px;
@@ -405,7 +417,7 @@
         <div class="screen"><div class="status" aria-hidden="true">9:41<i></i></div><div id="screen"><img src="/assets/screens/de-home.webp?v=8" alt="Heute" class="on" decoding="async" width="780" height="1688"><img src="/assets/screens/de-daily.webp?v=8" alt="Tagebuch" loading="lazy" decoding="async" width="780" height="1688"><img src="/assets/screens/de-history.webp?v=8" alt="Verlauf" loading="lazy" decoding="async" width="780" height="1688"><img src="/assets/screens/de-insights.webp?v=8" alt="Analyse" loading="lazy" decoding="async" width="780" height="1688"><img src="/assets/screens/de-themes.webp?v=8" alt="Designs" loading="lazy" decoding="async" width="780" height="1688"><img src="/assets/screens/de-pregnancy.webp?v=8" alt="Schwangerschaft" loading="lazy" decoding="async" width="780" height="1688"><img src="/assets/screens/de-day.webp?v=8" alt="Tagesdetails" loading="lazy" decoding="async" width="780" height="1688"></div></div>
       </div>
       <div class="sill" aria-hidden="true"></div>
-      <img class="mirnav" src="/assets/pet/cat-wave.webp?v=1" alt="Mırnav" width="343" height="440" decoding="async">
+      <div class="mirnav" id="mirnav" role="img" aria-label="Mırnav"><img id="mirnav-sit" src="/assets/pet/cat-wave.webp?v=1" alt="" width="343" height="440" decoding="async"><i class="walk"></i></div>
     </div>
     <div class="dots" id="dots"><button type="button" id="dot-home" aria-label="Heute" aria-current="true"></button><button type="button" id="dot-daily" aria-label="Tagebuch" aria-current="false"></button><button type="button" id="dot-history" aria-label="Verlauf" aria-current="false"></button><button type="button" id="dot-insights" aria-label="Analyse" aria-current="false"></button><button type="button" id="dot-themes" aria-label="Designs" aria-current="false"></button><button type="button" id="dot-pregnancy" aria-label="Schwangerschaft" aria-current="false"></button><button type="button" id="dot-day" aria-label="Tagesdetails" aria-current="false"></button></div>
   </section>
@@ -466,6 +478,45 @@
     io.observe(heart);
   }
   restart();
+
+  // Mırnav: waves on the left of the sill, walks to the right end, sits there, walks back, and so on.
+  const cat = document.getElementById('mirnav');
+  const sill = document.querySelector('.sill');
+  const sit = document.getElementById('mirnav-sit');
+  if (!reduce && cat && sill && cat.animate) {
+    const poses = ['/assets/pet/cat-wave.webp?v=1', '/assets/pet/cat-smile.webp?v=1'];
+    new Image().src = poses[1];
+    new Image().src = '/assets/pet/cat-walk.webp?v=1';
+    let x = 0;
+    const wait = (ms) => new Promise((r) => setTimeout(r, ms));
+    function span() {
+      cat.style.transform = 'none';
+      const c = cat.getBoundingClientRect(), s = sill.getBoundingClientRect();
+      cat.style.transform = `translateX(${x}px)`;
+      const walkW = cat.querySelector('.walk').getBoundingClientRect().width || c.width * .69;
+      return { min: Math.max(s.left - c.left, -c.left + 4), max: Math.min(s.right - c.left - c.width, innerWidth - c.left - c.width - 4) };
+    }
+    async function walkTo(to) {
+      const from = x, h = cat.getBoundingClientRect().height;
+      cat.classList.add('walking');
+      cat.classList.toggle('back', to < from);
+      const ms = Math.abs(to - from) / (h * .55) * 1000;
+      await cat.animate([{ transform: `translateX(${from}px)` }, { transform: `translateX(${to}px)` }], { duration: ms, easing: 'linear', fill: 'forwards' }).finished;
+      x = to; cat.style.transform = `translateX(${x}px)`;
+      cat.getAnimations().forEach((a) => a.cancel());
+      cat.classList.remove('walking', 'back');
+    }
+    (async function loop() {
+      await wait(3500);
+      for (;;) {
+        let r = span();
+        sit.src = poses[1];
+        await walkTo(r.max); await wait(3000);
+        r = span();
+        await walkTo(Math.max(r.min, 0)); sit.src = poses[0]; await wait(4000);
+      }
+    })();
+  }
 </script>
 </body>
 </html>
