@@ -25,10 +25,10 @@ SITE = 'https://nilemy.com'
 S = json.loads((SRC / 'strings.json').read_text(encoding='utf-8'))
 LANGS = list(S)  # Turkish first: it is the root
 PAGES = ['', 'story', 'privacy', 'terms', 'support']
-SCREENS = ['home', 'fertile', 'period', 'history', 'insights', 'pregnancy', 'reminders']
-SCREENS_VERSION = 6  # bump when assets/screens change, so browsers fetch the new ones
-DOC_CSS_VERSION = 2  # bump when assets/doc.css changes, for the same reason
-SHARE_IMAGE = '/assets/share.png'  # the picture shared links show, made from src/share.html (steps there)
+SCREENS = ['home', 'daily', 'history', 'insights', 'themes', 'pregnancy', 'day']
+SCREENS_VERSION = 8  # bump when assets/screens change, so browsers fetch the new ones
+DOC_CSS_VERSION = 3  # bump when assets/doc.css changes, for the same reason
+SHARE_IMAGE = '/assets/share-2.png'  # the picture shared links show, made from src/share.html (steps there)
 
 
 def base(lang):
@@ -77,19 +77,19 @@ SWITCHER_CSS = """  .langs { position: relative; }
   .langs summary::-webkit-details-marker { display: none; }
   .langs summary svg { width: 14px; height: 14px; flex: none; }
   .langs summary .chev { width: 10px; height: 10px; transition: transform .2s ease; }
-  .langs[open] summary { background: var(--brand); color: var(--bg); }
+  .langs[open] summary { background: var(--fg); color: var(--bg); }
   .langs[open] summary .chev { transform: rotate(180deg); }
   .langs ul {
     position: absolute; right: 0; top: calc(100% + 8px); z-index: 10; margin: 0; padding: 6px; list-style: none;
     min-width: 200px; background: var(--bg); border: 1px solid var(--blush); border-radius: 16px;
-    box-shadow: 0 18px 40px -18px rgba(74, 21, 48, .45);
+    box-shadow: 0 18px 40px -18px rgba(46, 33, 29, .4);
   }
   .langs a {
     display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 10px 12px; border-radius: 10px;
     color: var(--fg); text-decoration: none; font: 500 15px/1.2 var(--font);
   }
   .langs a:hover { background: var(--blush); }
-  .langs a[aria-current="true"] { color: var(--brand); font-weight: 700; }
+  .langs a[aria-current="true"] { color: var(--fg); font-weight: 700; }
   .langs a span { color: var(--muted); font-size: 12px; font-weight: 600; letter-spacing: .04em; }
   .langs summary:focus-visible, .langs a:focus-visible { outline: 3px solid var(--brand); outline-offset: 2px; }
   @media (prefers-reduced-motion: reduce) { .langs summary .chev { transition: none; } }"""
@@ -204,7 +204,7 @@ def home(lang):
         'base': base(lang),
         'screens': ''.join(
             f'<img src="/assets/screens/{lang}-{name}.webp?v={SCREENS_VERSION}" alt="{esc(h["screens"][n])}"'
-            f'{first if n == 0 else lazy} decoding="async" width="780" height="1594">'
+            f'{first if n == 0 else lazy} decoding="async" width="780" height="1688">'
             for n, name in enumerate(SCREENS)),
         'dots': ''.join(
             f'<button type="button" id="dot-{name}" aria-label="{esc(h["screens"][n])}" aria-current="{str(n == 0).lower()}"></button>'
@@ -259,6 +259,45 @@ HOME_SCRIPT = """<script src="/assets/site.js" defer></script>
     io.observe(heart);
   }
   restart();
+
+  // Mırnav: waves on the left of the sill, walks to the right end, sits there, walks back, and so on.
+  const cat = document.getElementById('mirnav');
+  const sill = document.querySelector('.sill');
+  const sit = document.getElementById('mirnav-sit');
+  if (!reduce && cat && sill && cat.animate) {
+    const poses = ['/assets/pet/cat-wave.webp?v=1', '/assets/pet/cat-smile.webp?v=1'];
+    new Image().src = poses[1];
+    new Image().src = '/assets/pet/cat-walk.webp?v=1';
+    let x = 0;
+    const wait = (ms) => new Promise((r) => setTimeout(r, ms));
+    function span() {
+      cat.style.transform = 'none';
+      const c = cat.getBoundingClientRect(), s = sill.getBoundingClientRect();
+      cat.style.transform = `translateX(${x}px)`;
+      const walkW = cat.querySelector('.walk').getBoundingClientRect().width || c.width * .69;
+      return { min: Math.max(s.left - c.left, -c.left + 4), max: Math.min(s.right - c.left - c.width, innerWidth - c.left - c.width - 4) };
+    }
+    async function walkTo(to) {
+      const from = x, h = cat.getBoundingClientRect().height;
+      cat.classList.add('walking');
+      cat.classList.toggle('back', to < from);
+      const ms = Math.abs(to - from) / (h * .55) * 1000;
+      await cat.animate([{ transform: `translateX(${from}px)` }, { transform: `translateX(${to}px)` }], { duration: ms, easing: 'linear', fill: 'forwards' }).finished;
+      x = to; cat.style.transform = `translateX(${x}px)`;
+      cat.getAnimations().forEach((a) => a.cancel());
+      cat.classList.remove('walking', 'back');
+    }
+    (async function loop() {
+      await wait(3500);
+      for (;;) {
+        let r = span();
+        sit.src = poses[1];
+        await walkTo(r.max); await wait(3000);
+        r = span();
+        await walkTo(Math.max(r.min, 0)); sit.src = poses[0]; await wait(4000);
+      }
+    })();
+  }
 </script>"""
 
 
@@ -269,14 +308,14 @@ DOC = """<!doctype html>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>{{title}}</title>
 <meta name="description" content="{{desc}}">
-<meta name="theme-color" content="#FCF5F6">
+<meta name="theme-color" content="#FFF9F4">
 {{headLinks}}
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192.png">
 <link rel="icon" type="image/png" href="/assets/favicon.png">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 {{og}}
-<link rel="preload" href="/assets/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/excon/Excon-Bold.otf" as="font" type="font/otf" crossorigin>
 <link rel="stylesheet" href="/assets/fonts/fonts.css">
 <link rel="stylesheet" href="/assets/doc.css?v={{cssVersion}}">
 <style>

@@ -28,13 +28,13 @@
       "made": "Üzerine epey düşünülerek tasarlandı.",
       "foot": "Nilemy tıbbi bir cihaz değildir · Doğum kontrolü için kullanılmaz",
       "screens": [
-        "Ana sayfa",
-        "Doğurgan günler",
-        "Adet kaydı",
+        "Bugün",
+        "Günlük kayıt",
         "Geçmiş",
         "Analiz",
+        "Temalar",
         "Hamilelik",
-        "Hatırlatıcılar"
+        "Gün özeti"
       ],
       "appStore": "https://apps.apple.com/tr/app/nilemy-d%C3%B6ng%C3%BC-takibi/id6820723427?l=tr"
     },
@@ -90,13 +90,13 @@
       "made": "Made with care (and a lot of design decisions).",
       "foot": "Nilemy isn’t a medical device · Not for contraception",
       "screens": [
-        "Home",
-        "Fertile days",
-        "Log a period",
+        "Today",
+        "Daily log",
         "History",
         "Insights",
+        "Themes",
         "Pregnancy",
-        "Reminders"
+        "Day details"
       ],
       "appStore": "https://apps.apple.com/app/id6820723427"
     },
@@ -152,13 +152,13 @@
       "made": "Mit viel Liebe zum Detail gestaltet.",
       "foot": "Nilemy ist kein Medizinprodukt · Nicht zur Verhütung",
       "screens": [
-        "Start",
-        "Fruchtbare Tage",
-        "Periode eintragen",
+        "Heute",
+        "Tagebuch",
         "Verlauf",
         "Analyse",
+        "Designs",
         "Schwangerschaft",
-        "Erinnerungen"
+        "Tagesdetails"
       ],
       "appStore": "https://apps.apple.com/app/id6820723427"
     },
@@ -215,12 +215,12 @@
       "foot": "Nilemy n’est pas un dispositif médical · Pas pour la contraception",
       "screens": [
         "Accueil",
-        "Jours fertiles",
-        "Noter les règles",
+        "Suivi du jour",
         "Historique",
         "Analyse",
+        "Thèmes",
         "Grossesse",
-        "Rappels"
+        "Détail du jour"
       ],
       "appStore": "https://apps.apple.com/app/id6820723427"
     },
@@ -276,13 +276,13 @@
       "made": "Pensado em cada detalhe.",
       "foot": "O Nilemy não é um dispositivo médico · Não serve como método contraceptivo",
       "screens": [
-        "Início",
-        "Dias férteis",
-        "Registrar menstruação",
+        "Hoje",
+        "Registro do dia",
         "Histórico",
         "Análise",
+        "Temas",
         "Gravidez",
-        "Lembretes"
+        "Detalhes do dia"
       ],
       "appStore": "https://apps.apple.com/app/id6820723427"
     },
@@ -338,13 +338,13 @@
       "made": "Pensata nei minimi dettagli.",
       "foot": "Nilemy non è un dispositivo medico · Non è un metodo contraccettivo",
       "screens": [
-        "Home",
-        "Giorni fertili",
-        "Segna il ciclo",
+        "Oggi",
+        "Diario",
         "Storico",
         "Analisi",
+        "Temi",
         "Gravidanza",
-        "Promemoria"
+        "Dettagli del giorno"
       ],
       "appStore": "https://apps.apple.com/app/id6820723427"
     },
