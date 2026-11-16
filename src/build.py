@@ -220,7 +220,7 @@ def home(lang):
     write(ROOT / base(lang).lstrip('/') / 'index.html', out)
 
 
-HOME_SCRIPT = """<script src="/assets/site.js" defer></script>
+HOME_SCRIPT = """<script src="/assets/site.js?v=2" defer></script>
 <script>
   // The phone shows the app's screens in turn; the dots pick one. The heart line draws itself in.
   const shots = document.querySelectorAll('#screen img');
@@ -357,7 +357,7 @@ DOC = """<!doctype html>
 {{socials}}
   </footer>
 </div>
-<script src="/assets/site.js" defer></script>
+<script src="/assets/site.js?v=2" defer></script>
 </body>
 </html>
 """
