@@ -462,7 +462,7 @@
 </footer>
 
 
-<script src="/assets/site.js" defer></script>
+<script src="/assets/site.js?v=2" defer></script>
 <script>
   // The phone shows the app's screens in turn; the dots pick one. The heart line draws itself in.
   const shots = document.querySelectorAll('#screen img');
@@ -506,7 +506,7 @@
   const cat = document.getElementById('mirnav');
   const sill = document.querySelector('.sill');
   const sit = document.getElementById('mirnav-sit');
-  if (!reduce && cat && sill) {
+  if (!reduce && cat && sill && !/[?&]kedi=0/.test(location.search)) {
     const poses = ['/assets/pet/cat-wave.webp?v=1', '/assets/pet/cat-smile.webp?v=1'];
     new Image().src = poses[1];
     new Image().src = '/assets/pet/cat-walk.webp?v=1';

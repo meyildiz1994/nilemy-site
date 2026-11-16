@@ -13,7 +13,7 @@
     if (e.key !== 'Escape') return;
     document.querySelectorAll('.langs[open]').forEach(function (d) { d.removeAttribute('open'); d.querySelector('summary').focus(); });
   });
-  document.querySelectorAll('.copy').forEach(function (b) {
+  document.querySelectorAll('[data-copy]').forEach(function (b) {
     b.addEventListener('click', function () {
       var text = b.getAttribute('data-copy');
       var done = function () { var old = b.textContent; b.textContent = b.getAttribute('data-done'); setTimeout(function () { b.textContent = old; }, 1600); };
