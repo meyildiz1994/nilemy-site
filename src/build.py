@@ -264,28 +264,40 @@ HOME_SCRIPT = """<script src="/assets/site.js" defer></script>
   const cat = document.getElementById('mirnav');
   const sill = document.querySelector('.sill');
   const sit = document.getElementById('mirnav-sit');
-  if (!reduce && cat && sill && cat.animate) {
+  if (!reduce && cat && sill) {
     const poses = ['/assets/pet/cat-wave.webp?v=1', '/assets/pet/cat-smile.webp?v=1'];
     new Image().src = poses[1];
     new Image().src = '/assets/pet/cat-walk.webp?v=1';
-    let x = 0;
+    // Moved with plain `left` (no transforms, no compositor layers): Opera dropped the hero text
+    // while a layer moved next to it. A tap, click or key press makes him sit; he walks again after a quiet spell.
+    let x = 0, quietAt = 0;
+    const place = () => { cat.style.left = `calc(50% + ${x}px)`; };
     const wait = (ms) => new Promise((r) => setTimeout(r, ms));
-    function span() {
-      cat.style.transform = 'none';
-      const c = cat.getBoundingClientRect(), s = sill.getBoundingClientRect();
-      cat.style.transform = `translateX(${x}px)`;
-      const walkW = cat.querySelector('.walk').getBoundingClientRect().width || c.width * .69;
-      return { min: Math.max(s.left - c.left, -c.left + 4), max: Math.min(s.right - c.left - c.width, innerWidth - c.left - c.width - 4) };
-    }
-    async function walkTo(to) {
-      const from = x, h = cat.getBoundingClientRect().height;
-      cat.classList.add('walking');
-      cat.classList.toggle('back', to < from);
-      const ms = Math.abs(to - from) / (h * .55) * 1000;
-      await cat.animate([{ transform: `translateX(${from}px)` }, { transform: `translateX(${to}px)` }], { duration: ms, easing: 'linear', fill: 'forwards' }).finished;
-      x = to; cat.style.transform = `translateX(${x}px)`;
-      cat.getAnimations().forEach((a) => a.cancel());
+    const busy = () => performance.now() < quietAt;
+    ['pointerdown', 'keydown', 'focusin', 'touchstart'].forEach((t) => addEventListener(t, () => {
+      quietAt = performance.now() + 6000;
       cat.classList.remove('walking', 'back');
+    }, { passive: true, capture: true }));
+    function span() {
+      const c = cat.getBoundingClientRect(), s = sill.getBoundingClientRect();
+      return { min: x + Math.max(s.left - c.left, -c.left + 4), max: x + Math.min(s.right - c.right, innerWidth - c.right - 4) };
+    }
+    function walkTo(to) {
+      return new Promise((done) => {
+        const from = x, speed = cat.getBoundingClientRect().height * .55 / 1000;
+        cat.classList.add('walking');
+        cat.classList.toggle('back', to < from);
+        let last = performance.now();
+        (function step(now) {
+          if (busy()) { last = now; return setTimeout(() => requestAnimationFrame(step), 500); }
+          cat.classList.add('walking'); cat.classList.toggle('back', to < from);
+          const dt = Math.min(now - last, 50); last = now;
+          x += Math.sign(to - from) * Math.min(speed * dt, Math.abs(to - x)); place();
+          if (x !== to) return requestAnimationFrame(step);
+          cat.classList.remove('walking', 'back');
+          done();
+        })(last);
+      });
     }
     (async function loop() {
       await wait(3500);
